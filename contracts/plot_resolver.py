@@ -78,7 +78,7 @@ def select_revision(spec,cursor):
     params={'action':'query','format':'json','prop':'revisions','titles':spec['article'],'rvprop':'ids|timestamp','rvdir':'newer','rvstart':start,'rvlimit':'5'}
     if cursor:
         params['rvcontinue']=cursor
-    response=gl.nondet.web.get('https://en.wikipedia.org/w/api.php?'+urlencode(params))
+    response=gl.nondet.web.get('https://en.wikipedia.org/w/api.php?'+urlencode(params),headers={'User-Agent':'Mozilla/5.0 PlotArmor/1.0 (episode prediction research)'})
     require(response.status==200,'revisions API unavailable; retry without advancing cursor')
     data=json.loads(response.body.decode())
     require('error' not in data and 'query' in data,'invalid revisions response')
@@ -93,7 +93,7 @@ def select_revision(spec,cursor):
         revision_id=revision['revid']
         require(type(revision_id) is int and revision_id>0,'invalid revision id')
         url='https://en.wikipedia.org/w/index.php?title='+quote(spec['article'],safe='')+'&oldid='+str(revision_id)+'&action=raw'
-        raw=gl.nondet.web.get(url)
+        raw=gl.nondet.web.get(url,headers={'User-Agent':'Mozilla/5.0 PlotArmor/1.0 (episode prediction research)'})
         require(raw.status==200,'raw revision unavailable; retry without advancing cursor')
         summary=extract_summary(raw.body.decode('utf8'),spec)
         if summary:
@@ -124,7 +124,7 @@ def evidence_agreement(leader,own,summary):
 def fetch_evidence(spec,record,cursor):
     if not record.get('revision',0):
         return select_revision(spec,cursor)
-    response=gl.nondet.web.get(record['url'])
+    response=gl.nondet.web.get(record['url'],headers={'User-Agent':'Mozilla/5.0 PlotArmor/1.0 (episode prediction research)'})
     require(response.status==200,'frozen raw revision unavailable; retry')
     summary=extract_summary(response.body.decode('utf8'),spec)
     return {k:record[k] for k in ('revision','revision_utc','url','cursor')}|{'summary':summary,'digest':summary_digest(summary)}
@@ -143,7 +143,7 @@ class PlotResolver(gl.Contract):
         stamp=now()
         require(stamp>=spec['air_utc']+172800,'wait until air time plus 48 hours')
         r=json.loads(self.records.get(key,'{}'))
-        require(r.get('status') not in ('RESOLVED','VOID','PENDING_FINALITY'),'already resolved or awaiting finality')
+        require(r.get('status') not in ('RESOLVED','VOID') and (r.get('status')!='PENDING_FINALITY' or stamp>=spec['resolution_deadline']),'already resolved or awaiting finality')
         r.update({'id':key,'spec_hash':market['spec_hash'],'attempt':r.get('attempt',0)+1})
         if stamp>=spec['resolution_deadline']:
             r.update({'status':'PENDING_FINALITY','terminal':'VOID','outcome':'UNCLEAR','quote':'','reason':'Resolution deadline reached; full refund.'})

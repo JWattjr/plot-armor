@@ -6,3 +6,6 @@ test('initial data cannot contain result or quote',()=>{const m={id:'market-1',r
 test('finality alone is not execution success',()=>{assert.equal(transactionState({status:'FINALIZED',consensus_data:{leader_receipt:[{execution_result:'ERROR'}]}}),'FINALIZED_ERROR');assert.equal(transactionState({status:'FINALIZED',consensus_data:{leader_receipt:[{execution_result:'SUCCESS'}]}}),'FINALIZED_SUCCESS');assert.equal(transactionState({status:'ACCEPTED'}),'ACCEPTED');});
 test('canonical explorer validation rejects malformed records',()=>{assert.equal(explorer('address','0x'+'12'.repeat(20)),'https://explorer-studio.genlayer.com/address/0x'+'12'.repeat(20));assert.throws(()=>explorer('address','0x123?fake=true'));assert.throws(()=>explorer('tx','0x'+'12'.repeat(20)));});
 test('entry closes exactly at deadline',()=>{const m={status:'OPEN',spec:{entry_deadline:100}} as Market;assert.equal(closed(m,99),false);assert.equal(closed(m,100),true);});
+
+import {parseWire} from '../lib/wire';
+test('wei integers remain exact, quoted numbers remain data',()=>{assert.deepEqual(parseWire('{"amount":100000000000000000001,"quote":"say:100000000000000000001, never change it","option":1}'),{amount:'100000000000000000001',quote:'say:100000000000000000001, never change it',option:1});});

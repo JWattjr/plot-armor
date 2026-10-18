@@ -6,6 +6,7 @@ import {studionet} from 'genlayer-js/chains';
 import {TransactionHashVariant,type TransactionHash} from 'genlayer-js/types';
 import type {Proof,Market} from './domain';
 import {transactionState} from './domain';
+import {parseWire} from './wire';
 // The browser reaches this server; upstream RPC gets the required browser UA.
 const marker=Symbol.for('plot-armor.rpc-ua');
 const state=globalThis as typeof globalThis&{[marker]?:boolean};
@@ -25,7 +26,7 @@ const methods:Record<string,string[]>={PlotMarkets:['get_market','get_ids'],Plot
 export async function read<T>(contract:string,method:string,args:unknown[]=[]):Promise<T>{
  if(!methods[contract]?.includes(method)||args.length>2||args.some(a=>typeof a!=='string'||a.length>200))throw Error('Unsupported read');
  const address=proof().contracts[contract]?.address;if(!address)throw Error('Contract deployment is not recorded yet.');
- return limited(contract+method+JSON.stringify(args),async()=>{const v=await client.readContract({address:address as `0x${string}`,functionName:method,args:args as never[],transactionHashVariant:TransactionHashVariant.LATEST_FINAL});return (typeof v==='string'&&/^[\[{]/.test(v)?JSON.parse(v):v) as T});
+ return limited(contract+method+JSON.stringify(args),async()=>{const v=await client.readContract({address:address as `0x${string}`,functionName:method,args:args as never[],transactionHashVariant:TransactionHashVariant.LATEST_FINAL});return (typeof v==='string'&&/^[\[{]/.test(v)?parseWire(v):v) as T});
 }
 export async function market(id:string):Promise<Market>{
  const m=await read<Market>('PlotMarkets','get_market',[id]);

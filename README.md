@@ -61,7 +61,7 @@ npm run release -- record
 npm run verify:proof
 ```
 
-Hashes persist before polling, and receipt polling uses ten-second intervals. Rerun a stage after interruption; do not blindly send another transaction. `settle` only tries eligible unresolved markets. It does not invent an outcome or send deposits. The first rehearsal compile failed with MAJORITY_DISAGREE; the previous release remains recorded separately in proof history. The repaired compile validator checks a candidate against independent evidence rather than requiring different LLMs to invent identical free-text specs.
+Hashes persist before polling, and receipt polling uses ten-second intervals. Rerun a stage after interruption; do not blindly send another transaction. `settle` only tries eligible unresolved markets. It does not invent an outcome or send deposits. The first rehearsal compile failed with MAJORITY_DISAGREE; the previous release remains recorded separately in proof history. The repaired compile validator checks a candidate against independent evidence rather than requiring different LLMs to invent identical free-text specs. The final compiler requests ISO timestamps and converts them to Unix seconds in Python; Wikipedia requests use the same explicit browser user agent proven by the access probe.
 
 ## Pool accounting
 

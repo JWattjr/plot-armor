@@ -65,3 +65,22 @@ def test_allocation_math_exhaustive(pool):
         for b in range(1,6):
             p={'status':'RESOLVED','winner':0,'sides':[a+b,7],'total':a+b+7,'entries':{'a':{'option':0,'amount':a},'b':{'option':0,'amount':b},'c':{'option':1,'amount':7}}}
             v=fn(p);assert sum(v.values())==p['total'] and v['c']==0
+
+
+def test_failed_credited_payable_recovery_and_replay(pool,direct_vm,monkeypatch):
+    c,_=pool
+    import sys
+    module=sys.modules['_contract_plot_pools'];w=to_hex(direct_vm.sender).lower();contract=to_hex(direct_vm._contract_address).lower();h='0x'+'ab'*32
+    r={'status':'FINALIZED','value_credited':True,'from_address':w,'to_address':contract,'value':11,'consensus_data':{'leader_receipt':[{'execution_result':'ERROR'}]}}
+    monkeypatch.setattr(module,'receipt',lambda _:r)
+    c.recover_failed_deposit(h)
+    assert json.loads(c.get_account('credits',w))['credit']=='11'
+    with direct_vm.expect_revert('already recovered'):c.recover_failed_deposit(h)
+
+def test_successful_deposit_cannot_be_recovered(pool,direct_vm,monkeypatch):
+    c,_=pool
+    import sys
+    module=sys.modules['_contract_plot_pools'];w=to_hex(direct_vm.sender).lower();contract=to_hex(direct_vm._contract_address).lower()
+    r={'status':'FINALIZED','value_credited':True,'from_address':w,'to_address':contract,'value':11,'consensus_data':{'leader_receipt':[{'execution_result':'SUCCESS'}]}}
+    monkeypatch.setattr(module,'receipt',lambda _:r)
+    with direct_vm.expect_revert('only failed'):c.recover_failed_deposit('0x'+'ab'*32)

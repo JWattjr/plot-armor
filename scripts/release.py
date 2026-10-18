@@ -21,15 +21,28 @@ if stage=='deploy':
         if name in p['contracts']:continue
         args=[] if name=='PlotMarkets' else [address('PlotMarkets')] if name=='PlotResolver' else [address('PlotMarkets'),address('PlotResolver')]
         code=(ROOT/'contracts'/file).read_text()
-        receipt=transaction(c,p,'deploy-v2-'+name,code=code,args=args)
+        receipt=transaction(c,p,'deploy-v3-'+name,code=code,args=args)
         p['contracts'][name]={'address':receipt.get('recipient',receipt.get('to_address')),'source':file,'sourceSha256':hashlib.sha256(code.encode()).hexdigest()};save(p)
 elif stage=='seed':
-    cases=[('yes','Does Hank Schrader die in this episode? Answer YES or NO.','Breaking Bad',5,14),('no','Does Jesse Pinkman die in this episode? Answer YES or NO.','Breaking Bad',5,16),('choice','Who wins the trial by combat between Oberyn Martell and Gregor Clegane? Options: Oberyn Martell, Gregor Clegane.','Game of Thrones',4,8),('reject','Is this the best episode ever?','Breaking Bad',5,14)]
+    cases=[('yes','In Ozymandias (broadcast 2013-09-15T21:00:00-04:00), does Hank Schrader die? Answer YES or NO.','Breaking Bad',5,14),('no','In Felina (broadcast 2013-09-29T21:00:00-04:00), does Jesse Pinkman die? Answer YES or NO.','Breaking Bad',5,16),('choice','In The Mountain and the Viper (broadcast 2014-06-01T21:00:00-04:00), who wins the trial by combat? Options: Oberyn Martell, Gregor Clegane.','Game of Thrones',4,8),('reject','Is this the best episode ever?','Breaking Bad',5,14)]
     for label,q,show,s,e in cases:
         name=adjudication_label(p,'compile-'+label)
         transaction(c,p,name,address('PlotMarkets'),'rehearse',[q,show,s,e]);record()
+        if label=='yes' and (ROOT/'.secrets/deposit-approval.json').exists():
+            from chain import signer,final
+            approval=json.loads((ROOT/'.secrets/deposit-approval.json').read_text());assert approval['approvedDepositWei']=='11'
+            funding=json.loads((ROOT/'deploy/funding.json').read_text());final(c,funding['hash'],'fund-demo')
+            p['transactions']['fund-demo']=funding['hash']
+            ids=read(c,address('PlotMarkets'),'get_ids');key=ids[0]
+            p['poolDemo']={'marketId':key,'wallet':signer().address.lower(),'approvedDepositWei':'11','ticket':'ticket-1'};save(p)
+            transaction(c,p,'prepare-demo-stake',address('PlotPools'),'prepare_stake',[key,0,11])
+            t=read(c,address('PlotPools'),'get_ticket',['ticket-1']);assert t['market']==key and t['wallet']==signer().address.lower() and t['amount']==11
+            transaction(c,p,'deposit-demo-11-wei',address('PlotPools'),'deposit',['ticket-1'],value=11);record()
+
+elif stage=='reject':
+    transaction(c,p,adjudication_label(p,'compile-reject'),address('PlotMarkets'),'rehearse',['Is this the best episode ever?','Breaking Bad',5,14]);record()
 elif stage=='live':
-    for e,q in [(4,'Does Johnny Warren explicitly resign from Cathcarts during this episode? Answer YES or NO.'),(5,'Do Morgan Henderson and Carla Duval explicitly sign a final divorce agreement in this episode? Answer YES or NO.')]:
+    for e,q in [(4,'In War S1E4, airing 2026-10-22 21:00 EDT (2026-10-23T01:00:00Z, Unix 1792717200), does Johnny Warren explicitly resign from Cathcarts? Answer YES or NO.'),(5,'In War S1E5, airing 2026-10-29 21:00 EDT (2026-10-30T01:00:00Z, Unix 1793322000), do Morgan Henderson and Carla Duval explicitly sign a final divorce agreement? Answer YES or NO.')]:
         transaction(c,p,adjudication_label(p,'compile-live-'+str(e)),address('PlotMarkets'),'propose',[q,'War',1,e]);record()
 elif stage=='settle':
     record()
@@ -41,5 +54,43 @@ elif stage=='settle':
         transaction(c,p,adjudication_label(p,label),address('PlotResolver'),'resolve',[m['id']]);record()
         if m.get('pool',{}).get('status')=='OPEN' and time.time()>=m['spec']['entry_deadline']:
             transaction(c,p,'settle-pool-'+m['id'],address('PlotPools'),'settle',[m['id']]);record()
+elif stage=='pool':
+    approval=json.loads((ROOT/'.secrets/deposit-approval.json').read_text())
+    assert approval['approvedDepositWei']=='11'
+    funding=json.loads((ROOT/'deploy/funding.json').read_text())
+    assert funding['wei']=='11'
+    from chain import final,signer
+    final(c,funding['hash'],'fund-demo')
+    p['transactions']['fund-demo']=funding['hash'];save(p)
+    if not p.get('poolDemo'):
+        before=read(c,address('PlotMarkets'),'get_ids')
+        transaction(c,p,adjudication_label(p,'compile-pool-demo'),address('PlotMarkets'),'rehearse',['In Ozymandias (broadcast 2013-09-15T21:00:00-04:00), does Hank Schrader die? Answer YES or NO.','Breaking Bad',5,14])
+        ids=read(c,address('PlotMarkets'),'get_ids')
+        created=[key for key in ids if key not in before]
+        assert len(created)==1,'Ambiguous demo market; inspect before retrying'
+        p['poolDemo']={'marketId':created[0],'wallet':signer().address.lower(),'approvedDepositWei':'11'};save(p)
+    key=p['poolDemo']['marketId']
+    transaction(c,p,'prepare-demo-stake',address('PlotPools'),'prepare_stake',[key,0,11])
+    # Only this release account can create tickets in this isolated pool demo.
+    ticket='ticket-1';t=read(c,address('PlotPools'),'get_ticket',[ticket])
+    assert t['market']==key and t['wallet']==signer().address.lower() and t['amount']==11
+    transaction(c,p,'deposit-demo-11-wei',address('PlotPools'),'deposit',[ticket],value=11)
+    p['poolDemo']['ticket']=ticket;save(p);record()
+elif stage=='claim':
+    from chain import signer
+    key=p['poolDemo']['marketId']
+    transaction(c,p,'settle-demo-pool',address('PlotPools'),'settle',[key])
+    transaction(c,p,'claim-demo-pool',address('PlotPools'),'claim',[key,1])
+    parent=p['transactions']['claim-demo-pool'];child=p['transactions']['claim-demo-pool-child-0']
+    transaction(c,p,'verify-demo-claim',address('PlotPools'),'verify_claim',[key,signer().address.lower(),1,parent,child])
+    p['poolDemo']['account']=read(c,address('PlotPools'),'get_account',[key,signer().address.lower()]);save(p);record()
+elif stage=='free':
+    record()
+    live=[m for m in p['markets'] if m.get('accepted') and not m['spec']['rehearsal']]
+    assert live,'No live market'
+    from chain import signer
+    result=subprocess.run(['node','--import','tsx','scripts/check-wallet-adapter.mjs']);assert result.returncode==0,'Wallet adapter check failed'
+    check=json.loads((ROOT/'deploy/wallet-adapter-check.json').read_text());p['transactions']['predict-live-free']=check['hash'];save(p)
+    p['freeDemo']={'wallet':signer().address.lower(),'marketId':live[0]['id'],'predictions':read(c,address('PlotSeasons'),'get_predictions',[signer().address.lower()]),'leaderboard':read(c,address('PlotSeasons'),'leaderboard',[''])};save(p)
 elif stage=='record':record()
 else:raise SystemExit('Stages: deploy, seed, live, settle, record')

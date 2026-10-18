@@ -9,7 +9,7 @@ def market(direct_vm,direct_deploy,direct_owner,monkeypatch):
     return c
 
 def answer(vm,accepted=True,**changes):
-    s=spec();[s.pop(k) for k in ['rehearsal','entry_deadline','resolution_deadline']];s.update(changes)
+    s=spec();[s.pop(k) for k in ['rehearsal','entry_deadline','resolution_deadline']];s.update(changes);s['air_iso']=datetime.fromtimestamp(s.pop('air_utc'),timezone.utc).isoformat()
     vm.mock_llm(r'.*PLOT_ARMOR_COMPILE\..*',json.dumps({'accepted':accepted,'reason':'Objective and well-defined.' if accepted else 'Subjective question.','spec':s if accepted else None}))
 
 def test_accept_freeze_and_self_callback(market,direct_vm):
