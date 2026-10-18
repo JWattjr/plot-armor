@@ -1,0 +1,8 @@
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import {shield,transactionState,closed,type Market} from '../lib/domain';
+import {explorer} from '../lib/explorer';
+test('initial data cannot contain result or quote',()=>{const m={id:'market-1',resolution:{status:'RESOLVED',outcome:0,quote:'The hidden result',url:'https://en.wikipedia.org/?oldid=1',digest:'abc'},pool:{total:11,sides:[11,0],payouts:{viewer:11},entries:{viewer:{amount:11,option:0}}}} as unknown as Market;const serialized=JSON.stringify(shield(m));for(const value of ['outcome','quote','payouts','The hidden result'])assert.ok(!serialized.includes(value));});
+test('finality alone is not execution success',()=>{assert.equal(transactionState({status:'FINALIZED',consensus_data:{leader_receipt:[{execution_result:'ERROR'}]}}),'FINALIZED_ERROR');assert.equal(transactionState({status:'FINALIZED',consensus_data:{leader_receipt:[{execution_result:'SUCCESS'}]}}),'FINALIZED_SUCCESS');assert.equal(transactionState({status:'ACCEPTED'}),'ACCEPTED');});
+test('canonical explorer validation rejects malformed records',()=>{assert.equal(explorer('address','0x'+'12'.repeat(20)),'https://explorer-studio.genlayer.com/address/0x'+'12'.repeat(20));assert.throws(()=>explorer('address','0x123?fake=true'));assert.throws(()=>explorer('tx','0x'+'12'.repeat(20)));});
+test('entry closes exactly at deadline',()=>{const m={status:'OPEN',spec:{entry_deadline:100}} as Market;assert.equal(closed(m,99),false);assert.equal(closed(m,100),true);});

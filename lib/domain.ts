@@ -1,0 +1,22 @@
+export type Spec = {show:string;season:number;episode:number;title:string;air_utc:number;article:string;extraction:string;proposition:string;definitions:string;options:string[];rehearsal:boolean;entry_deadline:number;resolution_deadline:number};
+export type Resolution = {status?:string;outcome?:number|'UNCLEAR';quote?:string;url?:string;revision?:number;digest?:string;reason?:string;attempt?:number};
+export type Pool = {status?:string;total?:number;sides?:number[];entries?:Record<string,{amount:number;option:number}>;payouts?:Record<string,number>;deadline?:number};
+export type Market = {id:string;creator:string;question:string;status:string;accepted:boolean;reason:string;spec:Spec|null;spec_hash:string;created_at:number;resolution?:Resolution;pool?:Pool};
+export type Proof = {contracts:Record<string,{address:string;source:string;sourceSha256:string}>;transactions:Record<string,string>;markets:Market[];recordedAt?:string;website?:string;github?:string;sourceCommit?:string;submissionReady:boolean;blockers:string[]};
+export type TxState = 'SUBMITTED'|'PENDING'|'ACCEPTED'|'FINALIZED_SUCCESS'|'FINALIZED_ERROR';
+export function transactionState(r:Record<string,unknown>):TxState {
+  const status=r.status_name??r.statusName??r.status;
+  if(status==='FINALIZED'||status===7){
+    const data=r.consensus_data as {leader_receipt?:{execution_result?:string}[]}|undefined;
+    const execution=r.txExecutionResultName??data?.leader_receipt?.[0]?.execution_result;
+    return ['SUCCESS','FINISHED_WITH_RETURN'].includes(String(execution))?'FINALIZED_SUCCESS':'FINALIZED_ERROR';
+  }
+  if(status==='ACCEPTED'||status===6)return 'ACCEPTED';
+  return !r.hash?'SUBMITTED':'PENDING';
+}
+export function shield(m:Market):Market {
+  const r=m.resolution;
+  return {...m,pool:m.pool?{status:m.pool.status,total:m.pool.total,sides:m.pool.sides,deadline:m.pool.deadline}:undefined,resolution:r?{status:r.status,attempt:r.attempt}:undefined};
+}
+export function utc(seconds:number){return new Date(seconds*1000).toLocaleString('en-GB',{timeZone:'UTC',day:'numeric',month:'short',hour:'2-digit',minute:'2-digit'})+' UTC'}
+export function closed(m:Market,stamp=Date.now()/1000){return m.status!=='OPEN'||!m.spec||stamp>=m.spec.entry_deadline}

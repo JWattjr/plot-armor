@@ -1,0 +1,91 @@
+{
+  "project": "Plot Armor",
+  "chainId": 61999,
+  "rpc": "https://studio.genlayer.com/api",
+  "contracts": {
+    "PlotMarkets": {
+      "address": "0xe152b66991d50832Db282544dA483Fa508143E0a",
+      "source": "plot_markets.py",
+      "sourceSha256": "76f04256eb4566d502271f8d67e2254af92e0bc1a4845ac30dca27da9502a86d"
+    },
+    "PlotResolver": {
+      "address": "0xfD0CB2512f9aBA8fA6FF604d7f6704a7ADB9152C",
+      "source": "plot_resolver.py",
+      "sourceSha256": "3a75c9826dea81bd0fdacfe56440827cd55a111bca4f215c5c3c09a04689f435"
+    },
+    "PlotPools": {
+      "address": "0xeF80EFfDf417EC2D9EE6f8885B7272E00802400E",
+      "source": "plot_pools.py",
+      "sourceSha256": "2ad566c0d9090375e99b0fd0a8ab2a97f69b245d04e0ac8988a5b7ea5e3edf7a"
+    },
+    "PlotSeasons": {
+      "address": "0x838CA225C65c62d455F786B50337CE9F629D5DB7",
+      "source": "plot_seasons.py",
+      "sourceSha256": "55e5eeb07c3ffbf149a7037010d43c00d1fad977660417250b2ff59d90e2b0f4"
+    }
+  },
+  "transactions": {
+    "deploy-v2-PlotMarkets": "0xa8b0d81fb2a722f7ddbb0178686700768544915eaf4050a80a3edc2242b4da45",
+    "deploy-v2-PlotResolver": "0xf19ce56d9b53ec9c6097a1ae5249ade8fb9e20f4c55109e63c6ec2bb79b971a6",
+    "deploy-v2-PlotPools": "0x8ec8c14d85f2de13d15d7a539738208b64735b08fdb50bebf16710503f8577aa",
+    "deploy-v2-PlotSeasons": "0x247494695a45022426bc81db9cb28d086a0f6eecb6e0bec14719e21be5a0e769",
+    "compile-yes": "0x1c5d982ab6af44451062e45d05f173a47116e9b8249a36ba16bbf821535f0f1e",
+    "compile-yes-child-0": "0x4687113ad8234cbdcb91f9387d4af1419e04c3ff90ce0a0ac6271ae8b6c52529"
+  },
+  "markets": [],
+  "submissionReady": false,
+  "blockers": [],
+  "probeContract": "0x8dCd8F7BDdaB0676e3Ef2097Db4350F09dBefAf3",
+  "probes": {
+    "https://en.wikipedia.org/w/api.php?action=query&format=json&prop=revisions&titles=Ozymandias%20%28Breaking%20Bad%29&rvprop=ids%7Ctimestamp&rvdir=newer&rvstart=2013-09-18T01%3A00%3A00Z&rvlimit=1": {
+      "digest": "39ad718470d46840fe27944222b96d190157631185b011f56b1785f00919c417",
+      "length": 254,
+      "sample": "{\"continue\":{\"rvcontinue\":\"20130918044824|573452051\",\"continue\":\"||\"},\"query\":{\"pages\":{\"40108387\":{\"pageid\":40108387,\"ns\":0,\"title\":\"Ozymandias (Breaking Bad)\",\"revisions\":[{\"revid\":573451886,\"parentid\":573429882,\"timestamp\":\"2013-09-18T04:46:14Z\"}]}}}}",
+      "status": 200
+    },
+    "https://en.wikipedia.org/w/index.php?title=Ozymandias_%28Breaking_Bad%29&oldid=1378002747&action=raw": {
+      "digest": "49c07138f9ac06477b356693015ee50b331aeb1b399f843d1997371fde7aa6b9",
+      "length": 57094,
+      "sample": "{{good article}}\n{{Use American English|date=January 2025}}\n{{Use mdy dates|date=March 2021}}\n{{Infobox television episode\n| series         = [[Breaking Bad]]\n| season         = 5\n| episode        = 14\n| image          = Breaking Bad Ozymandias.jpg\n| caption        = [[Walter White (Breaking Bad)|Walter]] lies in anguish, echoing both the \"half-sunk shattered visage\" from [[ozymandias|Percy Shelley's poem]] and [[Gus Fring|Gus]]'s reaction to [[Hermanos (Breaking Bad)|Max's death]].<ref name=\"ms",
+      "status": 200
+    }
+  },
+  "failedTransactions": {},
+  "previousReleases": [
+    {
+      "contracts": {
+        "PlotMarkets": {
+          "address": "0x882456E34b6c5b33BA874D1cc92Ce93D13E0a71C",
+          "source": "plot_markets.py",
+          "sourceSha256": "7cd6c905fcebf078e3313523eb2d1985ae03d04c21a0fcb8eb07232c7b9b1d7b"
+        },
+        "PlotResolver": {
+          "address": "0xEBA442585CacC7Ec4Dea8cE3112a92c1b76c8edd",
+          "source": "plot_resolver.py",
+          "sourceSha256": "3a75c9826dea81bd0fdacfe56440827cd55a111bca4f215c5c3c09a04689f435"
+        },
+        "PlotPools": {
+          "address": "0xb5CebBEaA3C7b027509322304e68B6Ee93221a2C",
+          "source": "plot_pools.py",
+          "sourceSha256": "1e24dc8f4b1c758d2d19cf8045df6b63424a7a4605084ae8e17ecd70ebad5eed"
+        },
+        "PlotSeasons": {
+          "address": "0xd7d31912ECDc77c538a2F77b9Fb8AE3123FDfb60",
+          "source": "plot_seasons.py",
+          "sourceSha256": "47754ecb57868d117337b6f770e5e7a01f38d28c65dcf7a954d3140ed375d36c"
+        }
+      },
+      "transactions": {
+        "deploy-probe": "0x5934ae2a2ff11144fb46701f9a86c3747c921aaa13a3230f7eb4be1ba496f848",
+        "probe-0": "0xbcc30477be56fc097a75082cfbc45a4c67cc6d5a1dddd741512574edf934d607",
+        "probe-1": "0x7aeb2e95290127dab5e7ff8f82730eae645c3c14dc4e8026715fbbe0074b7e9a",
+        "deploy-PlotMarkets": "0xadc97137c32e24d44f90eb67409d0ff20e7fe8aa930f6cd8f2c26faec2ddb3d5",
+        "deploy-PlotResolver": "0xa9383f9ea39e9e4d7efe30281c78dc6cbfa45240169524968ab50f3f8a331099",
+        "deploy-PlotPools": "0xc8f343f53e67ae499ba5f39b9124565c805834ba97e01d41421599d5a8b9a127",
+        "deploy-PlotSeasons": "0x6f160204d81535887fb4c2b5680bc620ab0888005763245899344ffb7704f8de",
+        "compile-yes": "0xd65a51af13bd851e01853751f69f18f43afa353c72d03b33b404fb53cd8d25fa"
+      },
+      "reason": "Compile majority disagreement; replaced by independent source-backed candidate validation."
+    }
+  ]
+}
