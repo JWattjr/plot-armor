@@ -21,14 +21,14 @@ if stage=='deploy':
         if name in p['contracts']:continue
         args=[] if name=='PlotMarkets' else [address('PlotMarkets')] if name=='PlotResolver' else [address('PlotMarkets'),address('PlotResolver')]
         code=(ROOT/'contracts'/file).read_text()
-        receipt=transaction(c,p,'deploy-v3-'+name,code=code,args=args)
+        receipt=transaction(c,p,'deploy-v4-'+name,code=code,args=args)
         p['contracts'][name]={'address':receipt.get('recipient',receipt.get('to_address')),'source':file,'sourceSha256':hashlib.sha256(code.encode()).hexdigest()};save(p)
 elif stage=='seed':
     cases=[('yes','In Ozymandias (broadcast 2013-09-15T21:00:00-04:00), does Hank Schrader die? Answer YES or NO.','Breaking Bad',5,14),('no','In Felina (broadcast 2013-09-29T21:00:00-04:00), does Jesse Pinkman die? Answer YES or NO.','Breaking Bad',5,16),('choice','In The Mountain and the Viper (broadcast 2014-06-01T21:00:00-04:00), who wins the trial by combat? Options: Oberyn Martell, Gregor Clegane.','Game of Thrones',4,8),('reject','Is this the best episode ever?','Breaking Bad',5,14)]
     for label,q,show,s,e in cases:
         name=adjudication_label(p,'compile-'+label)
         transaction(c,p,name,address('PlotMarkets'),'rehearse',[q,show,s,e]);record()
-        if label=='yes' and (ROOT/'.secrets/deposit-approval.json').exists():
+        if label=='yes' and not p.get('poolDemo') and (ROOT/'.secrets/deposit-approval.json').exists():
             from chain import signer,final
             approval=json.loads((ROOT/'.secrets/deposit-approval.json').read_text());assert approval['approvedDepositWei']=='11'
             funding=json.loads((ROOT/'deploy/funding.json').read_text());final(c,funding['hash'],'fund-demo')
@@ -52,9 +52,11 @@ elif stage=='settle':
         if old.get('status') in ('RESOLVED','VOID'):continue
         label='resolve-'+m['id']+'-'+str(old.get('attempt',0)+1)
         transaction(c,p,adjudication_label(p,label),address('PlotResolver'),'resolve',[m['id']]);record()
-        if m.get('pool',{}).get('status')=='OPEN' and time.time()>=m['spec']['entry_deadline']:
+        if int(m.get('pool',{}).get('total',0))>0 and m.get('pool',{}).get('status')=='OPEN' and time.time()>=m['spec']['entry_deadline']:
             transaction(c,p,'settle-pool-'+m['id'],address('PlotPools'),'settle',[m['id']]);record()
 elif stage=='pool':
+    if p.get('poolDemo',{}).get('account',{}).get('claim',{}).get('status')=='PAID':
+        print('The approved 11 wei demonstration is already PAID; no new deposit is authorized.');raise SystemExit(0)
     approval=json.loads((ROOT/'.secrets/deposit-approval.json').read_text())
     assert approval['approvedDepositWei']=='11'
     funding=json.loads((ROOT/'deploy/funding.json').read_text())
@@ -77,6 +79,8 @@ elif stage=='pool':
     transaction(c,p,'deposit-demo-11-wei',address('PlotPools'),'deposit',[ticket],value=11)
     p['poolDemo']['ticket']=ticket;save(p);record()
 elif stage=='claim':
+    if p.get('poolDemo',{}).get('account',{}).get('claim',{}).get('status')=='PAID':
+        print('The approved demonstration is already PAID. Original receipts are preserved.');raise SystemExit(0)
     from chain import signer
     key=p['poolDemo']['marketId']
     pool=read(c,address('PlotPools'),'get_pool',[key])

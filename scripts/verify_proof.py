@@ -1,5 +1,6 @@
 """Read-only: no secrets, signer, faucet, transaction submission or file writes."""
 import ast
+import argparse
 import base64
 import hashlib
 import json
@@ -11,13 +12,18 @@ import re
 from datetime import datetime,timezone
 from urllib.parse import quote
 import requests
+from requests.adapters import HTTPAdapter
+from urllib3.util.retry import Retry
 from eth_account import Account
 from genlayer_py import create_client,studionet
 from genlayer_py.provider import provider
 from genlayer_py.types import TransactionHashVariant
 
 ROOT=Path(__file__).resolve().parent.parent
-p=json.loads((ROOT/'deploy/proof.json').read_text(encoding='utf8'))
+parser=argparse.ArgumentParser(description=__doc__)
+parser.add_argument('--proof',default='deploy/proof.json',help='Proof manifest to audit; all mandatory checks still apply.')
+args=parser.parse_args()
+p=json.loads((ROOT/args.proof).read_text(encoding='utf8'))
 post=provider.requests.post
 last=0
 def browser_post(url,**kwargs):
@@ -47,6 +53,7 @@ def main():
     assert subprocess.check_output(['git','cat-file','-t',p['sourceCommit']],cwd=ROOT,text=True).strip()=='commit'
     links=json.loads(subprocess.check_output(['node','--import','tsx','scripts/links.ts'],cwd=ROOT,text=True))
     session=requests.Session();session.headers['User-Agent']='Mozilla/5.0 PlotArmorProof/1.0'
+    session.mount('https://',HTTPAdapter(max_retries=Retry(total=2,backoff_factor=2,status_forcelist=[429,500,502,503,504],allowed_methods=['GET'])))
     for name,contract in p['contracts'].items():
         source=(ROOT/'contracts'/contract['source']).read_text(encoding='utf8').encode('utf8')
         assert hashlib.sha256(source).hexdigest()==contract['sourceSha256'],'Local source hash mismatch'
@@ -101,7 +108,21 @@ def main():
             outcomes.append((m['spec']['options'],r['outcome']))
             print('Immutable evidence digest and verbatim quote verified',m['id'],r['revision'],flush=True)
     demo=p.get('poolDemo');assert demo and demo['approvedDepositWei']=='11','Approved pool proof missing'
-    pool=read('PlotPools','get_pool',[demo['marketId']]);account=read('PlotPools','get_account',[demo['marketId'],demo['wallet']])
+    pool_address=p['contracts']['PlotPools']['address']
+    if demo.get('legacyContracts'):
+        legacy=demo['legacyContracts']['PlotPools'];pool_address=legacy['address']
+        committed=subprocess.check_output(['git','show',demo['sourceCommit']+':contracts/'+legacy['source']],cwd=ROOT)
+        assert hashlib.sha256(committed).hexdigest()==legacy['sourceSha256']==p['contracts']['PlotPools']['sourceSha256'],'Archived payout must use the identical pool implementation'
+        deployed=c.provider.make_request('gen_getContractCode',[pool_address])['result']
+        assert base64.b64decode(deployed)==committed,'Archived pool source mismatch'
+        from urllib.parse import urlsplit
+        legacy_api=links['contracts']['PlotPools']['api'].replace(p['contracts']['PlotPools']['address'],pool_address)
+        response=session.get(legacy_api,timeout=40);response.raise_for_status();assert response.json().get('type')=='CONTRACT'
+        print('Archived identical pool implementation and CONTRACT record verified',pool_address,flush=True)
+    def pool_read(method,args):
+        value=c.read_contract(pool_address,method,args=args,transaction_hash_variant=TransactionHashVariant.LATEST_FINAL)
+        return json.loads(value) if isinstance(value,str) else value
+    pool=pool_read('get_pool',[demo['marketId']]);account=pool_read('get_account',[demo['marketId'],demo['wallet']])
     assert pool['status']=='SETTLED' and pool['total']==11 and sum(pool['payouts'].values())==11
     assert account['claim']['status']=='PAID' and account['claim']['amount']==11
     claim=account['claim'];parent=receipt(claim['parent']);child=receipt(claim['child'])

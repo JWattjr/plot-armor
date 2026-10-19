@@ -22,6 +22,16 @@ def test_reject_subjective(market,direct_vm):
     answer(direct_vm,False);key=market.propose('Is the episode good?','Test Show',1,1);self_call(direct_vm,market.finalize_compile,key)
     assert json.loads(market.get_market(key))['status']=='REJECTED'
 
+def test_rejection_omitted_null_spec_is_canonicalized(market,direct_vm):
+    direct_vm.mock_llm(r'.*PLOT_ARMOR_COMPILE\..*',json.dumps({'accepted':False,'reason':'Subjective opinion.'}))
+    key=market.propose('Is the episode good?','Test Show',1,1)
+    self_call(direct_vm,market.finalize_compile,key)
+    r=json.loads(market.get_market(key));assert r['status']=='REJECTED' and r['spec'] is None
+
+def test_rejection_unknown_fields_still_fail(market,direct_vm):
+    direct_vm.mock_llm(r'.*PLOT_ARMOR_COMPILE\..*',json.dumps({'accepted':False,'reason':'Subjective.','override':True}))
+    with pytest.raises(Exception):market.propose('Is it good?','Test Show',1,1)
+
 def test_already_aired_is_rejected(market,direct_vm):
     answer(direct_vm,air_utc=T-1);key=market.propose('Does Alex survive?','Test Show',1,1);self_call(direct_vm,market.finalize_compile,key)
     assert not json.loads(market.get_market(key))['accepted']
