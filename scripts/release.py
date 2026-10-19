@@ -40,10 +40,10 @@ elif stage=='seed':
             transaction(c,p,'deposit-demo-11-wei',address('PlotPools'),'deposit',['ticket-1'],value=11);record()
 
 elif stage=='reject':
-    transaction(c,p,adjudication_label(p,'compile-reject'),address('PlotMarkets'),'rehearse',['Is this the best episode ever?','Breaking Bad',5,14]);record()
+    transaction(c,p,adjudication_label(p,'compile-reject'),address('PlotMarkets'),'rehearse',['Is this finale the best episode ever?','Severance',2,10]);record()
 elif stage=='live':
     for e,q in [(4,'In War S1E4, airing 2026-10-22 21:00 EDT (2026-10-23T01:00:00Z, Unix 1792717200), does Johnny Warren explicitly resign from Cathcarts? Answer YES or NO.'),(5,'In War S1E5, airing 2026-10-29 21:00 EDT (2026-10-30T01:00:00Z, Unix 1793322000), do Morgan Henderson and Carla Duval explicitly sign a final divorce agreement? Answer YES or NO.')]:
-        transaction(c,p,adjudication_label(p,'compile-live-'+str(e)),address('PlotMarkets'),'propose',[q,'War',1,e]);record()
+        transaction(c,p,adjudication_label(p,'compile-live-'+str(e)),address('PlotMarkets'),'propose',[q,'War (TV series)',1,e]);record()
 elif stage=='settle':
     record()
     for m in p['markets']:
@@ -79,7 +79,8 @@ elif stage=='pool':
 elif stage=='claim':
     from chain import signer
     key=p['poolDemo']['marketId']
-    transaction(c,p,'settle-demo-pool',address('PlotPools'),'settle',[key])
+    pool=read(c,address('PlotPools'),'get_pool',[key])
+    if pool.get('status')!='SETTLED':transaction(c,p,'settle-demo-pool',address('PlotPools'),'settle',[key])
     transaction(c,p,'claim-demo-pool',address('PlotPools'),'claim',[key,1])
     parent=p['transactions']['claim-demo-pool'];child=p['transactions']['claim-demo-pool-child-0']
     transaction(c,p,'verify-demo-claim',address('PlotPools'),'verify_claim',[key,signer().address.lower(),1,parent,child])

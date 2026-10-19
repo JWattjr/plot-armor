@@ -76,7 +76,7 @@ The initial server payload removes outcomes, evidence quotes, revision URLs and 
 * Only English Wikipedia episode Plot/Synopsis sections or exact Episode list rows are supported. Unsupported or absent summaries stay retryable and ultimately refund.
 * The earliest eligible revision is selected by code in ascending API order, five revisions per attempt. A cursor advances only after all previous candidates lack a usable summary. Once selected, a revision stays frozen, including when UNCLEAR.
 * Wikipedia facts, schedule changes, delayed summaries, vandalism and model disagreement can prevent settlement. No administrator may choose a winner.
-* Historical rehearsals are labeled, owner-only for GEN stakes, and excluded from competitive points. They use a short entry window after compilation to demonstrate the accounting lifecycle; this exception never applies to live forecasts.
+* Historical rehearsals are labeled, owner-only for GEN stakes, and excluded from competitive points. They use a fifteen-minute entry window after compilation to demonstrate the accounting lifecycle; this exception never applies to live forecasts.
 * `genlayer-js` 1.1.8 uses StudioNet's legacy ABI and has no modern `fees` argument. The wallet adapter supplies explicit EVM gas price. Release calls use `genlayer-py==0.18.0` and explicit protocol fee budgets. A fee-policy change needs a reviewed adapter update.
 * Native credits are asynchronous. Verification can remain pending if the protocol RPC is unavailable; funds are never claimed twice based on a timeout alone.
 * Server read limits are per process, with caching and queued requests. They are a convenience throttle, not a distributed rate-limit guarantee across Vercel instances.

@@ -9,14 +9,21 @@ export function transactionState(r:Record<string,unknown>):TxState {
   if(status==='FINALIZED'||status===7){
     const data=r.consensus_data as {leader_receipt?:{execution_result?:string}[]}|undefined;
     const execution=r.txExecutionResultName??data?.leader_receipt?.[0]?.execution_result;
-    return ['SUCCESS','FINISHED_WITH_RETURN'].includes(String(execution))?'FINALIZED_SUCCESS':'FINALIZED_ERROR';
+    const consensus=r.result_name??r.resultName;
+    const agreed=consensus===undefined?(r.result===undefined||r.result===6||r.result==='6'):['AGREE','MAJORITY_AGREE','SUCCESS'].includes(String(consensus));
+    return agreed&&['SUCCESS','FINISHED_WITH_RETURN'].includes(String(execution))?'FINALIZED_SUCCESS':'FINALIZED_ERROR';
   }
   if(status==='ACCEPTED'||status===6)return 'ACCEPTED';
   return !r.hash?'SUBMITTED':'PENDING';
 }
 export function shield(m:Market):Market {
   const r=m.resolution;
-  return {...m,reason:m.accepted?'Frozen specification accepted by validators.':m.reason,pool:m.pool?{status:m.pool.status,total:m.pool.total,sides:m.pool.sides,deadline:m.pool.deadline}:undefined,resolution:r?{status:r.status,attempt:r.attempt}:undefined};
+  return {...m,spec:m.spec?.rehearsal?{...m.spec,proposition:'Historical proposition hidden until result reveal.'}:m.spec,reason:m.accepted?'Frozen specification accepted by validators.':m.reason,pool:m.pool?{status:m.pool.status,total:m.pool.total,sides:m.pool.sides,deadline:m.pool.deadline}:undefined,resolution:r?{status:r.status,attempt:r.attempt}:undefined};
+}
+export function publicProof(p:Proof):Proof{
+  // Whitelist fields: raw probe samples and previous releases can themselves
+  // contain plot details, even when the current markets have been shielded.
+  return {contracts:p.contracts,transactions:p.transactions,markets:p.markets.map(shield),recordedAt:p.recordedAt,website:p.website,github:p.github,sourceCommit:p.sourceCommit,submissionReady:p.submissionReady,blockers:p.blockers};
 }
 export function utc(seconds:number){return new Date(seconds*1000).toLocaleString('en-GB',{timeZone:'UTC',day:'numeric',month:'short',hour:'2-digit',minute:'2-digit'})+' UTC'}
 export function closed(m:Market,stamp=Date.now()/1000){return m.status!=='OPEN'||!m.spec||stamp>=m.spec.entry_deadline}

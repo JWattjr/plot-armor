@@ -58,3 +58,11 @@ def test_missing_summary_retryable(resolver,direct_vm):
 
 def test_callback_unauthorized(resolver,direct_vm):
     with direct_vm.expect_revert('self finality'):resolver[0].finalize_resolution('m',1)
+
+
+def test_deadline_overrides_lost_callback_and_ignores_stale_attempt(resolver,direct_vm):
+    c,state=resolver;h=helpers('contracts/plot_resolver.py');summary=h['extract_summary'](Path('tests/fixtures/ozymandias.wiki').read_text(encoding='utf8'),state['market']['spec'])
+    direct_vm.mock_llm(r'.*',json.dumps({'outcome':'UNCLEAR','quote':summary[:50]}));c.resolve('m')
+    warp(direct_vm,T+200);c.resolve('m')
+    self_call(direct_vm,c.finalize_resolution,'m',1);assert json.loads(c.get_resolution('m'))['status']=='PENDING_FINALITY'
+    self_call(direct_vm,c.finalize_resolution,'m',2);assert json.loads(c.get_resolution('m'))['status']=='VOID'

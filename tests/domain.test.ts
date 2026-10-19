@@ -9,3 +9,10 @@ test('entry closes exactly at deadline',()=>{const m={status:'OPEN',spec:{entry_
 
 import {parseWire} from '../lib/wire';
 test('wei integers remain exact, quoted numbers remain data',()=>{assert.deepEqual(parseWire('{"amount":100000000000000000001,"quote":"say:100000000000000000001, never change it","option":1}'),{amount:'100000000000000000001',quote:'say:100000000000000000001, never change it',option:1});});
+
+import {publicProof,type Proof} from '../lib/domain';
+test('raw probes and previous releases never enter the initial payload',()=>{const p={contracts:{},transactions:{},markets:[],submissionReady:false,blockers:[],probes:{sample:'hidden spoiler'},previousReleases:[{outcome:'hidden spoiler'}]} as unknown as Proof;assert.ok(!JSON.stringify(publicProof(p)).includes('hidden spoiler'));});
+
+test('majority disagreement is a finalized error even when leader execution succeeds',()=>{assert.equal(transactionState({status:'FINALIZED',result_name:'MAJORITY_DISAGREE',consensus_data:{leader_receipt:[{execution_result:'SUCCESS'}]}}),'FINALIZED_ERROR');});
+
+test('historical compiled propositions cannot spoil a shielded card',()=>{const m={question:'Who wins?',spec:{rehearsal:true,proposition:'The eventual winner wins.'}} as Market;assert.ok(!JSON.stringify(shield(m)).includes('The eventual winner'));assert.equal(m.spec?.proposition,'The eventual winner wins.');});

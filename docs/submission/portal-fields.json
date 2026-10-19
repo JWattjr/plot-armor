@@ -1,0 +1,46 @@
+{
+  "contributionType": "Projects",
+  "projectName": "Plot Armor",
+  "primaryTag": "Gaming",
+  "tag1": "Outcome Verification",
+  "tag2": "Prediction Markets",
+  "oneLiner": "Bet on your favourite shows. GenLayer validators read the episode and settle it — spoiler-free.",
+  "description": "Plot Armor lets friends predict TV episode plots with spoiler-safe results. PlotMarkets uses validator judgment to compile one objective question into a frozen, hashed specification. PlotResolver selects the earliest eligible permanent Wikipedia revision in code, extracts only the episode summary, and asks validators for an outcome and a verbatim quote. Agreement covers the revision, extraction digest, outcome and evidence. PlotPools handles fee-free parimutuel simulated GEN, refunds, remainder wei and pull claims without an LLM. PlotSeasons handles free predictions, points and chronological streaks. Recorded proof is labeled separately from live finalized reads. Historical rehearsals are owner-only for stakes and excluded from competitive scoring. The public source includes resumable release and settlement scripts, source hashes, receipts and a read-only verifier.",
+  "howTo": [
+    {
+      "heading": "Browse without a wallet",
+      "instruction": "Open Discover. Inspect upcoming episodes and settlement dates. Historical results remain behind a spoiler shield until you choose to reveal them."
+    },
+    {
+      "heading": "Inspect immutable evidence",
+      "instruction": "Open a historical market, inspect the frozen spec, then reveal the result. Follow its exact Wikipedia oldid and finalized settlement receipt."
+    },
+    {
+      "heading": "Propose and predict",
+      "instruction": "Connect a StudioNet wallet. Propose an objective unaired episode question or pick a frozen market option. Inspect compilation or rejection after finality. Free predictions need no GEN deposit."
+    },
+    {
+      "heading": "Stake and claim",
+      "instruction": "Prepare a wallet-bound ticket, validate it after finality and deposit its exact simulated GEN amount before expiry. Settle an eligible pool, pull the payout and verify the native child credit."
+    },
+    {
+      "heading": "Verify the release",
+      "instruction": "Open Proof and the public repository. Run npm run verify:proof for sources, finalized state, immutable evidence, native claims and real explorer API records. Use npm run settle later for eligible markets."
+    }
+  ],
+  "expectedOutcome": "A TV prediction compiles into fixed rules or a clear rejection. Validators settle supported outcomes from permanent Wikipedia evidence; unclear or absent summaries retry until the refund deadline. Code scores free predictions and allocates simulated GEN pools. Results remain shielded until reveal. Inspect the release report for actual finalized demo outcomes, claim status and verification limits.",
+  "contractLinks": [
+    "https://explorer-studio.genlayer.com/address/0x2f0E4038377eD70855e2B833869A3CE40b96AEC2",
+    "https://explorer-studio.genlayer.com/address/0x8e0451bd0537acd9Df745d9990d1538d27a10F59",
+    "https://explorer-studio.genlayer.com/address/0xc5f81c02035Baf552bb55b93e3b6D716A0d84F8B",
+    "https://explorer-studio.genlayer.com/address/0xcDaa4d146A082553A44e0a1385cD93ff9d783FA4"
+  ],
+  "website": "https://plot-armor-beta.vercel.app",
+  "github": "https://github.com/JWattjr/plot-armor",
+  "evidence": [
+    "https://github.com/JWattjr/plot-armor/blob/main/deploy/proof.json",
+    "https://github.com/JWattjr/plot-armor/blob/main/docs/VERIFICATION.md",
+    "https://github.com/JWattjr/plot-armor/blob/main/docs/TUTORIAL.md",
+    "https://github.com/JWattjr/plot-armor/blob/main/docs/RELEASE_REPORT.md"
+  ]
+}

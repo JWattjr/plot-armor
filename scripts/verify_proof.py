@@ -8,6 +8,8 @@ import time
 from pathlib import Path
 from html import unescape
 import re
+from datetime import datetime,timezone
+from urllib.parse import quote
 import requests
 from eth_account import Account
 from genlayer_py import create_client,studionet
@@ -48,6 +50,8 @@ def main():
     for name,contract in p['contracts'].items():
         source=(ROOT/'contracts'/contract['source']).read_text(encoding='utf8').encode('utf8')
         assert hashlib.sha256(source).hexdigest()==contract['sourceSha256'],'Local source hash mismatch'
+        committed=subprocess.check_output(['git','show',p['sourceCommit']+':contracts/'+contract['source']],cwd=ROOT)
+        assert hashlib.sha256(committed).hexdigest()==contract['sourceSha256'],'Source commit does not contain deployed source'
         deployed=c.provider.make_request('gen_getContractCode',[contract['address']])['result']
         raw=base64.b64decode(deployed) if isinstance(deployed,str) else bytes(deployed)
         assert raw==source,'Deployed source differs: '+name
@@ -80,6 +84,20 @@ def main():
             summary=scope['extract_summary'](response.text,m['spec'])
             assert scope['summary_digest'](summary)==r['digest'] and r['quote'] in summary and 8<=len(r['quote'])<=400
             assert r['revision_utc']>=m['spec']['air_utc']+172800
+            start=datetime.fromtimestamp(m['spec']['air_utc']+172800,timezone.utc).strftime('%Y-%m-%dT%H:%M:%SZ')
+            params={'action':'query','format':'json','prop':'revisions','titles':m['spec']['article'],'rvprop':'ids|timestamp','rvdir':'newer','rvstart':start,'rvlimit':5}
+            first=None
+            for page_index in range(20):
+                api=session.get('https://en.wikipedia.org/w/api.php',params=params,timeout=40);api.raise_for_status();listing=api.json()
+                revisions=next(iter(listing['query']['pages'].values())).get('revisions',[])
+                for revision in revisions:
+                    url='https://en.wikipedia.org/w/index.php?title='+quote(m['spec']['article'],safe='')+'&oldid='+str(revision['revid'])+'&action=raw'
+                    raw=session.get(url,timeout=40);raw.raise_for_status()
+                    if scope['extract_summary'](raw.text,m['spec']):
+                        first=revision['revid'];break
+                if first is not None or 'continue' not in listing:break
+                params['rvcontinue']=listing['continue']['rvcontinue']
+            assert first==r['revision'],'Not the earliest eligible revision containing this summary'
             outcomes.append((m['spec']['options'],r['outcome']))
             print('Immutable evidence digest and verbatim quote verified',m['id'],r['revision'],flush=True)
     assert any(o==['YES','NO'] and i==0 for o,i in outcomes),'Missing YES demo'

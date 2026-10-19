@@ -84,3 +84,15 @@ def test_successful_deposit_cannot_be_recovered(pool,direct_vm,monkeypatch):
     r={'status':'FINALIZED','value_credited':True,'from_address':w,'to_address':contract,'value':11,'consensus_data':{'leader_receipt':[{'execution_result':'SUCCESS'}]}}
     monkeypatch.setattr(module,'receipt',lambda _:r)
     with direct_vm.expect_revert('only failed'):c.recover_failed_deposit('0x'+'ab'*32)
+
+
+@pytest.mark.parametrize('credited',[True,False])
+def test_native_credit_requires_bound_final_receipts(pool,credited):
+    import sys,base64
+    module=sys.modules['_contract_plot_pools'];fn=module.transfer_result
+    parent={'hash':'0x'+'aa'*32,'status':'FINALIZED','from_address':A,'to_address':B,'consensus_data':{'leader_receipt':[{'execution_result':'SUCCESS'}]},'data':{'calldata':base64.b64encode(module.calldata.encode({'method':'claim','args':['m',1]})).decode()},'triggered_transactions':['0x'+'bb'*32]}
+    child={'hash':'0x'+'bb'*32,'status':'FINALIZED','from_address':B,'to_address':A,'value':11,'type':0,'consensus_data':None,'triggered_on':'finalized','triggered_by':parent['hash'],'value_credited':credited}
+    assert fn(parent,child,B,A,'m',1,11) is credited
+    for bad in [{**child,'value':12},{**child,'status':'ACCEPTED'},{**child,'to_address':B},{**child,'value_credited':None}]:
+        with pytest.raises(Exception):fn(parent,bad,B,A,'m',1,11)
+    with pytest.raises(Exception):fn(parent,child,B,A,'m',2,11)
