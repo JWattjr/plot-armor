@@ -156,6 +156,9 @@ def main():
     transaction=receipts['predict-live-free']
     assert transaction['from_address'].lower()==free['wallet'].lower() and transaction['to_address'].lower()==p['contracts']['PlotSeasons']['address'].lower() and int(transaction['value'])==0
     print('Real Node EIP-1193 adapter prediction and overall/season leaderboard rows verified; extension popup is outside this check.',flush=True)
+    if p.get('browserDemo'):
+        from verify_browser import verify_browser
+        verify_browser(c,p,session,receipts['predict-browser-metamask'])
     assert any(o==['YES','NO'] and i==0 for o,i in outcomes),'Missing YES demo'
     assert any(o==['YES','NO'] and i==1 for o,i in outcomes),'Missing NO demo'
     assert any(o!=['YES','NO'] for o,i in outcomes),'Missing multiple-choice demo'
