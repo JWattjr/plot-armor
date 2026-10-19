@@ -61,11 +61,24 @@ elif stage=='settle':
     for m in p['markets']:
         if m.get('status')!='OPEN' or time.time()<m['spec']['air_utc']+172800:continue
         old=m.get('resolution',{})
-        if old.get('status') in ('RESOLVED','VOID'):continue
-        label='resolve-'+m['id']+'-'+str(old.get('attempt',0)+1)
-        transaction(c,p,adjudication_label(p,label),address('PlotResolver'),'resolve',[m['id']]);record()
-        if int(m.get('pool',{}).get('total',0))>0 and m.get('pool',{}).get('status')=='OPEN' and time.time()>=m['spec']['entry_deadline']:
-            transaction(c,p,'settle-pool-'+m['id'],address('PlotPools'),'settle',[m['id']]);record()
+        if old.get('status') not in ('RESOLVED','VOID'):
+            label='resolve-'+m['id']+'-'+str(old.get('attempt',0)+1)
+            transaction(c,p,adjudication_label(p,label),address('PlotResolver'),'resolve',[m['id']]);record()
+        fresh=next(item for item in p['markets'] if item['id']==m['id'])
+        terminal=fresh.get('resolution',{}).get('status') in ('RESOLVED','VOID') or time.time()>=fresh['spec']['resolution_deadline']
+        if terminal and int(fresh.get('pool',{}).get('total',0))>0 and fresh.get('pool',{}).get('status')=='OPEN' and time.time()>=fresh['spec']['entry_deadline']:
+            transaction(c,p,adjudication_label(p,'settle-pool-'+m['id']),address('PlotPools'),'settle',[m['id']]);record()
+    demo=p.get('freeDemo')
+    if demo:
+        market=next(item for item in p['markets'] if item['id']==demo['marketId'])
+        terminal=market.get('resolution',{}).get('status') in ('RESOLVED','VOID') or time.time()>=market['spec']['resolution_deadline']
+        predictions=read(c,address('PlotSeasons'),'get_predictions',[demo['wallet']])
+        if terminal and any(row['market']==demo['marketId'] and row['status']=='PENDING' for row in predictions):
+            transaction(c,p,adjudication_label(p,'score-demo-'+demo['marketId']),address('PlotSeasons'),'score',[demo['wallet'],demo['marketId']])
+        demo['predictions']=read(c,address('PlotSeasons'),'get_predictions',[demo['wallet']])
+        demo['leaderboard']=read(c,address('PlotSeasons'),'leaderboard',['']);save(p)
+        demo['season']=market['spec']['show']+' / S'+str(market['spec']['season'])
+        demo['seasonLeaderboard']=read(c,address('PlotSeasons'),'leaderboard',[demo['season']]);save(p)
 elif stage=='pool':
     if p.get('poolDemo',{}).get('account',{}).get('claim',{}).get('status')=='PAID':
         print('The approved 11 wei demonstration is already PAID; no new deposit is authorized.');raise SystemExit(0)
@@ -116,5 +129,13 @@ elif stage=='free':
     result=subprocess.run(['node','--import','tsx','scripts/check-wallet-adapter.mjs']);assert result.returncode==0,'Wallet adapter check failed'
     check=json.loads((ROOT/'deploy/wallet-adapter-check.json').read_text());p['transactions']['predict-live-free']=check['hash'];save(p)
     p['freeDemo']={'wallet':signer().address.lower(),'marketId':live[0]['id'],'predictions':read(c,address('PlotSeasons'),'get_predictions',[signer().address.lower()]),'leaderboard':read(c,address('PlotSeasons'),'leaderboard',[''])};save(p)
-elif stage=='record':record()
+elif stage=='record':
+    record()
+    if p.get('freeDemo'):
+        demo=p['freeDemo'];market=next(m for m in p['markets'] if m['id']==demo['marketId'])
+        demo['season']=market['spec']['show']+' / S'+str(market['spec']['season'])
+        demo['predictions']=read(c,address('PlotSeasons'),'get_predictions',[demo['wallet']])
+        demo['leaderboard']=read(c,address('PlotSeasons'),'leaderboard',[''])
+        demo['seasonLeaderboard']=read(c,address('PlotSeasons'),'leaderboard',[demo['season']])
+        p['recordedAt']=time.strftime('%Y-%m-%dT%H:%M:%SZ',time.gmtime());save(p)
 else:raise SystemExit('Stages: deploy, seed, live, settle, record')

@@ -1,4 +1,4 @@
-export type Spec = {show:string;season:number;episode:number;title:string;air_utc:number;article:string;extraction:string;proposition:string;definitions:string;options:string[];rehearsal:boolean;entry_deadline:number;resolution_deadline:number};
+export type Spec = {show:string;season:number;episode:number;title:string;air_utc:number;article:string;extraction:string;proposition:string;definitions:string;options:string[];rehearsal:boolean;entry_deadline:number;resolution_deadline:number;source_revision?:number;source_digest?:string};
 export type Resolution = {status?:string;outcome?:number|'UNCLEAR';quote?:string;url?:string;revision?:number;digest?:string;reason?:string;attempt?:number};
 export type Pool = {status?:string;total?:number|string;sides?:(number|string)[];entries?:Record<string,{amount:number|string;option:number}>;payouts?:Record<string,number|string>;deadline?:number};
 export type Market = {id:string;creator:string;question:string;status:string;accepted:boolean;reason:string;spec:Spec|null;spec_hash:string;created_at:number;resolution?:Resolution;pool?:Pool};
@@ -28,5 +28,5 @@ export function publicProof(p:Proof&{poolDemo?:{approvedDepositWei:string;wallet
   const nativeDemo=demo&&pool?{wei:demo.approvedDepositWei,pool,wallet:demo.wallet,status:claim?.status??'PENDING',parent:claim?.parent,child:claim?.child,archived:!!demo.legacyContracts}:undefined;
   return {contracts:p.contracts,transactions:p.transactions,markets:p.markets.map(shield),recordedAt:p.recordedAt,website:p.website,github:p.github,sourceCommit:p.sourceCommit,submissionReady:p.submissionReady,blockers:p.blockers,nativeDemo};
 }
-export function utc(seconds:number){return new Date(seconds*1000).toLocaleString('en-GB',{timeZone:'UTC',day:'numeric',month:'short',hour:'2-digit',minute:'2-digit'})+' UTC'}
+export function utc(seconds:number){return new Date(seconds*1000).toLocaleString('en-GB',{timeZone:'UTC',day:'numeric',month:'short',year:'numeric',hour:'2-digit',minute:'2-digit'})+' UTC'}
 export function closed(m:Market,stamp=Date.now()/1000){return m.status!=='OPEN'||!m.spec||stamp>=m.spec.entry_deadline}

@@ -11,7 +11,7 @@ import {parseWire} from './wire';
 const marker=Symbol.for('plot-armor.rpc-ua');
 const state=globalThis as typeof globalThis&{[marker]?:boolean};
 if(!state[marker]){const original=globalThis.fetch;globalThis.fetch=async(input,init)=>{const url=typeof input==='string'?input:input instanceof URL?String(input):input.url;if(url==='https://studio.genlayer.com/api'){const headers=new Headers(init?.headers);headers.set('User-Agent','Mozilla/5.0 PlotArmor/1.0');return original(input,{...init,headers})}return original(input,init)};state[marker]=true}
-export function proof():Proof{return JSON.parse(fs.readFileSync(path.join(process.cwd(),'deploy/proof.json'),'utf8')) as Proof}
+export function proof():Proof{return parseWire(fs.readFileSync(path.join(process.cwd(),'deploy/proof.json'),'utf8')) as Proof}
 const client=createClient({chain:studionet,endpoint:'https://studio.genlayer.com/api'});
 let history:number[]=[];
 let tail=Promise.resolve();

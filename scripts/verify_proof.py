@@ -77,6 +77,10 @@ def main():
     functions=[n for n in source.body if isinstance(n,ast.FunctionDef) and n.name in ('clean','templates','extract_summary','summary_digest')]
     scope={'re':re,'unescape':unescape,'hashlib':hashlib}
     exec(compile(ast.Module(body=functions,type_ignores=[]),'<deployed-parser>','exec'),scope)
+    compiler=ast.parse((ROOT/'contracts/plot_markets.py').read_text(encoding='utf8'))
+    metadata_functions=[n for n in compiler.body if isinstance(n,ast.FunctionDef) and n.name in ('clean','templates','compilation_metadata','extraction_path_exists')]
+    metadata_scope={'re':re,'unescape':unescape}
+    exec(compile(ast.Module(body=metadata_functions,type_ignores=[]),'<deployed-metadata-parser>','exec'),metadata_scope)
     outcomes=[]
     for saved in p['markets']:
         m=read('PlotMarkets','get_market',[saved['id']])
@@ -84,6 +88,16 @@ def main():
         if not m['accepted']:
             assert m['status']=='REJECTED';continue
         assert hashlib.sha256(json.dumps(m['spec'],sort_keys=True,separators=(',',':'),ensure_ascii=False).encode()).hexdigest()==m['spec_hash']
+        spec=m['spec'];revision=spec['source_revision']
+        cutoff=datetime.fromtimestamp(m['created_at'],timezone.utc).strftime('%Y-%m-%dT%H:%M:%SZ')
+        response=session.get('https://en.wikipedia.org/w/api.php',params={'action':'query','format':'json','prop':'revisions','rvprop':'ids','rvdir':'older','rvlimit':1,'rvstart':cutoff,'titles':spec['article']},timeout=40);response.raise_for_status()
+        page=next(iter(response.json()['query']['pages'].values()))
+        assert page['ns']==0 and page['revisions'][0]['revid']==revision,'Compile metadata revision was not selected by code at proposal time'
+        metadata_url=links['metadata'][m['id']]
+        response=session.get(metadata_url,timeout=45);response.raise_for_status();text=response.content.decode('utf8')[:65000]
+        assert hashlib.sha256(text.encode()).hexdigest()==spec['source_digest'],'Pinned compiler metadata digest differs'
+        assert metadata_scope['extraction_path_exists'](metadata_scope['compilation_metadata'](text,spec['episode']),spec),'Frozen extraction path does not exist'
+        print('Pinned compile metadata and extraction path verified',m['id'],revision,flush=True)
         r=read('PlotResolver','get_resolution',[m['id']])
         assert r==saved.get('resolution',{}),'Recorded resolution differs'
         if r.get('status')=='RESOLVED':
@@ -128,6 +142,20 @@ def main():
     assert child['hash'] in parent['triggered_transactions'] and child['value_credited'] is True and int(child['value'])==11
     assert child['to_address'].lower()==demo['wallet'].lower()
     print('Native pool allocation and credited 11-wei claim verified.',flush=True)
+    free=p.get('freeDemo');assert free,'Missing real free prediction demo'
+    predictions=read('PlotSeasons','get_predictions',[free['wallet']])
+    assert predictions==free['predictions'],'Recorded free predictions differ'
+    prediction=next(row for row in predictions if row['market']==free['marketId'])
+    market=next(m for m in p['markets'] if m['id']==free['marketId'])
+    assert not prediction['rehearsal'] and prediction['season']==free['season']==market['spec']['show']+' / S'+str(market['spec']['season'])
+    for season,key in [('', 'leaderboard'),(free['season'],'seasonLeaderboard')]:
+        actual=read('PlotSeasons','leaderboard',[season])
+        assert next(row for row in actual if row['wallet']==free['wallet'])==next(row for row in free[key] if row['wallet']==free['wallet']),'Recorded demo leaderboard row differs'
+    adapter=json.loads((ROOT/'deploy/wallet-adapter-check.json').read_text(encoding='utf8'))
+    assert adapter['state']=='FINALIZED_SUCCESS' and adapter['valueWei']=='0' and adapter['hash']==p['transactions']['predict-live-free']
+    transaction=receipts['predict-live-free']
+    assert transaction['from_address'].lower()==free['wallet'].lower() and transaction['to_address'].lower()==p['contracts']['PlotSeasons']['address'].lower() and int(transaction['value'])==0
+    print('Real Node EIP-1193 adapter prediction and overall/season leaderboard rows verified; extension popup is outside this check.',flush=True)
     assert any(o==['YES','NO'] and i==0 for o,i in outcomes),'Missing YES demo'
     assert any(o==['YES','NO'] and i==1 for o,i in outcomes),'Missing NO demo'
     assert any(o!=['YES','NO'] for o,i in outcomes),'Missing multiple-choice demo'

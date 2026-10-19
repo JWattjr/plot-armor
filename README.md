@@ -24,7 +24,7 @@ flowchart LR
     P --> N[Pull claim and native credit verification]
 ```
 
-There are exactly two model judgments: compiling one question and resolving one episode proposition. The pool and leaderboard use no LLM. Each state-changing result becomes usable through a self callback emitted on finality. Compile validators independently retrieve the source and verify the entire frozen candidate. Resolver validators independently select/fetch/extract, compare the summary digest and chosen option, and check the leader's verbatim quote.
+There are exactly two model judgments: compiling one question and resolving one episode proposition. The pool and leaderboard use no LLM. Each state-changing result becomes usable through a self callback emitted on finality. Compilation exposes only metadata and a code-verified summary path, never plot bodies. Code selects the latest metadata revision at or before proposal time and fetches its permanent oldid. Validators repeat that selection, enforce frozen schema/deadlines, and verify the candidate against their own metadata. Only the resolver receives plot text. Resolver validators independently select/fetch/extract, compare the summary digest and chosen option, and check the leader's verbatim quote.
 
 ## Run locally
 
