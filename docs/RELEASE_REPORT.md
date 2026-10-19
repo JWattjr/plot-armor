@@ -1,9 +1,9 @@
 # Plot Armor release report
 
 Website: [Plot Armor](https://plot-armor-beta.vercel.app). Repository: [JWattjr/plot-armor](https://github.com/JWattjr/plot-armor).
-Source commit: 813508023a85281daa5cf43bd85b8c4d766f4582. Recorded: 2026-10-19T14:16:15Z.
+Contract source commit: bcc54890e5bdedc6274245aacc935f7114012089. Recorded market snapshot: 2026-10-19T15:25:36.345732+00:00.
 
-## Contracts
+## Submitted contracts
 
 - [PlotMarkets](https://explorer-studio.genlayer.com/address/0xAE26C101532f706265FFc56dbD1C411062E66628) — 0xAE26C101532f706265FFc56dbD1C411062E66628
 - [PlotResolver](https://explorer-studio.genlayer.com/address/0x311413A6c4f6534Dfb843E44dBf594d37ecdAf1c) — 0x311413A6c4f6534Dfb843E44dBf594d37ecdAf1c
@@ -13,10 +13,10 @@ Source commit: 813508023a85281daa5cf43bd85b8c4d766f4582. Recorded: 2026-10-19T14
 ## Markets
 
 - market-1: War (TV series), S1 E4, Sing. Live forecast. Resolution: not requested; outcome: pending.
-  Earliest settlement: 2026-10-25T01:00:00.000Z; refund deadline: 2026-11-06T01:00:00.000Z.
+  Upcoming live settlement eligibility: 2026-10-25T01:00:00.000Z; refund deadline: 2026-11-06T01:00:00.000Z.
   Compiler metadata: [revision 1380962466](https://en.wikipedia.org/w/index.php?title=War%20(TV%20series)&oldid=1380962466&action=raw).
 - market-2: War (TV series), S1 E5, Every Little Thing She Does. Live forecast. Resolution: not requested; outcome: pending.
-  Earliest settlement: 2026-11-01T01:00:00.000Z; refund deadline: 2026-11-13T01:00:00.000Z.
+  Upcoming live settlement eligibility: 2026-11-01T01:00:00.000Z; refund deadline: 2026-11-13T01:00:00.000Z.
   Compiler metadata: [revision 1380962466](https://en.wikipedia.org/w/index.php?title=War%20(TV%20series)&oldid=1380962466&action=raw).
 - market-3: Breaking Bad, S5 E14, Ozymandias. Historical rehearsal. Resolution: RESOLVED; outcome: YES.
   Compiler metadata: [revision 1378002747](https://en.wikipedia.org/w/index.php?title=Ozymandias%20(Breaking%20Bad)&oldid=1378002747&action=raw).
@@ -28,13 +28,46 @@ Source commit: 813508023a85281daa5cf43bd85b8c4d766f4582. Recorded: 2026-10-19T14
   Compiler metadata: [revision 1369352962](https://en.wikipedia.org/w/index.php?title=Game%20of%20Thrones%20season%204&oldid=1369352962&action=raw).
   Evidence: [Wikipedia revision 611492258](https://en.wikipedia.org/w/index.php?title=Game%20of%20Thrones%20season%204&oldid=611492258&action=raw).
 - market-6: REJECTED. Subjective opinion. Whether an episode is 'the best ever' cannot be objectively settled from a plot summary.
+- market-7: Breaking Bad, S5 E14, Ozymandias. Historical rehearsal. Resolution: RESOLVED; outcome: YES.
+  Compiler metadata: [revision 1378002747](https://en.wikipedia.org/w/index.php?title=Ozymandias%20(Breaking%20Bad)&oldid=1378002747&action=raw).
+  Evidence: [Wikipedia revision 573451886](https://en.wikipedia.org/w/index.php?title=Ozymandias%20%28Breaking%20Bad%29&oldid=573451886&action=raw).
 
-## Native pool
+## Proven payout on submitted PlotPools
 
-Owner-approved stake: 11 simulated wei. Archived market: market-1. Wallet: 0x92bf935cc375dd667bf49733ebfcf722f9b32105. Recorded claim status: PAID.
+Owner-approved stake and payout: **2 simulated GEN** (2000000000000000000 wei). Market: market-7. Wallet: 0x92bf935cc375dd667bf49733ebfcf722f9b32105. Final claim status: **PAID**.
+Pool: [0xcFC2062bFab042e9885f58c44a2B8e2Ce061e792](https://explorer-studio.genlayer.com/address/0xcFC2062bFab042e9885f58c44a2B8e2Ce061e792).
+verify_claim updates verified status directly; it emits no callback
 
-The completed deposit/claim belongs to the preserved previous release, [pool 0xc5f81c02035Baf552bb55b93e3b6D716A0d84F8B](https://explorer-studio.genlayer.com/address/0xc5f81c02035Baf552bb55b93e3b6D716A0d84F8B). The current pool uses the identical source implementation. No second deposit was made.
-## Receipts
+| Finalized stage | Wallet (GEN) | PlotPools (GEN) | Wallet (wei) | PlotPools (wei) |
+|---|---:|---:|---:|---:|
+| before_stake | 2.000000000000000011 | 0 | 2000000000000000011 | 0 |
+| after_deposit | 0.000000000000000011 | 2 | 11 | 2000000000000000000 |
+| after_settlement | 0.000000000000000011 | 2 | 11 | 2000000000000000000 |
+| after_native_credit | 2.000000000000000011 | 0 | 2000000000000000011 | 0 |
+| after_verified_paid | 2.000000000000000011 | 0 | 2000000000000000011 | 0 |
+
+Wallet decrease on deposit and increase on native payout are exactly 2 GEN. The submitted pool returns to its initial native balance.
+
+## New finalized receipts
+
+- [submitted-2gen-funding](https://explorer-studio.genlayer.com/tx/0x76a65c0f392ca694050eadb8bc4856fe36db5d4dc310c643058753b0c7c0b487)
+- [submitted-2gen-compile](https://explorer-studio.genlayer.com/tx/0x1f5a429779b34019c31419ecfa2eba3db328b48257ceb0ed8d22204684634f1e)
+- [submitted-2gen-compile-child-0](https://explorer-studio.genlayer.com/tx/0x04e28f5dca7ae988fd1c33916a76607ce9e45ba5c8ebfb70eb801fc537e2d92f)
+- [submitted-2gen-resolve](https://explorer-studio.genlayer.com/tx/0x5f04eb1952bd7c3814fb3df7a7b4959178e51b334eed8eecd2c62c97ba0e63ba)
+- [submitted-2gen-resolve-child-0](https://explorer-studio.genlayer.com/tx/0xbc71f009e1d8b5450ea17b0802b9e1d2f0af0d5de6fa919e42495865e24e0d2a)
+- [submitted-2gen-prepare](https://explorer-studio.genlayer.com/tx/0xa43439ddce78b2ff2170a9e6b8090b83d0fb287be2499d70905e63f3e4f3bac7)
+- [submitted-2gen-deposit](https://explorer-studio.genlayer.com/tx/0xd30e4ab89eaa6d710096c9c509b6e7798462df303954c3666eeb0615117f7dd8)
+- [submitted-2gen-settle](https://explorer-studio.genlayer.com/tx/0x489262bdd3fdb0d24b29adc2fbda5aab4c97f6bba610ea20c6c9804157ba00bd)
+- [submitted-2gen-settle-child-0](https://explorer-studio.genlayer.com/tx/0x7d6185ed7d551ee7f5241ede4d29650a1db38e164229f3ea9cc40e47d231209b)
+- [submitted-2gen-claim](https://explorer-studio.genlayer.com/tx/0xb5452775429a0e1bbe117502d8b0de362a4b784f9c49987458a8318437f62158)
+- [submitted-2gen-claim-child-0](https://explorer-studio.genlayer.com/tx/0x744873cb03b361f0300db38d10a40a49cd7d3cc9898fcab34b1c45bd133cc69e)
+- [submitted-2gen-verify](https://explorer-studio.genlayer.com/tx/0x1d7a3f40fdecb6428d7db759eacf1a7c12ce68c3e63e964dc12d505d86f3e43f)
+
+## Previous-deployment history
+
+The 11 wei PAID example belongs to previous [pool 0xc5f81c02035Baf552bb55b93e3b6D716A0d84F8B](https://explorer-studio.genlayer.com/address/0xc5f81c02035Baf552bb55b93e3b6D716A0d84F8B). It is historical evidence and is not the submitted-pool payout.
+
+## Other recorded receipts
 
 - [legacy-fund-demo](https://explorer-studio.genlayer.com/tx/0xc2f8528c7f270c1721f78b00adf308e7c8a8c05fcda39542374e317a4feadf87)
 - [legacy-prepare-demo-stake](https://explorer-studio.genlayer.com/tx/0x86e95a13db490b31855823d0e3230c72e4f6fba57e712b263b90d2695a6f887a)
@@ -69,7 +102,14 @@ The completed deposit/claim belongs to the preserved previous release, [pool 0xc
 - [predict-live-free](https://explorer-studio.genlayer.com/tx/0x8602b7482798f78f46851f74146dec53800b608f3bfba5506c86e7582ecdd9b6)
 - [predict-browser-metamask](https://explorer-studio.genlayer.com/tx/0xcb36e99d7a9c893fa3821b042cf79c009fc7bc83709d03655c5cae1f9072bd4e)
 
+## Honest limits
+
+VOID/refund is test-only: no natural VOID was manufactured. War live settlements are upcoming on 25 October and 1 November 2026 at 01:00 UTC. No contract was changed or redeployed. The Portal draft has not been submitted.
+
 ## Release status
 
-Required release proof is verified.
+Not marked submission-ready. See verification results and blockers.
 
+- Final public URL audit and submission-ready production confirmation in progress.
+
+Portal field lengths: {"oneLiner":95,"description":841,"expectedOutcome":391}.

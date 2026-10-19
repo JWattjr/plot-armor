@@ -56,7 +56,19 @@
     "resolve-market-5-1": "0x174a2b0a90e34ab037ccdce8892fdcfcbe3a05a990758a960aecb71c36bd53a4",
     "resolve-market-5-1-child-0": "0xf94cb25fc2b7099f985576444bcf39847bfeea1c038d78e6d2a2539df598de49",
     "predict-live-free": "0x8602b7482798f78f46851f74146dec53800b608f3bfba5506c86e7582ecdd9b6",
-    "predict-browser-metamask": "0xcb36e99d7a9c893fa3821b042cf79c009fc7bc83709d03655c5cae1f9072bd4e"
+    "predict-browser-metamask": "0xcb36e99d7a9c893fa3821b042cf79c009fc7bc83709d03655c5cae1f9072bd4e",
+    "submitted-2gen-funding": "0x76a65c0f392ca694050eadb8bc4856fe36db5d4dc310c643058753b0c7c0b487",
+    "submitted-2gen-compile": "0x1f5a429779b34019c31419ecfa2eba3db328b48257ceb0ed8d22204684634f1e",
+    "submitted-2gen-compile-child-0": "0x04e28f5dca7ae988fd1c33916a76607ce9e45ba5c8ebfb70eb801fc537e2d92f",
+    "submitted-2gen-resolve": "0x5f04eb1952bd7c3814fb3df7a7b4959178e51b334eed8eecd2c62c97ba0e63ba",
+    "submitted-2gen-resolve-child-0": "0xbc71f009e1d8b5450ea17b0802b9e1d2f0af0d5de6fa919e42495865e24e0d2a",
+    "submitted-2gen-prepare": "0xa43439ddce78b2ff2170a9e6b8090b83d0fb287be2499d70905e63f3e4f3bac7",
+    "submitted-2gen-deposit": "0xd30e4ab89eaa6d710096c9c509b6e7798462df303954c3666eeb0615117f7dd8",
+    "submitted-2gen-settle": "0x489262bdd3fdb0d24b29adc2fbda5aab4c97f6bba610ea20c6c9804157ba00bd",
+    "submitted-2gen-settle-child-0": "0x7d6185ed7d551ee7f5241ede4d29650a1db38e164229f3ea9cc40e47d231209b",
+    "submitted-2gen-claim": "0xb5452775429a0e1bbe117502d8b0de362a4b784f9c49987458a8318437f62158",
+    "submitted-2gen-claim-child-0": "0x744873cb03b361f0300db38d10a40a49cd7d3cc9898fcab34b1c45bd133cc69e",
+    "submitted-2gen-verify": "0x1d7a3f40fdecb6428d7db759eacf1a7c12ce68c3e63e964dc12d505d86f3e43f"
   },
   "markets": [
     {
@@ -275,10 +287,81 @@
       "spec_hash": "",
       "status": "REJECTED",
       "pool": {}
+    },
+    {
+      "accepted": true,
+      "created_at": 1792422457,
+      "creator": "0x92bf935cc375dd667bf49733ebfcf722f9b32105",
+      "id": "market-7",
+      "question": "In Ozymandias (broadcast 2013-09-15T21:00:00-04:00), does Hank Schrader die? Answer YES or NO.",
+      "reason": "Objective future plot event with a reported summary field and individual plot path.",
+      "spec": {
+        "air_utc": 1379293200,
+        "article": "Ozymandias (Breaking Bad)",
+        "definitions": "Death must be explicitly described in this episode. Survival means alive at episode end. Silence is UNCLEAR, not NO.",
+        "entry_deadline": 1792423357,
+        "episode": 14,
+        "extraction": "plot",
+        "options": [
+          "YES",
+          "NO"
+        ],
+        "proposition": "Whether Hank Schrader dies in Ozymandias.",
+        "rehearsal": true,
+        "resolution_deadline": 1793632057,
+        "season": 5,
+        "show": "Breaking Bad",
+        "source_digest": "49c07138f9ac06477b356693015ee50b331aeb1b399f843d1997371fde7aa6b9",
+        "source_revision": 1378002747,
+        "title": "Ozymandias"
+      },
+      "spec_hash": "078f436452153ec326a2ae33ca10d1ccc5f5f22e3c35a1c33c3c2f55fe8126bd",
+      "status": "OPEN",
+      "resolution": {
+        "id": "market-7",
+        "spec_hash": "078f436452153ec326a2ae33ca10d1ccc5f5f22e3c35a1c33c3c2f55fe8126bd",
+        "attempt": 1,
+        "cursor": "",
+        "digest": "62217f808eff119badbd3f9b3c242cb04f5aa78b25e0ec1593cd5d75ddfbb1bc",
+        "outcome": 0,
+        "quote": "Hank tells Jack to go ahead, and Jack shoots him in the head before he can even finish his last words",
+        "revision": 573451886,
+        "revision_utc": 1379479574,
+        "url": "https://en.wikipedia.org/w/index.php?title=Ozymandias%20%28Breaking%20Bad%29&oldid=573451886&action=raw",
+        "status": "RESOLVED",
+        "terminal": "RESOLVED",
+        "reason": "Frozen option supported by extracted summary.",
+        "finalized_at": 1792422600
+      },
+      "pool": {
+        "id": "market-7",
+        "status": "SETTLED",
+        "spec_hash": "078f436452153ec326a2ae33ca10d1ccc5f5f22e3c35a1c33c3c2f55fe8126bd",
+        "deadline": 1793632057,
+        "entry_deadline": 1792423357,
+        "sides": [
+          2000000000000000000,
+          0
+        ],
+        "total": 2000000000000000000,
+        "entries": {
+          "0x92bf935cc375dd667bf49733ebfcf722f9b32105": {
+            "option": 0,
+            "amount": 2000000000000000000
+          }
+        },
+        "winner": 0,
+        "payouts": {
+          "0x92bf935cc375dd667bf49733ebfcf722f9b32105": 2000000000000000000
+        },
+        "mode": "REHEARSAL"
+      }
     }
   ],
-  "submissionReady": true,
-  "blockers": [],
+  "submissionReady": false,
+  "blockers": [
+    "Final public URL audit and submission-ready production confirmation in progress."
+  ],
   "probeContract": "0x8dCd8F7BDdaB0676e3Ef2097Db4350F09dBefAf3",
   "probes": {
     "https://en.wikipedia.org/w/api.php?action=query&format=json&prop=revisions&titles=Ozymandias%20%28Breaking%20Bad%29&rvprop=ids%7Ctimestamp&rvdir=newer&rvstart=2013-09-18T01%3A00%3A00Z&rvlimit=1": {
@@ -1104,49 +1187,103 @@
       "releaseGeneration": 4
     }
   ],
-  "recordedAt": "2026-10-19T14:16:15Z",
+  "recordedAt": "2026-10-19T15:25:36.345732+00:00",
   "website": "https://plot-armor-beta.vercel.app",
   "github": "https://github.com/JWattjr/plot-armor",
-  "sourceCommit": "813508023a85281daa5cf43bd85b8c4d766f4582",
+  "sourceCommit": "bcc54890e5bdedc6274245aacc935f7114012089",
   "poolDemo": {
-    "marketId": "market-1",
+    "approvedDepositWei": "2000000000000000000",
+    "approvedDepositGEN": "2",
+    "approvalSource": "Owner explicitly requested a 2 GEN stake on the submitted PlotPools",
     "wallet": "0x92bf935cc375dd667bf49733ebfcf722f9b32105",
-    "approvedDepositWei": "11",
+    "poolAddress": "0xcFC2062bFab042e9885f58c44a2B8e2Ce061e792",
+    "balances": {
+      "before_stake": {
+        "walletWei": "2000000000000000011",
+        "poolWei": "0",
+        "walletGEN": "2.000000000000000011",
+        "poolGEN": "0",
+        "at": "2026-10-19T15:07:13.808827+00:00"
+      },
+      "after_deposit": {
+        "walletWei": "11",
+        "poolWei": "2000000000000000000",
+        "walletGEN": "0.000000000000000011",
+        "poolGEN": "2",
+        "at": "2026-10-19T15:12:30.641206+00:00"
+      },
+      "after_settlement": {
+        "walletWei": "11",
+        "poolWei": "2000000000000000000",
+        "walletGEN": "0.000000000000000011",
+        "poolGEN": "2",
+        "at": "2026-10-19T15:23:54.494780+00:00"
+      },
+      "after_native_credit": {
+        "walletWei": "2000000000000000011",
+        "poolWei": "0",
+        "walletGEN": "2.000000000000000011",
+        "poolGEN": "0",
+        "at": "2026-10-19T15:24:40.534024+00:00"
+      },
+      "after_verified_paid": {
+        "walletWei": "2000000000000000011",
+        "poolWei": "0",
+        "walletGEN": "2.000000000000000011",
+        "poolGEN": "0",
+        "at": "2026-10-19T15:25:36.331079+00:00"
+      }
+    },
+    "fundingHash": "0x76a65c0f392ca694050eadb8bc4856fe36db5d4dc310c643058753b0c7c0b487",
+    "idsBefore": [
+      "market-1",
+      "market-2",
+      "market-3",
+      "market-4",
+      "market-5",
+      "market-6"
+    ],
+    "stage": "verify",
+    "marketId": "market-7",
+    "winningOption": 0,
     "ticket": "ticket-1",
     "account": {
       "credit": "0",
       "claim": {
         "status": "PAID",
         "attempt": 1,
-        "amount": 11,
-        "requested_at": 1792401030,
-        "parent": "0x359fc4d13c642f0e110291e7f59e79a3132e0f95ec8381330c4bf33ef57294c8",
-        "child": "0xb57fde305b540d1b2bd6394bfa812df054df043fb71219cc4f60f1752d2a4ffe"
+        "amount": 2000000000000000000,
+        "requested_at": 1792423440,
+        "parent": "0xb5452775429a0e1bbe117502d8b0de362a4b784f9c49987458a8318437f62158",
+        "child": "0x744873cb03b361f0300db38d10a40a49cd7d3cc9898fcab34b1c45bd133cc69e"
       }
     },
-    "legacyContracts": {
-      "PlotMarkets": {
-        "address": "0x2f0E4038377eD70855e2B833869A3CE40b96AEC2",
-        "source": "plot_markets.py",
-        "sourceSha256": "2c8b95f017d867f43b4d0df0cbb4d749aad2fa5611e9a7ab970810bf0aae51b8"
+    "pool": {
+      "id": "market-7",
+      "status": "SETTLED",
+      "spec_hash": "078f436452153ec326a2ae33ca10d1ccc5f5f22e3c35a1c33c3c2f55fe8126bd",
+      "deadline": 1793632057,
+      "entry_deadline": 1792423357,
+      "sides": [
+        2000000000000000000,
+        0
+      ],
+      "total": 2000000000000000000,
+      "entries": {
+        "0x92bf935cc375dd667bf49733ebfcf722f9b32105": {
+          "option": 0,
+          "amount": 2000000000000000000
+        }
       },
-      "PlotResolver": {
-        "address": "0x8e0451bd0537acd9Df745d9990d1538d27a10F59",
-        "source": "plot_resolver.py",
-        "sourceSha256": "cb52f19f91855227da2870dee0b95c5ef35c33e00697ef9089c1fa35da32e3d6"
+      "winner": 0,
+      "payouts": {
+        "0x92bf935cc375dd667bf49733ebfcf722f9b32105": 2000000000000000000
       },
-      "PlotPools": {
-        "address": "0xc5f81c02035Baf552bb55b93e3b6D716A0d84F8B",
-        "source": "plot_pools.py",
-        "sourceSha256": "2ad566c0d9090375e99b0fd0a8ab2a97f69b245d04e0ac8988a5b7ea5e3edf7a"
-      },
-      "PlotSeasons": {
-        "address": "0xcDaa4d146A082553A44e0a1385cD93ff9d783FA4",
-        "source": "plot_seasons.py",
-        "sourceSha256": "55e5eeb07c3ffbf149a7037010d43c00d1fad977660417250b2ff59d90e2b0f4"
-      }
+      "mode": "REHEARSAL"
     },
-    "sourceCommit": "a6ade8d0f70174513350ed286d4b268e1cea82bd"
+    "status": "PAID",
+    "verifyCallback": "verify_claim updates verified status directly; it emits no callback",
+    "completedAt": "2026-10-19T15:25:36.345732+00:00"
   },
   "compileDiagnostic": "0xf41CFBd3846E5530143B80a7262025c6c4b9817C",
   "releaseGeneration": 5,
@@ -1188,25 +1325,30 @@
     ]
   },
   "verification": {
-    "verifiedAt": "2026-10-19T14:37:30.447903+00:00",
-    "sourceCommit": "813508023a85281daa5cf43bd85b8c4d766f4582",
-    "fullReleasePass": true,
+    "verifiedAt": "2026-10-19T19:19:34.422185+00:00",
+    "sourceCommit": "bcc54890e5bdedc6274245aacc935f7114012089",
+    "appSourceCommit": "bcc54890e5bdedc6274245aacc935f7114012089",
+    "fullReleasePass": false,
     "contractsVerified": 4,
-    "finalizedReceiptsAndExplorerRecordsVerified": 32,
-    "compileMetadataSnapshotsVerified": 5,
+    "finalizedReceiptsAndExplorerRecordsVerified": 44,
+    "compileMetadataSnapshotsVerified": 6,
     "immutableEvidenceRevisionsVerified": 3,
-    "native11WeiCredited": true,
+    "historicalResolutionEvidenceChecks": 4,
+    "nativePayoutWei": "2000000000000000000",
+    "native2GENCredited": true,
+    "exactWalletAndPoolBalancesVerified": true,
     "realWalletAdapterPrediction": true,
     "overallAndSeasonLeaderboardVerified": true,
+    "extensionPopupTestedPreviously": true,
     "log": "docs/proof-verifier-output.txt",
-    "extensionPopupTested": true,
-    "browserPersonalPredictionVerified": true,
-    "browserReloadPersisted": true,
-    "browserActivityReadbackPersisted": true,
-    "browserViewportChecks": 18,
-    "applicationTestsPassed": 11,
+    "browserViewportChecks": 16,
+    "browserViewportEvidence": ".impeccable/review/submitted-pool/metrics.json",
+    "applicationTestsPassed": 12,
     "directContractTestsPassed": 50,
-    "appSourceCommit": "152b2989fe72e9573fc426ae4bb0ab0c3efc3eec"
+    "genvmSourcesLinted": 6,
+    "typeScriptPassed": true,
+    "eslintPassed": true,
+    "productionBuildPassed": true
   },
   "browserDemo": {
     "hash": "0xcb36e99d7a9c893fa3821b042cf79c009fc7bc83709d03655c5cae1f9072bd4e",
@@ -1224,5 +1366,186 @@
     "personalScoresRevealAndShieldReset": true,
     "activityReadbackPersisted": true
   },
-  "appSourceCommit": "152b2989fe72e9573fc426ae4bb0ab0c3efc3eec"
+  "appSourceCommit": "bcc54890e5bdedc6274245aacc935f7114012089",
+  "payoutUpgrade": {
+    "status": "PAID",
+    "approvedDepositGEN": "2",
+    "approvedDepositWei": "2000000000000000000",
+    "wallet": "0x92bF935cc375Dd667bf49733EBfcf722F9B32105",
+    "poolAddress": "0xcFC2062bFab042e9885f58c44a2B8e2Ce061e792",
+    "preflightWalletBalanceWei": "11",
+    "preflightPoolBalanceWei": "0",
+    "newTransactions": {
+      "submitted-2gen-funding": "0x76a65c0f392ca694050eadb8bc4856fe36db5d4dc310c643058753b0c7c0b487",
+      "submitted-2gen-compile": "0x1f5a429779b34019c31419ecfa2eba3db328b48257ceb0ed8d22204684634f1e",
+      "submitted-2gen-compile-child-0": "0x04e28f5dca7ae988fd1c33916a76607ce9e45ba5c8ebfb70eb801fc537e2d92f",
+      "submitted-2gen-resolve": "0x5f04eb1952bd7c3814fb3df7a7b4959178e51b334eed8eecd2c62c97ba0e63ba",
+      "submitted-2gen-resolve-child-0": "0xbc71f009e1d8b5450ea17b0802b9e1d2f0af0d5de6fa919e42495865e24e0d2a",
+      "submitted-2gen-prepare": "0xa43439ddce78b2ff2170a9e6b8090b83d0fb287be2499d70905e63f3e4f3bac7",
+      "submitted-2gen-deposit": "0xd30e4ab89eaa6d710096c9c509b6e7798462df303954c3666eeb0615117f7dd8",
+      "submitted-2gen-settle": "0x489262bdd3fdb0d24b29adc2fbda5aab4c97f6bba610ea20c6c9804157ba00bd",
+      "submitted-2gen-settle-child-0": "0x7d6185ed7d551ee7f5241ede4d29650a1db38e164229f3ea9cc40e47d231209b",
+      "submitted-2gen-claim": "0xb5452775429a0e1bbe117502d8b0de362a4b784f9c49987458a8318437f62158",
+      "submitted-2gen-claim-child-0": "0x744873cb03b361f0300db38d10a40a49cd7d3cc9898fcab34b1c45bd133cc69e",
+      "submitted-2gen-verify": "0x1d7a3f40fdecb6428d7db759eacf1a7c12ce68c3e63e964dc12d505d86f3e43f"
+    },
+    "contractsChanged": false
+  },
+  "submittedPoolDemo": {
+    "approvedDepositWei": "2000000000000000000",
+    "approvedDepositGEN": "2",
+    "approvalSource": "Owner explicitly requested a 2 GEN stake on the submitted PlotPools",
+    "wallet": "0x92bf935cc375dd667bf49733ebfcf722f9b32105",
+    "poolAddress": "0xcFC2062bFab042e9885f58c44a2B8e2Ce061e792",
+    "balances": {
+      "before_stake": {
+        "walletWei": "2000000000000000011",
+        "poolWei": "0",
+        "walletGEN": "2.000000000000000011",
+        "poolGEN": "0",
+        "at": "2026-10-19T15:07:13.808827+00:00"
+      },
+      "after_deposit": {
+        "walletWei": "11",
+        "poolWei": "2000000000000000000",
+        "walletGEN": "0.000000000000000011",
+        "poolGEN": "2",
+        "at": "2026-10-19T15:12:30.641206+00:00"
+      },
+      "after_settlement": {
+        "walletWei": "11",
+        "poolWei": "2000000000000000000",
+        "walletGEN": "0.000000000000000011",
+        "poolGEN": "2",
+        "at": "2026-10-19T15:23:54.494780+00:00"
+      },
+      "after_native_credit": {
+        "walletWei": "2000000000000000011",
+        "poolWei": "0",
+        "walletGEN": "2.000000000000000011",
+        "poolGEN": "0",
+        "at": "2026-10-19T15:24:40.534024+00:00"
+      },
+      "after_verified_paid": {
+        "walletWei": "2000000000000000011",
+        "poolWei": "0",
+        "walletGEN": "2.000000000000000011",
+        "poolGEN": "0",
+        "at": "2026-10-19T15:25:36.331079+00:00"
+      }
+    },
+    "fundingHash": "0x76a65c0f392ca694050eadb8bc4856fe36db5d4dc310c643058753b0c7c0b487",
+    "idsBefore": [
+      "market-1",
+      "market-2",
+      "market-3",
+      "market-4",
+      "market-5",
+      "market-6"
+    ],
+    "stage": "verify",
+    "marketId": "market-7",
+    "winningOption": 0,
+    "ticket": "ticket-1",
+    "account": {
+      "credit": "0",
+      "claim": {
+        "status": "PAID",
+        "attempt": 1,
+        "amount": 2000000000000000000,
+        "requested_at": 1792423440,
+        "parent": "0xb5452775429a0e1bbe117502d8b0de362a4b784f9c49987458a8318437f62158",
+        "child": "0x744873cb03b361f0300db38d10a40a49cd7d3cc9898fcab34b1c45bd133cc69e"
+      }
+    },
+    "pool": {
+      "id": "market-7",
+      "status": "SETTLED",
+      "spec_hash": "078f436452153ec326a2ae33ca10d1ccc5f5f22e3c35a1c33c3c2f55fe8126bd",
+      "deadline": 1793632057,
+      "entry_deadline": 1792423357,
+      "sides": [
+        2000000000000000000,
+        0
+      ],
+      "total": 2000000000000000000,
+      "entries": {
+        "0x92bf935cc375dd667bf49733ebfcf722f9b32105": {
+          "option": 0,
+          "amount": 2000000000000000000
+        }
+      },
+      "winner": 0,
+      "payouts": {
+        "0x92bf935cc375dd667bf49733ebfcf722f9b32105": 2000000000000000000
+      },
+      "mode": "REHEARSAL"
+    },
+    "status": "PAID",
+    "verifyCallback": "verify_claim updates verified status directly; it emits no callback",
+    "completedAt": "2026-10-19T15:25:36.345732+00:00"
+  },
+  "previousPoolDemos": [
+    {
+      "marketId": "market-1",
+      "wallet": "0x92bf935cc375dd667bf49733ebfcf722f9b32105",
+      "approvedDepositWei": "11",
+      "ticket": "ticket-1",
+      "account": {
+        "credit": "0",
+        "claim": {
+          "status": "PAID",
+          "attempt": 1,
+          "amount": 11,
+          "requested_at": 1792401030,
+          "parent": "0x359fc4d13c642f0e110291e7f59e79a3132e0f95ec8381330c4bf33ef57294c8",
+          "child": "0xb57fde305b540d1b2bd6394bfa812df054df043fb71219cc4f60f1752d2a4ffe"
+        }
+      },
+      "legacyContracts": {
+        "PlotMarkets": {
+          "address": "0x2f0E4038377eD70855e2B833869A3CE40b96AEC2",
+          "source": "plot_markets.py",
+          "sourceSha256": "2c8b95f017d867f43b4d0df0cbb4d749aad2fa5611e9a7ab970810bf0aae51b8"
+        },
+        "PlotResolver": {
+          "address": "0x8e0451bd0537acd9Df745d9990d1538d27a10F59",
+          "source": "plot_resolver.py",
+          "sourceSha256": "cb52f19f91855227da2870dee0b95c5ef35c33e00697ef9089c1fa35da32e3d6"
+        },
+        "PlotPools": {
+          "address": "0xc5f81c02035Baf552bb55b93e3b6D716A0d84F8B",
+          "source": "plot_pools.py",
+          "sourceSha256": "2ad566c0d9090375e99b0fd0a8ab2a97f69b245d04e0ac8988a5b7ea5e3edf7a"
+        },
+        "PlotSeasons": {
+          "address": "0xcDaa4d146A082553A44e0a1385cD93ff9d783FA4",
+          "source": "plot_seasons.py",
+          "sourceSha256": "55e5eeb07c3ffbf149a7037010d43c00d1fad977660417250b2ff59d90e2b0f4"
+        }
+      },
+      "sourceCommit": "a6ade8d0f70174513350ed286d4b268e1cea82bd"
+    }
+  ],
+  "previousVerification": {
+    "verifiedAt": "2026-10-19T14:37:30.447903+00:00",
+    "sourceCommit": "813508023a85281daa5cf43bd85b8c4d766f4582",
+    "fullReleasePass": true,
+    "contractsVerified": 4,
+    "finalizedReceiptsAndExplorerRecordsVerified": 32,
+    "compileMetadataSnapshotsVerified": 5,
+    "immutableEvidenceRevisionsVerified": 3,
+    "native11WeiCredited": true,
+    "realWalletAdapterPrediction": true,
+    "overallAndSeasonLeaderboardVerified": true,
+    "log": "docs/proof-verifier-32-receipt-checkpoint.txt",
+    "extensionPopupTested": true,
+    "browserPersonalPredictionVerified": true,
+    "browserReloadPersisted": true,
+    "browserActivityReadbackPersisted": true,
+    "browserViewportChecks": 18,
+    "applicationTestsPassed": 11,
+    "directContractTestsPassed": 50,
+    "appSourceCommit": "152b2989fe72e9573fc426ae4bb0ab0c3efc3eec"
+  }
 }

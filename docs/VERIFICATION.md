@@ -1,43 +1,62 @@
 # Verification record
 
-The current release is generation 5. The canonical journal is `deploy/proof.json`; the read-only audit output is `docs/proof-verifier-output.txt`. The full read-only audit passed: four deployed sources, 32 finalized receipts and real explorer records, five pinned compiler metadata snapshots, three earliest eligible evidence revisions, YES/NO/multiple-choice/rejection, both live markets, the credited 11 wei claim, and the real free prediction with overall/season standings. See `deploy/verification.json`. Production remote build dpl_Gqo4co2qxyTFY2AVB1LpLVf28aee completed successfully. All seven routes were captured at both requested viewports after the phone grid correction. See `.impeccable/review/flow-checks.json` and `interactive-checks.json`.
+The owner-authorized **2 GEN payout is PAID on the submitted PlotPools**, on owner-only historical market-7. No contract source or address was changed and no contract was redeployed. The expanded independent audit passed all 44 finalized receipts and explorer records, all four deployed source matches, six compiler snapshots and four historical evidence checks across three immutable revisions. The exact current-wallet and pool balances also passed. Final public link audit and release marking follow below.
 
-## Executed checks
+## Checks actually run
 
-GenVM lint passed for the four product contracts and both diagnostic sources. Fifty direct contract tests passed across isolated processes: Markets 16, Pools 16, Resolver 13 and Seasons 5. The current compiler's sixteen tests were rerun after the metadata-only repair. Eleven application tests, strict TypeScript and ESLint passed. Local and remote Next.js production builds passed. The final publication includes another remote production build; no local prebuilt output is deployed.
+The follow-up reran all 50 direct contract tests in isolated processes: Markets 16, Pools 16, Resolver 13 and Seasons 5. GenVM lint passed for all four product sources and both diagnostic sources with the pinned runner. Its latest-runner metadata lookup was unavailable, so it used the local runner cache; the requested runner remained pinned. All 12 app tests, TypeScript, ESLint and the updated local production build passed. The additional app test binds the current-pool proof to its amount and market, while retaining the previous-deployment history case.
 
-Direct tests mock web and model responses and do not establish multi-validator consensus. They cover compile acceptance/rejection, real saved wikitext extraction, digest and quote mismatch, prompt injection, revision timing, UNCLEAR, missing summaries, VOID, deadline refunds, empty winning sides, payout remainders, duplicate claims and authorization.
+Direct tests mock web/model responses. VOID/refund remains **test-only** because no market naturally voided; none was manufactured. These tests also cover injection, missing/unclear summaries, digest/quote mismatch, deadlines, refunds, empty winning sides, payout remainders, duplicate claims and authorization.
 
-## Finalized chain demonstration
+## Finality and balance procedure
 
-The current four-contract deployment has two accepted live War season-one forecasts, three resolved historical rehearsals (YES, NO and multiple choice), and a genuinely rejected subjective question. Historical rehearsals are excluded from competitive scoring. Live calls remain pending until their broadcast and settlement windows.
+The release wallet initially held 11 wei and the submitted pool held zero. The owner funded exactly 2 simulated GEN. A fresh historical rehearsal was compiled and resolved before preparing its winning-option stake. Every parent and emitted callback finalized successfully, with state read back after each stage. Settlement waited until the rehearsal entry cutoff, 19 October 2026 at 15:22:37 UTC; it did not settle a future War market. The pool's allocation totaled exactly 2 GEN. The claim parent and native child finalized, the child explicitly reported value_credited true, then verify_claim finalized and the account read PAID. That method updates status directly and emits no verification callback; no nonexistent callback is claimed.
 
-Compilation selects the latest Wikipedia metadata revision at or before proposal time. Code extracts episode identity, dates and summary-path existence without sending plot bodies to the compiler. An empty future ShortSummary field is a valid path. Validators independently fetch the permanent revision, check its digest, enforce schema and deadlines, and judge the proposed specification. Accepted live cases were run on-chain after the prompt repair. A rejection may omit only `spec: null`; code inserts that null and still rejects unknown keys and malformed accepted specs.
+The script saves each hash before polling. A polling timeout resumes that same hash; an execution/state mismatch halts the run. No failed write was relabeled or resubmitted. The approved 2 GEN deposit occurred once.
 
-The real application wallet adapter sent a zero-value free prediction from a Node EIP-1193 signer. Its transaction finalized successfully; predictions and overall/season leaderboard rows were read back. `deploy/wallet-adapter-check.json` contains the receipt. This verifies signing and transport through the application's actual `send` function. The owner also connected MetaMask in Chrome and signed a real zero-value prediction for market-2. Activity displayed ACCEPTED with its appeal window, preserved the hash across reload, and then displayed FINALIZED SUCCESS. My predictions fetched the actual YES call from finalized state; explicit score reveal showed PENDING and zero points, and global re-shielding hid personal scores again. `docs/browser-verifier-output.txt` independently verifies the receipt, target, value, personal prediction and explorer record.
+## Proven payout on submitted PlotPools
 
-## Approved native payout
+Owner-approved stake and payout: **2 simulated GEN** (2000000000000000000 wei). Market: market-7. Wallet: 0x92bf935cc375dd667bf49733ebfcf722f9b32105. Final claim status: **PAID**.
+Pool: [0xcFC2062bFab042e9885f58c44a2B8e2Ce061e792](https://explorer-studio.genlayer.com/address/0xcFC2062bFab042e9885f58c44a2B8e2Ce061e792).
+verify_claim updates verified status directly; it emits no callback
 
-The owner-approved 11 wei deposit belongs to the preserved previous deployment. Its pool is explicitly identified in `poolDemo.legacyContracts` and the app's Proof panel. The current pool uses identical source; the verifier compares committed and deployed bytes for both implementations. The pool allocated all 11 wei and the account is PAID. Verification requires the claim parent's linked native child to be finalized with `value_credited: true`, the correct recipient, and value 11. No second deposit was made. Rerunning the pool or claim stage exits with completed PAID status.
+| Finalized stage | Wallet (GEN) | PlotPools (GEN) | Wallet (wei) | PlotPools (wei) |
+|---|---:|---:|---:|---:|
+| before_stake | 2.000000000000000011 | 0 | 2000000000000000011 | 0 |
+| after_deposit | 0.000000000000000011 | 2 | 11 | 2000000000000000000 |
+| after_settlement | 0.000000000000000011 | 2 | 11 | 2000000000000000000 |
+| after_native_credit | 2.000000000000000011 | 0 | 2000000000000000011 | 0 |
+| after_verified_paid | 2.000000000000000011 | 0 | 2000000000000000011 | 0 |
 
-The previous partial audit verified four sources, 25 receipts/explorer records, three immutable evidence revisions and the credited native claim, then correctly failed its mandatory missing-rejection check. Its log is retained as `docs/proof-verifier-v3-checkpoint.txt`; it is not presented as a full current-release pass.
+Wallet decrease on deposit and increase on native payout are exactly 2 GEN. The submitted pool returns to its initial native balance.
 
-## Browser evidence
+## New finalized receipts
 
-The interface has been exercised at actual 1440×960 and 390×844. Checks include a preselected NO option, responsive frozen specifications and UTC dates, the no-wallet error, disabled zero-amount stake preparation, deposit gating without a finalized ticket, and live lookup of both an accepted and rejected proposal. Console error/warning lists were empty in those checks. The final 14 captures cover Discover, Propose, Predictions, Activity, Proof, live market and historical multiple-choice detail. All have no horizontal overflow. The deployed UI revealed actual YES, NO and Gregor Clegane outcomes, loaded actual overall and War season standings, cleared rows on scope changes, and cleared quotes/definitions/standings through shield controls. A historical live refresh followed by Hide restored the spoiler mask. Console warnings/errors were empty. Wallet-populated personal state, actual extension signing, and reload-safe Activity were subsequently verified in Chrome with an owner-signed free prediction. The Chrome profile emitted installed-wallet extension injection warnings; the application flow completed. The no-extension in-app-browser route matrix had no console warnings/errors.
+- [submitted-2gen-funding](https://explorer-studio.genlayer.com/tx/0x76a65c0f392ca694050eadb8bc4856fe36db5d4dc310c643058753b0c7c0b487)
+- [submitted-2gen-compile](https://explorer-studio.genlayer.com/tx/0x1f5a429779b34019c31419ecfa2eba3db328b48257ceb0ed8d22204684634f1e)
+- [submitted-2gen-compile-child-0](https://explorer-studio.genlayer.com/tx/0x04e28f5dca7ae988fd1c33916a76607ce9e45ba5c8ebfb70eb801fc537e2d92f)
+- [submitted-2gen-resolve](https://explorer-studio.genlayer.com/tx/0x5f04eb1952bd7c3814fb3df7a7b4959178e51b334eed8eecd2c62c97ba0e63ba)
+- [submitted-2gen-resolve-child-0](https://explorer-studio.genlayer.com/tx/0xbc71f009e1d8b5450ea17b0802b9e1d2f0af0d5de6fa919e42495865e24e0d2a)
+- [submitted-2gen-prepare](https://explorer-studio.genlayer.com/tx/0xa43439ddce78b2ff2170a9e6b8090b83d0fb287be2499d70905e63f3e4f3bac7)
+- [submitted-2gen-deposit](https://explorer-studio.genlayer.com/tx/0xd30e4ab89eaa6d710096c9c509b6e7798462df303954c3666eeb0615117f7dd8)
+- [submitted-2gen-settle](https://explorer-studio.genlayer.com/tx/0x489262bdd3fdb0d24b29adc2fbda5aab4c97f6bba610ea20c6c9804157ba00bd)
+- [submitted-2gen-settle-child-0](https://explorer-studio.genlayer.com/tx/0x7d6185ed7d551ee7f5241ede4d29650a1db38e164229f3ea9cc40e47d231209b)
+- [submitted-2gen-claim](https://explorer-studio.genlayer.com/tx/0xb5452775429a0e1bbe117502d8b0de362a4b784f9c49987458a8318437f62158)
+- [submitted-2gen-claim-child-0](https://explorer-studio.genlayer.com/tx/0x744873cb03b361f0300db38d10a40a49cd7d3cc9898fcab34b1c45bd133cc69e)
+- [submitted-2gen-verify](https://explorer-studio.genlayer.com/tx/0x1d7a3f40fdecb6428d7db759eacf1a7c12ce68c3e63e964dc12d505d86f3e43f)
 
-The initial payload removes historical propositions, definitions, outcomes, evidence and payout data. Global re-shielding clears revealed markets, personal scores and standings; an epoch guard prevents an older in-flight request from restoring revealed content. Recorded proof and live finalized reads are labeled separately.
+## Previous-deployment history
 
-## Schedule and operational limits
+The old 11 wei payout belongs to pool 0xc5f81c02035Baf552bb55b93e3b6D716A0d84F8B, preserved in previousPoolDemos with legacy-prefixed receipts. It is previous-deployment history, not proof of the submitted PlotPools. The earlier full audit's 32-receipt result and the older partial checkpoint are historical verification scopes. The expanded audit verified the new current-pool paid state and all 44 recorded receipts; its output is in docs/proof-verifier-output.txt.
 
-War S1E4 broadcasts October 23, 2026 at 01:00 UTC and first becomes eligible for resolution October 25 at 01:00 UTC. S1E5 broadcasts October 30 at 01:00 UTC and first becomes eligible November 1 at 01:00 UTC. The official monthly schedule and syndicated HBO release support Thursday 9pm Eastern; the official trailer page returned automated HTTP 403. Sources and UTC conversion are preserved in `deploy/schedule-sources.json`. Seeding asserts exact frozen broadcast timestamps.
+## Upcoming live settlements
 
-No natural VOID occurred in the successful historical cases. VOID and refunds are demonstrated in direct tests only; no artificial on-chain VOID is claimed. Wikipedia and StudioNet access can be intermittent. Server RPC budgets are process-local rather than distributed across Vercel instances. The project uses simulated StudioNet GEN. Portal submission remains the owner's action.
+War S1E4 first becomes eligible on **25 October 2026 at 01:00 UTC** (02:00 Lagos). S1E5 first becomes eligible on **1 November 2026 at 01:00 UTC** (02:00 Lagos). These are upcoming live settlements. They were not settled early. npm run settle enforces air time plus 48 hours. The verified official schedule and UTC conversion are preserved in deploy/schedule-sources.json.
 
-## Finish review
+## Browser and release evidence
 
-The fresh full frontend review requested one material change: concise market-detail headings while preserving the exact immutable question in an expandable field. The follow-up reviewer scored that fix resolved and returned `ship` at the fix-only scope. DESIGN.md and its sidecar were refreshed from the built interface. This design verdict does not certify backend consensus; the independent on-chain audit provides that evidence.
+Earlier verification covered all seven original routes at 1440x960 and 390x844, actual MetaMask signing, accepted/appeal-window display, reload persistence, finalized success and state read-back, personal scores and spoiler reset. The current release adds a recorded 2 GEN PAID panel on market-7 and updates Proof to the submitted pool. The updated production app passed all eight routes (including market-7) at 1440x960 and 390x844: 16 checks, no horizontal overflow and no browser warnings/errors. Captures and metrics are in .impeccable/review/submitted-pool. The market-7 panel visibly shows Recorded 2 GEN payout and PAID, with canonical claim and native-transfer links. Contact sheets were visually inspected. Recorded proof is labeled separately from live finalized reads.
 
-The real MetaMask Activity flow was reloaded after finalized success: its state read-back completed, contained market-2/option 0 in shielded form, and persisted across another reload. Polling now continues after finalized success until this read-back exists, so an interrupted read can resume. The additional regression test checks that finalized errors stop and successful receipts without read-back remain retryable. Populated Activity and personal predictions were also checked at both requested viewport sizes; the phone prediction text occupies a full row above its actions.
+## Operational limits
 
-Final production publication completed with a remote build and the public alias. The deployed Proof page displayed verified release status, the rejected question, the PAID archived pool and the owner MetaMask receipt. `deploy/deployment.json` records the final deployment. No required release blockers remain. The Portal draft is prepared but was not submitted.
+StudioNet uses simulated GEN. Wikipedia and RPC access can be intermittent; server read budgets are process-local rather than distributed. Future live outcomes and competitive scores remain pending until eligibility and sufficient evidence. No natural VOID has occurred. The Portal draft is prepared for the owner; it has not been submitted.

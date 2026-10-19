@@ -63,7 +63,7 @@ npm run verify:proof
 
 Hashes persist before polling, and receipt polling uses ten-second intervals. Rerun a stage after interruption; do not blindly send another transaction. `settle` only tries eligible unresolved markets. It does not invent an outcome or send deposits. The first rehearsal compile failed with MAJORITY_DISAGREE; the previous release remains recorded separately in proof history. The repaired compile validator checks a candidate against independent evidence rather than requiring different LLMs to invent identical free-text specs. The final compiler requests ISO timestamps and converts them to Unix seconds in Python; Wikipedia requests use the same explicit browser user agent proven by the access probe.
 
-The compiler repair release preserves the already-paid 11 wei demonstration from the preceding deployment. `poolDemo.legacyContracts` identifies that pool explicitly; the verifier compares its deployed source against both its committed source and the identical current pool implementation. Native receipts carry `legacy-` labels. No second deposit is authorized or made.
+The submitted PlotPools now has its own owner-approved **2 GEN** stake, settled payout and verified PAID native claim on historical market-7. Exact wallet and pool balances are recorded in `deploy/proof.json`. `npm run verify` checks the current paid state, receipts, native credit, balance reconciliation and all documentation links. The old 11 wei payout is preserved in `previousPoolDemos` as previous-deployment history, with `legacy-` receipt labels; it is not used as proof of the submitted pool.
 
 ## Pool accounting
 

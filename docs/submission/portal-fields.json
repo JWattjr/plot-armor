@@ -5,30 +5,30 @@
   "tag1": "Outcome Verification",
   "tag2": "Prediction Markets",
   "oneLiner": "Bet on your favourite shows. GenLayer validators read the episode and settle it — spoiler-free.",
-  "description": "Plot Armor lets friends predict TV episode plots with spoiler-safe results. PlotMarkets uses validator judgment to compile one objective question into a frozen, hashed specification. PlotResolver selects the earliest eligible permanent Wikipedia revision in code, extracts only the episode summary, and asks validators for an outcome and a verbatim quote. Agreement covers the revision, extraction digest, outcome and evidence. PlotPools handles fee-free parimutuel simulated GEN, refunds, remainder wei and pull claims without an LLM. PlotSeasons handles free predictions, points and chronological streaks. Recorded proof is labeled separately from live finalized reads. Historical rehearsals are owner-only for stakes and excluded from competitive scoring. The public source includes resumable release and settlement scripts, source hashes, receipts and a read-only verifier.",
+  "description": "Plot Armor lets friends predict TV episode plots with spoiler-safe results. PlotMarkets compiles one objective question into frozen rules or rejects it. PlotResolver selects a permanent Wikipedia revision in code, extracts the episode summary, and asks validators for an outcome and a verbatim quote. Agreement covers the evidence digest, outcome and quote. PlotPools owns simulated GEN stakes, refunds and pull claims without an LLM. A 2 GEN payout is proven on the submitted PlotPools, including finalized native credit and exact wallet/pool balance reconciliation. PlotSeasons handles free predictions, points and streaks. Historical rehearsals are owner-only for stakes and excluded from competitive scoring. VOID/refund remains test-only; no natural VOID was manufactured. Source, receipts and resumable verification scripts are public.",
   "howTo": [
     {
       "heading": "Browse without a wallet",
-      "instruction": "Open Discover. Inspect upcoming episodes and settlement dates. Historical results remain behind a spoiler shield until you choose to reveal them."
+      "instruction": "Inspect upcoming episodes and settlement dates. Historical results stay shielded until you reveal them."
     },
     {
       "heading": "Inspect immutable evidence",
-      "instruction": "Open a historical market, inspect the frozen spec, then reveal the result. Follow its exact Wikipedia oldid and finalized settlement receipt."
+      "instruction": "Reveal a historical result and follow its exact Wikipedia oldid and finalized receipt."
     },
     {
       "heading": "Propose and predict",
-      "instruction": "Connect a StudioNet wallet. Propose an objective unaired episode question or pick a frozen market option. Inspect compilation or rejection after finality. Free predictions need no GEN deposit."
+      "instruction": "Connect a StudioNet wallet. Propose an objective unaired episode question or make a free prediction. Inspect the compiled rules or rejection after finality."
     },
     {
-      "heading": "Stake and claim",
-      "instruction": "Prepare a wallet-bound ticket, validate it after finality and deposit its exact simulated GEN amount before expiry. Settle an eligible pool, pull the payout and verify the native child credit."
+      "heading": "Inspect the submitted-pool payout",
+      "instruction": "Open market market-7 or Proof. Inspect the 2 GEN PAID claim, native transfer, balances and finality receipts on the submitted PlotPools. The old 11 wei example is previous-deployment history."
     },
     {
       "heading": "Verify the release",
-      "instruction": "Open Proof and the public repository. Run npm run verify:proof for sources, finalized state, immutable evidence, native claims and real explorer API records. Use npm run settle later for eligible markets."
+      "instruction": "Run npm run verify for finalized receipts, submitted-pool paid state, exact balances and all documentation links. Use npm run settle only when live markets become eligible."
     }
   ],
-  "expectedOutcome": "A TV prediction compiles into fixed rules or a clear rejection. Validators settle supported outcomes from permanent Wikipedia evidence; unclear or absent summaries retry until the refund deadline. Code scores free predictions and allocates simulated GEN pools. Results remain shielded until reveal. Inspect the release report for actual finalized demo outcomes, claim status and verification limits.",
+  "expectedOutcome": "A question becomes frozen rules or a rejection. Validators resolve supported outcomes from permanent Wikipedia evidence. The submitted PlotPools has a proven 2 GEN payout with verified native credit and exact balances. VOID/refund is test-only because no natural VOID occurred. Upcoming War settlements remain pending until 25 October and 1 November 2026. Results stay shielded until reveal.",
   "contractLinks": [
     "https://explorer-studio.genlayer.com/address/0xAE26C101532f706265FFc56dbD1C411062E66628",
     "https://explorer-studio.genlayer.com/address/0x311413A6c4f6534Dfb843E44dBf594d37ecdAf1c",

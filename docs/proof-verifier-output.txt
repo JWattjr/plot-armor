@@ -38,6 +38,18 @@ FINALIZED_SUCCESS + explorer resolve-market-5-1 0x174a2b0a90e34ab037ccdce8892fdc
 FINALIZED_SUCCESS + explorer resolve-market-5-1-child-0 0xf94cb25fc2b7099f985576444bcf39847bfeea1c038d78e6d2a2539df598de49
 FINALIZED_SUCCESS + explorer predict-live-free 0x8602b7482798f78f46851f74146dec53800b608f3bfba5506c86e7582ecdd9b6
 FINALIZED_SUCCESS + explorer predict-browser-metamask 0xcb36e99d7a9c893fa3821b042cf79c009fc7bc83709d03655c5cae1f9072bd4e
+FINALIZED_SUCCESS + explorer submitted-2gen-funding 0x76a65c0f392ca694050eadb8bc4856fe36db5d4dc310c643058753b0c7c0b487
+FINALIZED_SUCCESS + explorer submitted-2gen-compile 0x1f5a429779b34019c31419ecfa2eba3db328b48257ceb0ed8d22204684634f1e
+FINALIZED_SUCCESS + explorer submitted-2gen-compile-child-0 0x04e28f5dca7ae988fd1c33916a76607ce9e45ba5c8ebfb70eb801fc537e2d92f
+FINALIZED_SUCCESS + explorer submitted-2gen-resolve 0x5f04eb1952bd7c3814fb3df7a7b4959178e51b334eed8eecd2c62c97ba0e63ba
+FINALIZED_SUCCESS + explorer submitted-2gen-resolve-child-0 0xbc71f009e1d8b5450ea17b0802b9e1d2f0af0d5de6fa919e42495865e24e0d2a
+FINALIZED_SUCCESS + explorer submitted-2gen-prepare 0xa43439ddce78b2ff2170a9e6b8090b83d0fb287be2499d70905e63f3e4f3bac7
+FINALIZED_SUCCESS + explorer submitted-2gen-deposit 0xd30e4ab89eaa6d710096c9c509b6e7798462df303954c3666eeb0615117f7dd8
+FINALIZED_SUCCESS + explorer submitted-2gen-settle 0x489262bdd3fdb0d24b29adc2fbda5aab4c97f6bba610ea20c6c9804157ba00bd
+FINALIZED_SUCCESS + explorer submitted-2gen-settle-child-0 0x7d6185ed7d551ee7f5241ede4d29650a1db38e164229f3ea9cc40e47d231209b
+FINALIZED_SUCCESS + explorer submitted-2gen-claim 0xb5452775429a0e1bbe117502d8b0de362a4b784f9c49987458a8318437f62158
+FINALIZED_SUCCESS + explorer submitted-2gen-claim-child-0 0x744873cb03b361f0300db38d10a40a49cd7d3cc9898fcab34b1c45bd133cc69e
+FINALIZED_SUCCESS + explorer submitted-2gen-verify 0x1d7a3f40fdecb6428d7db759eacf1a7c12ce68c3e63e964dc12d505d86f3e43f
 Pinned compile metadata and extraction path verified market-1 1380962466
 Pinned compile metadata and extraction path verified market-2 1380962466
 Pinned compile metadata and extraction path verified market-3 1378002747
@@ -46,8 +58,10 @@ Pinned compile metadata and extraction path verified market-4 1377083266
 Immutable evidence digest and verbatim quote verified market-4 575401727
 Pinned compile metadata and extraction path verified market-5 1369352962
 Immutable evidence digest and verbatim quote verified market-5 611492258
-Archived identical pool implementation and CONTRACT record verified 0xc5f81c02035Baf552bb55b93e3b6D716A0d84F8B
-Native pool allocation and credited 11-wei claim verified.
+Pinned compile metadata and extraction path verified market-7 1378002747
+Immutable evidence digest and verbatim quote verified market-7 573451886
+Native pool allocation and credited claim verified: 2000000000000000000 wei
+PASS: submitted PlotPools 2 GEN stake, finalized payout, PAID native credit and exact wallet/pool balances verified.
 Real Node EIP-1193 adapter prediction and overall/season leaderboard rows verified; extension popup is outside this check.
 PASS: real owner-signed MetaMask prediction finalized successfully; value 0, correct contract, finalized personal prediction and explorer record verified.
-PASS: all four sources, finalized receipts, permanent evidence, real explorer records, YES/NO/choice/rejection, live markets and 11-wei native claim verified.
+PASS: all four sources, finalized receipts, permanent evidence, real explorer records, YES/NO/choice/rejection, live markets and submitted-pool 2 GEN native claim verified.

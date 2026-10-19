@@ -6,7 +6,7 @@
 
 0:50 — Open Proof and inspect the rejected subjective question. Explain why ambiguity cannot be turned into an arbitrary winner. Describe the retryable UNCLEAR state and the deterministic void/refund deadline; use the real void only if one actually finalized, otherwise clearly show the tests that cover it.
 
-1:10 — Open Proof’s eleven-wei demonstration. It explicitly identifies the preserved previous pool; the current pool uses identical source. Show its stake, code-calculated payout, settlement receipt, claim parent and credited native child. Verify the paid account read-back. Do not imply that a finalized parent alone proves native credit.
+1:10 — Open market-7 and Proof’s 2 GEN demonstration on the submitted PlotPools. Show PAID, the stake, settlement callback, claim parent, credited native child and exact balance table. Explain that verify_claim records the verified credit directly without another callback. Identify the old 11 wei example as previous-deployment history. Do not imply that a finalized parent alone proves native credit.
 
 1:30 — Show Propose a market and My predictions. Free calls require a wallet but no stake. The Activity page tracks reload-safe transaction hashes and distinguishes accepted from finalized success or error.
 
