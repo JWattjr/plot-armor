@@ -6,7 +6,7 @@ import {Shield,ShieldCheck,Eye,EyeOff,ArrowUpRight,ArrowRight,Plus,Search,Wallet
 import {explorer} from '@/lib/explorer';
 import {errorMessage} from '@/lib/errors';
 import {wikipediaRevision} from '@/lib/evidence';
-import {utc,closed,shield,type Market,type Proof,type TxState,type Resolution} from '@/lib/domain';
+import {utc,closed,shield,needsTransactionPolling,type Market,type Proof,type TxState,type Resolution} from '@/lib/domain';
 
 type SavedTx={hash:string;label:string;contract:string;method:string;args:unknown[];state:TxState;sentAt:number;account?:string;appealDeadline?:number|null;error?:string;children?:string[];readback?:unknown};
 type BoardRow={wallet:string;points:number;streak:number;best_streak:number;calls:number};
@@ -22,7 +22,7 @@ function useTransactions(){
  const [txs,setTxs]=useState<SavedTx[]>([]);const [error,setError]=useState('');const [busy,setBusy]=useState(false);
  useEffect(()=>{const timer=setTimeout(()=>{try{const saved=JSON.parse(localStorage.getItem('plot-armor.transactions')??'[]');if(Array.isArray(saved))setTxs(saved.filter(t=>t&&/^0x[\da-f]{64}$/i.test(t.hash)&&typeof t.state==='string'&&Array.isArray(t.args)).slice(0,50))}catch{}},0);return()=>clearTimeout(timer)},[]);
  const update=useCallback((fn:(rows:SavedTx[])=>SavedTx[])=>setTxs(rows=>{const next=fn(rows);localStorage.setItem('plot-armor.transactions',JSON.stringify(next,(_,v)=>typeof v==='bigint'?v.toString():v));return next}),[]);
- const pendingData=txs.find(t=>!t.state.startsWith('FINALIZED'));
+ const pendingData=txs.find(needsTransactionPolling);
  const pendingSerialized=pendingData?JSON.stringify({hash:pendingData.hash,contract:pendingData.contract,method:pendingData.method,args:pendingData.args,account:pendingData.account},(_,v)=>typeof v==='bigint'?v.toString():v):'';
  useEffect(()=>{
   if(!pendingSerialized)return;

@@ -5,6 +5,9 @@ export type Market = {id:string;creator:string;question:string;status:string;acc
 export type NativeDemo = {wei:string;pool:string;wallet:string;status:string;parent?:string;child?:string;archived:boolean};
 export type Proof = {contracts:Record<string,{address:string;source:string;sourceSha256:string}>;transactions:Record<string,string>;markets:Market[];recordedAt?:string;website?:string;github?:string;sourceCommit?:string;submissionReady:boolean;blockers:string[];nativeDemo?:NativeDemo};
 export type TxState = 'SUBMITTED'|'PENDING'|'ACCEPTED'|'FINALIZED_SUCCESS'|'FINALIZED_ERROR';
+export function needsTransactionPolling(t:{state:TxState;readback?:unknown}):boolean {
+  return !t.state.startsWith('FINALIZED')||(t.state==='FINALIZED_SUCCESS'&&t.readback===undefined);
+}
 export function transactionState(r:Record<string,unknown>):TxState {
   const status=r.status_name??r.statusName??r.status;
   if(status==='FINALIZED'||status===7){
