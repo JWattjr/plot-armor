@@ -8,20 +8,21 @@ def address(name):return p['contracts'][name]['address']
 def record():
     if 'PlotMarkets' not in p['contracts']:return
     keys=read(c,address('PlotMarkets'),'get_ids')
-    p['markets']=[]
+    markets=[]
     for key in keys:
         m=read(c,address('PlotMarkets'),'get_market',[key])
         if m.get('accepted') and 'PlotResolver' in p['contracts']:
             m['resolution']=read(c,address('PlotResolver'),'get_resolution',[key])
         if 'PlotPools' in p['contracts']:m['pool']=read(c,address('PlotPools'),'get_pool',[key])
-        p['markets'].append(m);save(p)
+        markets.append(m)
+    p['markets']=markets
     p['recordedAt']=time.strftime('%Y-%m-%dT%H:%M:%SZ',time.gmtime());save(p)
 if stage=='deploy':
     for name,file in names.items():
         if name in p['contracts']:continue
         args=[] if name=='PlotMarkets' else [address('PlotMarkets')] if name=='PlotResolver' else [address('PlotMarkets'),address('PlotResolver')]
         code=(ROOT/'contracts'/file).read_text()
-        receipt=transaction(c,p,'deploy-v4-'+name,code=code,args=args)
+        receipt=transaction(c,p,'deploy-v'+str(p.get('releaseGeneration',4))+'-'+name,code=code,args=args)
         p['contracts'][name]={'address':receipt.get('recipient',receipt.get('to_address')),'source':file,'sourceSha256':hashlib.sha256(code.encode()).hexdigest()};save(p)
 elif stage=='seed':
     cases=[('yes','In Ozymandias (broadcast 2013-09-15T21:00:00-04:00), does Hank Schrader die? Answer YES or NO.','Breaking Bad',5,14),('no','In Felina (broadcast 2013-09-29T21:00:00-04:00), does Jesse Pinkman die? Answer YES or NO.','Breaking Bad',5,16),('choice','In The Mountain and the Viper (broadcast 2014-06-01T21:00:00-04:00), who wins the trial by combat? Options: Oberyn Martell, Gregor Clegane.','Game of Thrones',4,8),('reject','Is this the best episode ever?','Breaking Bad',5,14)]
@@ -42,10 +43,15 @@ elif stage=='seed':
 elif stage=='reject':
     transaction(c,p,adjudication_label(p,'compile-reject'),address('PlotMarkets'),'rehearse',['Is this finale the best episode ever?','Severance (TV series)',2,10]);record()
 elif stage=='live':
-    for e,q in [(4,'In War season 1 episode 4 (broadcast 2026-10-22T21:00:00-04:00), does Johnny Warren resign from Cathcarts? Answer YES or NO.'),(5,'In War season 1 episode 5 (broadcast 2026-10-29T21:00:00-04:00), do Morgan Henderson and Carla Duval sign a final divorce agreement? Answer YES or NO.')]:
-        if any(m.get('spec') and not m['spec']['rehearsal'] and m['spec']['episode']==e and m['spec']['show'].casefold().startswith('war') for m in p['markets']):continue
-        transaction(c,p,adjudication_label(p,'compile-live-disambiguated-'+str(e)),address('PlotMarkets'),'propose',[q,'War (TV series)',1,e]);record()
+    for e,q in [(4,'In the upcoming episode Sing (broadcast 2026-10-22T21:00:00-04:00), does Johnny Warren die? Answer YES or NO.'),(5,'In the upcoming episode Every Little Thing She Does (broadcast 2026-10-29T21:00:00-04:00), do Morgan Henderson and Carla Duval sign a final divorce agreement? Answer YES or NO.')]:
         expected_air={4:1792717200,5:1793322000}[e]
+        base='compile-live-upcoming-'+str(e)
+        existing=[m for m in p['markets'] if m.get('spec') and not m['spec']['rehearsal'] and m['spec']['episode']==e and m['spec']['show'].casefold().startswith('war')]
+        if existing:
+            assert all(m['spec']['air_utc']==expected_air for m in existing),'Frozen live broadcast differs from the verified official schedule'
+            if base in p['transactions']:transaction(c,p,base,address('PlotMarkets'),'propose',[q,'War (TV series)',1,e]);record()
+            continue
+        transaction(c,p,adjudication_label(p,base),address('PlotMarkets'),'propose',[q,'War (TV series)',1,e]);record()
         for market in p['markets']:
             spec=market.get('spec')
             if spec and not spec['rehearsal'] and spec['episode']==e:

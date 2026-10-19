@@ -14,7 +14,16 @@ _post = provider.requests.post
 def browser_post(url, **kwargs):
     kwargs['headers'] = {**kwargs.get('headers', {}), 'User-Agent': 'Mozilla/5.0 PlotArmor/1.0'}
     kwargs.setdefault('timeout', 60)
-    return _post(url, **kwargs)
+    payload=kwargs.get('json')
+    if payload is None:
+        try:payload=json.loads(kwargs.get('data') or '{}')
+        except (ValueError,TypeError):payload={}
+    method=payload.get('method','') if isinstance(payload,dict) else ''
+    readonly=method.startswith(('eth_get','gen_get','sim_get')) or method in ('gen_call','eth_call','eth_gasPrice','eth_estimateGas')
+    for attempt in range(3 if readonly else 1):
+        response=_post(url, **kwargs)
+        if not readonly or response.status_code not in (429,500,502,503,504) or attempt==2:return response
+        time.sleep(3*(attempt+1))
 provider.requests.post = browser_post
 
 def signer(index=0):

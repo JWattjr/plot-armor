@@ -19,7 +19,7 @@ export function transactionState(r:Record<string,unknown>):TxState {
 }
 export function shield(m:Market):Market {
   const r=m.resolution;
-  return {...m,spec:m.spec?.rehearsal?{...m.spec,proposition:'Historical proposition hidden until result reveal.'}:m.spec,reason:m.accepted?'Frozen specification accepted by validators.':m.reason,pool:m.pool?{status:m.pool.status,total:m.pool.total,sides:m.pool.sides,deadline:m.pool.deadline}:undefined,resolution:r?{status:r.status,attempt:r.attempt}:undefined};
+  return {...m,spec:m.spec?.rehearsal?{...m.spec,proposition:'Historical proposition hidden until result reveal.',definitions:'Historical definitions hidden until result reveal.'}:m.spec,reason:m.accepted?'Frozen specification accepted by validators.':m.reason,pool:m.pool?{status:m.pool.status,total:m.pool.total,sides:m.pool.sides,deadline:m.pool.deadline}:undefined,resolution:r?{status:r.status,attempt:r.attempt}:undefined};
 }
 export function publicProof(p:Proof&{poolDemo?:{approvedDepositWei:string;wallet:string;legacyContracts?:Proof['contracts'];account?:{claim?:{status?:string;parent?:string;child?:string}}}}):Proof{
   // Whitelist fields: raw probe samples and previous releases can themselves
