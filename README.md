@@ -63,13 +63,15 @@ npm run verify:proof
 
 Hashes persist before polling, and receipt polling uses ten-second intervals. Rerun a stage after interruption; do not blindly send another transaction. `settle` only tries eligible unresolved markets. It does not invent an outcome or send deposits. The first rehearsal compile failed with MAJORITY_DISAGREE; the previous release remains recorded separately in proof history. The repaired compile validator checks a candidate against independent evidence rather than requiring different LLMs to invent identical free-text specs. The final compiler requests ISO timestamps and converts them to Unix seconds in Python; Wikipedia requests use the same explicit browser user agent proven by the access probe.
 
+The compiler repair release preserves the already-paid 11 wei demonstration from the preceding deployment. `poolDemo.legacyContracts` identifies that pool explicitly; the verifier compares its deployed source against both its committed source and the identical current pool implementation. Native receipts carry `legacy-` labels. No second deposit is authorized or made.
+
 ## Pool accounting
 
 Prepare a zero-value stake ticket, wait for finality, then deposit its exact amount before expiry. Invalid well-formed deposits create wallet refund credits. A finalized failed payable call that credited value can be recovered using its immutable protocol receipt. Code distributes the entire parimutuel pot with cumulative integer allocation, including remainder wei. VOID, empty winning sides and unresolved deadlines refund stakes. Claims emit a separate native transfer on finality. A pending claim cannot be repeated; only an explicitly failed native credit permits a retry. Unknown or delayed receipts never authorize a duplicate transfer.
 
 ## Spoiler shield
 
-The initial server payload removes outcomes, evidence quotes, revision URLs and wallet payouts. A viewer must explicitly reveal a market to fetch its recorded outcome. CSS blurs neutral placeholder shapes; it does not merely hide readable spoiler text. Market refresh controls label live finalized reads separately from recorded proof. My predictions preserve the shield before personal scoring is revealed.
+The initial server payload removes outcomes, evidence quotes, revision URLs, wallet payouts and historical propositions that could themselves disclose a winner. A viewer must explicitly reveal a market to fetch its recorded outcome. CSS blurs neutral placeholder shapes; it does not merely hide readable spoiler text. Market refresh controls label live finalized reads separately from recorded proof. My predictions preserve the shield before personal scoring is revealed.
 
 ## Limitations
 

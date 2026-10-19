@@ -11,7 +11,7 @@ if p.get('releaseGeneration')==4:
 assert p['poolDemo']['account']['claim']['status']=='PAID'
 old=copy.deepcopy(p)
 old.pop('previousReleases',None)
-old['sourceCommit']='a6ade8d'+subprocess.check_output(['git','rev-parse','a6ade8d'],cwd=ROOT,text=True).strip()[7:]
+old['sourceCommit']=subprocess.check_output(['git','rev-parse','a6ade8d'],cwd=ROOT,text=True).strip()
 archive=ROOT/'deploy/previous-v3-receipts'
 assert not archive.exists(),'Archive exists; inspect before migrating'
 shutil.copytree(ROOT/'deploy/receipts',archive)

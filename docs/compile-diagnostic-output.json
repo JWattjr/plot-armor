@@ -1,0 +1,16 @@
+{
+  "transaction": "0x0afc03cab3ccfc68aeae92aa3e554bdd7bc8e377cbfa628f57b9a47f48bed109",
+  "records": [
+    {
+      "executionResult": "ERROR",
+      "error": "\u0001[EXPECTED] invalid compile JSON",
+      "stdout": "COMPILE_MODEL_OUTPUT={\"accepted\":false,\"reason\":\"Missing verifiable episode identity and no summary path from supplied article text: the only supplied Wikipedia title is \\\"The Undeclared War,\\\" not an individual episode article, and the season 1/2 episode tables have empty ShortSummary fields. The question's show/title/character details (\\\"WAR\\\", \\\"Johnny Warren\\\", \\\"Cathcarts\\\") do not match the supplied article, and the broadcast date 2026-10-22 does not agree with the supplied article's season 2 release date of 2026-07-21 (UK) / 2026-08-27 (US).\"}\n"
+    },
+    {
+      "executionResult": "ERROR",
+      "error": "\u0001[EXPECTED] invalid compile JSON",
+      "stdout": ""
+    }
+  ],
+  "finding": "A rejected model response omitted spec:null. The repaired compiler canonicalizes only this missing null, then enforces the exact schema."
+}

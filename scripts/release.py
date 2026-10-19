@@ -43,7 +43,13 @@ elif stage=='reject':
     transaction(c,p,adjudication_label(p,'compile-reject'),address('PlotMarkets'),'rehearse',['Is this finale the best episode ever?','Severance (TV series)',2,10]);record()
 elif stage=='live':
     for e,q in [(4,'In War season 1 episode 4 (broadcast 2026-10-22T21:00:00-04:00), does Johnny Warren resign from Cathcarts? Answer YES or NO.'),(5,'In War season 1 episode 5 (broadcast 2026-10-29T21:00:00-04:00), do Morgan Henderson and Carla Duval sign a final divorce agreement? Answer YES or NO.')]:
-        transaction(c,p,adjudication_label(p,'compile-live-'+str(e)),address('PlotMarkets'),'propose',[q,'WAR',1,e]);record()
+        if any(m.get('spec') and not m['spec']['rehearsal'] and m['spec']['episode']==e and m['spec']['show'].casefold().startswith('war') for m in p['markets']):continue
+        transaction(c,p,adjudication_label(p,'compile-live-disambiguated-'+str(e)),address('PlotMarkets'),'propose',[q,'War (TV series)',1,e]);record()
+        expected_air={4:1792717200,5:1793322000}[e]
+        for market in p['markets']:
+            spec=market.get('spec')
+            if spec and not spec['rehearsal'] and spec['episode']==e:
+                assert spec['air_utc']==expected_air,'Frozen live broadcast differs from the verified official schedule'
 elif stage=='settle':
     record()
     for m in p['markets']:
@@ -92,6 +98,13 @@ elif stage=='claim':
 elif stage=='free':
     record()
     live=[m for m in p['markets'] if m.get('accepted') and not m['spec']['rehearsal']]
+    if not live:
+        # Demo dependency: seed the disambiguated live candidates first. The
+        # parent does not write while its child runs, then reloads the journal.
+        result=subprocess.run([sys.executable,'scripts/release.py','live'])
+        assert result.returncode==0,'Live demo preparation failed; rerun to resume'
+        p=json.loads((ROOT/'deploy/proof.json').read_text(encoding='utf8'))
+        live=[m for m in p['markets'] if m.get('accepted') and not m['spec']['rehearsal']]
     assert live,'No live market'
     from chain import signer
     result=subprocess.run(['node','--import','tsx','scripts/check-wallet-adapter.mjs']);assert result.returncode==0,'Wallet adapter check failed'

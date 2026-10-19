@@ -51,7 +51,7 @@ def main():
     assert len(p['contracts'])==4,'Four contracts not yet recorded'
     assert p.get('sourceCommit'),'Source commit missing'
     assert subprocess.check_output(['git','cat-file','-t',p['sourceCommit']],cwd=ROOT,text=True).strip()=='commit'
-    links=json.loads(subprocess.check_output(['node','--import','tsx','scripts/links.ts'],cwd=ROOT,text=True))
+    links=json.loads(subprocess.check_output(['node','--import','tsx','scripts/links.ts',str(ROOT/args.proof)],cwd=ROOT,text=True))
     session=requests.Session();session.headers['User-Agent']='Mozilla/5.0 PlotArmorProof/1.0'
     session.mount('https://',HTTPAdapter(max_retries=Retry(total=2,backoff_factor=2,status_forcelist=[429,500,502,503,504],allowed_methods=['GET'])))
     for name,contract in p['contracts'].items():
@@ -115,8 +115,7 @@ def main():
         assert hashlib.sha256(committed).hexdigest()==legacy['sourceSha256']==p['contracts']['PlotPools']['sourceSha256'],'Archived payout must use the identical pool implementation'
         deployed=c.provider.make_request('gen_getContractCode',[pool_address])['result']
         assert base64.b64decode(deployed)==committed,'Archived pool source mismatch'
-        from urllib.parse import urlsplit
-        legacy_api=links['contracts']['PlotPools']['api'].replace(p['contracts']['PlotPools']['address'],pool_address)
+        legacy_api=links['legacyContracts']['PlotPools']['api']
         response=session.get(legacy_api,timeout=40);response.raise_for_status();assert response.json().get('type')=='CONTRACT'
         print('Archived identical pool implementation and CONTRACT record verified',pool_address,flush=True)
     def pool_read(method,args):

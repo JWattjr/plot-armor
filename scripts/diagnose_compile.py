@@ -4,9 +4,9 @@ from chain import ROOT, client, transaction, save
 
 p=json.loads((ROOT/'deploy/proof.json').read_text(encoding='utf8'))
 c=client()
-source=(ROOT/'contracts/plot_markets.py').read_text(encoding='utf8')
-source=source.replace("    require(type(answer) is dict and set(answer)==", "    print('COMPILE_MODEL_OUTPUT='+canonical(answer))\n    require(type(answer) is dict and set(answer)==",1)
-(ROOT/'contracts/compile_diagnostic.py').write_text(source,encoding='utf8')
+source=(ROOT/'contracts/compile_diagnostic.py').read_text(encoding='utf8')
+# This frozen instrumented source reproduces the preceding compiler defect.
+# It is intentionally separate from the repaired product implementation.
 if not p.get('compileDiagnostic'):
     result=transaction(c,p,'deploy-compile-diagnostic',code=source)
     p['compileDiagnostic']=result.get('recipient',result.get('to_address'))

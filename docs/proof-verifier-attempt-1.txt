@@ -1,0 +1,21 @@
+CONTRACT verified PlotMarkets https://explorer-studio.genlayer.com/address/0x2f0E4038377eD70855e2B833869A3CE40b96AEC2
+CONTRACT verified PlotResolver https://explorer-studio.genlayer.com/address/0x8e0451bd0537acd9Df745d9990d1538d27a10F59
+CONTRACT verified PlotPools https://explorer-studio.genlayer.com/address/0xc5f81c02035Baf552bb55b93e3b6D716A0d84F8B
+CONTRACT verified PlotSeasons https://explorer-studio.genlayer.com/address/0xcDaa4d146A082553A44e0a1385cD93ff9d783FA4
+FINALIZED_SUCCESS + explorer deploy-v3-PlotMarkets 0x83e94b4d25822522aed44ab97dc5a4d6d5dfd9c56121f5b0b3bb44281396f8b1
+FINALIZED_SUCCESS + explorer deploy-v3-PlotResolver 0x24407a1e6cc0ac4a21fd2ccca51aaba31a905bc8e2458e5ab4f70bed59a1744c
+FINALIZED_SUCCESS + explorer deploy-v3-PlotPools 0x82b1a945c7880566ffa138c315ad4171543fe7dff240529298fbd3f065e91df7
+FINALIZED_SUCCESS + explorer deploy-v3-PlotSeasons 0x74fa8e5bbb060b97e2a79955d3f001c659eb248e2adb3d6f579446a4e013b66e
+FINALIZED_SUCCESS + explorer compile-yes 0xf6ce5814d6844512bfa32ef7c03beb7ae1b9e350f688ec0fb668175611412fb0
+FINALIZED_SUCCESS + explorer compile-yes-child-0 0xc03c2755dce83afad69c228a18b789ffb68d315190437bd735782cabfb632607
+FINALIZED_SUCCESS + explorer fund-demo 0xc2f8528c7f270c1721f78b00adf308e7c8a8c05fcda39542374e317a4feadf87
+Traceback (most recent call last):
+  File "C:\Users\User\Desktop\Genlayer apps\plot-armor\scripts\verify_proof.py", line 121, in <module>
+    if __name__=='__main__':main()
+                            ~~~~^^
+  File "C:\Users\User\Desktop\Genlayer apps\plot-armor\scripts\verify_proof.py", line 68, in main
+    response=session.get(links['transactions'][name]['api'],timeout=40);response.raise_for_status();data=response.json()
+                                                                        ~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\User\AppData\Roaming\Python\Python314\site-packages\requests\models.py", line 1026, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 503 Server Error: Service Unavailable for url: https://explorer-studio.genlayer.com/api/transactions/0x86e95a13db490b31855823d0e3230c72e4f6fba57e712b263b90d2695a6f887a
