@@ -108,8 +108,7 @@ VOID/refund is test-only: no natural VOID was manufactured. War live settlements
 
 ## Release status
 
-Not marked submission-ready. See verification results and blockers.
+Required release proof is verified.
 
-- Final public URL audit and submission-ready production confirmation in progress.
 
 Portal field lengths: {"oneLiner":95,"description":841,"expectedOutcome":391}.

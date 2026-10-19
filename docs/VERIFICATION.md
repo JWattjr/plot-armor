@@ -1,6 +1,6 @@
 # Verification record
 
-The owner-authorized **2 GEN payout is PAID on the submitted PlotPools**, on owner-only historical market-7. No contract source or address was changed and no contract was redeployed. The expanded independent audit passed all 44 finalized receipts and explorer records, all four deployed source matches, six compiler snapshots and four historical evidence checks across three immutable revisions. The exact current-wallet and pool balances also passed. Final public link audit and release marking follow below.
+The owner-authorized **2 GEN payout is PAID on the submitted PlotPools**, on owner-only historical market-7. No contract source or address was changed and no contract was redeployed. The expanded independent audit passed all 44 finalized receipts and explorer records, all four deployed source matches, six compiler snapshots and four historical evidence checks across three immutable revisions. The exact current-wallet and pool balances also passed. The release is marked submission-ready. The final public link audit passed all 68 distinct URLs: 8 contract records, 45 transaction/API references and 15 other HTTP 200 links, with zero failures. The 45 references comprise 44 canonical transaction pages plus one archived API citation. Explorer API requests used a browser user agent. Full results are in docs/link-audit.json.
 
 ## Checks actually run
 
@@ -55,7 +55,7 @@ War S1E4 first becomes eligible on **25 October 2026 at 01:00 UTC** (02:00 Lagos
 
 ## Browser and release evidence
 
-Earlier verification covered all seven original routes at 1440x960 and 390x844, actual MetaMask signing, accepted/appeal-window display, reload persistence, finalized success and state read-back, personal scores and spoiler reset. The current release adds a recorded 2 GEN PAID panel on market-7 and updates Proof to the submitted pool. The updated production app passed all eight routes (including market-7) at 1440x960 and 390x844: 16 checks, no horizontal overflow and no browser warnings/errors. Captures and metrics are in .impeccable/review/submitted-pool. The market-7 panel visibly shows Recorded 2 GEN payout and PAID, with canonical claim and native-transfer links. Contact sheets were visually inspected. Recorded proof is labeled separately from live finalized reads.
+Earlier verification covered all seven original routes at 1440x960 and 390x844, actual MetaMask signing, accepted/appeal-window display, reload persistence, finalized success and state read-back, personal scores and spoiler reset. The current release adds a recorded 2 GEN PAID panel on market-7 and updates Proof to the submitted pool. The updated production app passed all eight routes (including market-7) at 1440x960 and 390x844: 16 checks, no horizontal overflow and no browser warnings/errors. Captures and metrics are in .impeccable/review/submitted-pool. The market-7 panel visibly shows Recorded 2 GEN payout and PAID, with canonical claim and native-transfer links. Contact sheets were visually inspected. A production live-finalized market refresh, result reveal and spoiler-shield reset also passed. Recorded proof is labeled separately from live finalized reads.
 
 ## Operational limits
 

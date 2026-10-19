@@ -1,12 +1,12 @@
 {
-  "checkedAt": "2026-10-19T15:05:21.845883+00:00",
+  "checkedAt": "2026-10-19T19:21:26.553615+00:00",
   "scope": "All distinct HTTP URLs in README.md and docs, including portal-fields.json and this report",
   "counts": {
     "contract": 8,
-    "transaction": 33,
+    "transaction": 45,
     "other": 15
   },
-  "passed": 56,
+  "passed": 68,
   "failed": 0,
   "results": [
     {
@@ -98,6 +98,7 @@
       "files": [
         "docs/RELEASE_REPORT.md",
         "docs/link-audit.json",
+        "docs/proof-verifier-32-receipt-checkpoint.txt",
         "docs/proof-verifier-output.txt",
         "docs/submission/portal-fields.json"
       ]
@@ -121,6 +122,7 @@
       "files": [
         "docs/RELEASE_REPORT.md",
         "docs/link-audit.json",
+        "docs/proof-verifier-32-receipt-checkpoint.txt",
         "docs/proof-verifier-output.txt",
         "docs/submission/portal-fields.json"
       ]
@@ -133,6 +135,7 @@
       "files": [
         "docs/RELEASE_REPORT.md",
         "docs/link-audit.json",
+        "docs/proof-verifier-32-receipt-checkpoint.txt",
         "docs/proof-verifier-output.txt",
         "docs/submission/portal-fields.json"
       ]
@@ -167,7 +170,9 @@
       "recordVerified": true,
       "files": [
         "docs/RELEASE_REPORT.md",
+        "docs/VERIFICATION.md",
         "docs/link-audit.json",
+        "docs/proof-verifier-32-receipt-checkpoint.txt",
         "docs/proof-verifier-output.txt",
         "docs/submission/portal-fields.json"
       ]
@@ -180,6 +185,16 @@
       "files": [
         "docs/link-audit.json",
         "docs/proof-verifier-attempt-1.txt"
+      ]
+    },
+    {
+      "url": "https://explorer-studio.genlayer.com/tx/0x04e28f5dca7ae988fd1c33916a76607ce9e45ba5c8ebfb70eb801fc537e2d92f",
+      "type": "transaction",
+      "httpStatus": 200,
+      "recordVerified": true,
+      "files": [
+        "docs/RELEASE_REPORT.md",
+        "docs/VERIFICATION.md"
       ]
     },
     {
@@ -233,6 +248,26 @@
       ]
     },
     {
+      "url": "https://explorer-studio.genlayer.com/tx/0x1d7a3f40fdecb6428d7db759eacf1a7c12ce68c3e63e964dc12d505d86f3e43f",
+      "type": "transaction",
+      "httpStatus": 200,
+      "recordVerified": true,
+      "files": [
+        "docs/RELEASE_REPORT.md",
+        "docs/VERIFICATION.md"
+      ]
+    },
+    {
+      "url": "https://explorer-studio.genlayer.com/tx/0x1f5a429779b34019c31419ecfa2eba3db328b48257ceb0ed8d22204684634f1e",
+      "type": "transaction",
+      "httpStatus": 200,
+      "recordVerified": true,
+      "files": [
+        "docs/RELEASE_REPORT.md",
+        "docs/VERIFICATION.md"
+      ]
+    },
+    {
       "url": "https://explorer-studio.genlayer.com/tx/0x359fc4d13c642f0e110291e7f59e79a3132e0f95ec8381330c4bf33ef57294c8",
       "type": "transaction",
       "httpStatus": 200,
@@ -273,6 +308,16 @@
       ]
     },
     {
+      "url": "https://explorer-studio.genlayer.com/tx/0x489262bdd3fdb0d24b29adc2fbda5aab4c97f6bba610ea20c6c9804157ba00bd",
+      "type": "transaction",
+      "httpStatus": 200,
+      "recordVerified": true,
+      "files": [
+        "docs/RELEASE_REPORT.md",
+        "docs/VERIFICATION.md"
+      ]
+    },
+    {
       "url": "https://explorer-studio.genlayer.com/tx/0x590912907af0b732518ae854431d5f076cc773f51002bc46c3cda7ead7c03a6b",
       "type": "transaction",
       "httpStatus": 200,
@@ -293,6 +338,36 @@
       ]
     },
     {
+      "url": "https://explorer-studio.genlayer.com/tx/0x5f04eb1952bd7c3814fb3df7a7b4959178e51b334eed8eecd2c62c97ba0e63ba",
+      "type": "transaction",
+      "httpStatus": 200,
+      "recordVerified": true,
+      "files": [
+        "docs/RELEASE_REPORT.md",
+        "docs/VERIFICATION.md"
+      ]
+    },
+    {
+      "url": "https://explorer-studio.genlayer.com/tx/0x744873cb03b361f0300db38d10a40a49cd7d3cc9898fcab34b1c45bd133cc69e",
+      "type": "transaction",
+      "httpStatus": 200,
+      "recordVerified": true,
+      "files": [
+        "docs/RELEASE_REPORT.md",
+        "docs/VERIFICATION.md"
+      ]
+    },
+    {
+      "url": "https://explorer-studio.genlayer.com/tx/0x76a65c0f392ca694050eadb8bc4856fe36db5d4dc310c643058753b0c7c0b487",
+      "type": "transaction",
+      "httpStatus": 200,
+      "recordVerified": true,
+      "files": [
+        "docs/RELEASE_REPORT.md",
+        "docs/VERIFICATION.md"
+      ]
+    },
+    {
       "url": "https://explorer-studio.genlayer.com/tx/0x770fde8b939c092f965142f3fc1f6f2822f847c7f4a204e7b3d87dc4f5b4c779",
       "type": "transaction",
       "httpStatus": 200,
@@ -300,6 +375,16 @@
       "files": [
         "docs/RELEASE_REPORT.md",
         "docs/link-audit.json"
+      ]
+    },
+    {
+      "url": "https://explorer-studio.genlayer.com/tx/0x7d6185ed7d551ee7f5241ede4d29650a1db38e164229f3ea9cc40e47d231209b",
+      "type": "transaction",
+      "httpStatus": 200,
+      "recordVerified": true,
+      "files": [
+        "docs/RELEASE_REPORT.md",
+        "docs/VERIFICATION.md"
       ]
     },
     {
@@ -373,6 +458,16 @@
       ]
     },
     {
+      "url": "https://explorer-studio.genlayer.com/tx/0xa43439ddce78b2ff2170a9e6b8090b83d0fb287be2499d70905e63f3e4f3bac7",
+      "type": "transaction",
+      "httpStatus": 200,
+      "recordVerified": true,
+      "files": [
+        "docs/RELEASE_REPORT.md",
+        "docs/VERIFICATION.md"
+      ]
+    },
+    {
       "url": "https://explorer-studio.genlayer.com/tx/0xa6e113ba76bda8b2edf1297c1de67c38de4bdfa41dc3ddf8302eae74b2818642",
       "type": "transaction",
       "httpStatus": 200,
@@ -393,6 +488,16 @@
       ]
     },
     {
+      "url": "https://explorer-studio.genlayer.com/tx/0xb5452775429a0e1bbe117502d8b0de362a4b784f9c49987458a8318437f62158",
+      "type": "transaction",
+      "httpStatus": 200,
+      "recordVerified": true,
+      "files": [
+        "docs/RELEASE_REPORT.md",
+        "docs/VERIFICATION.md"
+      ]
+    },
+    {
       "url": "https://explorer-studio.genlayer.com/tx/0xb57fde305b540d1b2bd6394bfa812df054df043fb71219cc4f60f1752d2a4ffe",
       "type": "transaction",
       "httpStatus": 200,
@@ -400,6 +505,16 @@
       "files": [
         "docs/RELEASE_REPORT.md",
         "docs/link-audit.json"
+      ]
+    },
+    {
+      "url": "https://explorer-studio.genlayer.com/tx/0xbc71f009e1d8b5450ea17b0802b9e1d2f0af0d5de6fa919e42495865e24e0d2a",
+      "type": "transaction",
+      "httpStatus": 200,
+      "recordVerified": true,
+      "files": [
+        "docs/RELEASE_REPORT.md",
+        "docs/VERIFICATION.md"
       ]
     },
     {
@@ -430,6 +545,16 @@
       "files": [
         "docs/RELEASE_REPORT.md",
         "docs/link-audit.json"
+      ]
+    },
+    {
+      "url": "https://explorer-studio.genlayer.com/tx/0xd30e4ab89eaa6d710096c9c509b6e7798462df303954c3666eeb0615117f7dd8",
+      "type": "transaction",
+      "httpStatus": 200,
+      "recordVerified": true,
+      "files": [
+        "docs/RELEASE_REPORT.md",
+        "docs/VERIFICATION.md"
       ]
     },
     {
@@ -530,7 +655,8 @@
       "httpStatus": 200,
       "recordVerified": false,
       "files": [
-        "README.md"
+        "README.md",
+        "docs/link-audit.json"
       ]
     },
     {
@@ -571,7 +697,8 @@
       "httpStatus": 200,
       "recordVerified": false,
       "files": [
-        "README.md"
+        "README.md",
+        "docs/link-audit.json"
       ]
     },
     {
