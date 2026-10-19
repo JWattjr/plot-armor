@@ -1,0 +1,41 @@
+CONTRACT verified PlotMarkets https://explorer-studio.genlayer.com/address/0x2f0E4038377eD70855e2B833869A3CE40b96AEC2
+CONTRACT verified PlotResolver https://explorer-studio.genlayer.com/address/0x8e0451bd0537acd9Df745d9990d1538d27a10F59
+CONTRACT verified PlotPools https://explorer-studio.genlayer.com/address/0xc5f81c02035Baf552bb55b93e3b6D716A0d84F8B
+CONTRACT verified PlotSeasons https://explorer-studio.genlayer.com/address/0xcDaa4d146A082553A44e0a1385cD93ff9d783FA4
+FINALIZED_SUCCESS + explorer deploy-v3-PlotMarkets 0x83e94b4d25822522aed44ab97dc5a4d6d5dfd9c56121f5b0b3bb44281396f8b1
+FINALIZED_SUCCESS + explorer deploy-v3-PlotResolver 0x24407a1e6cc0ac4a21fd2ccca51aaba31a905bc8e2458e5ab4f70bed59a1744c
+FINALIZED_SUCCESS + explorer deploy-v3-PlotPools 0x82b1a945c7880566ffa138c315ad4171543fe7dff240529298fbd3f065e91df7
+FINALIZED_SUCCESS + explorer deploy-v3-PlotSeasons 0x74fa8e5bbb060b97e2a79955d3f001c659eb248e2adb3d6f579446a4e013b66e
+FINALIZED_SUCCESS + explorer compile-yes 0xf6ce5814d6844512bfa32ef7c03beb7ae1b9e350f688ec0fb668175611412fb0
+FINALIZED_SUCCESS + explorer compile-yes-child-0 0xc03c2755dce83afad69c228a18b789ffb68d315190437bd735782cabfb632607
+FINALIZED_SUCCESS + explorer fund-demo 0xc2f8528c7f270c1721f78b00adf308e7c8a8c05fcda39542374e317a4feadf87
+FINALIZED_SUCCESS + explorer prepare-demo-stake 0x86e95a13db490b31855823d0e3230c72e4f6fba57e712b263b90d2695a6f887a
+FINALIZED_SUCCESS + explorer deposit-demo-11-wei 0x903736dd42ca5ab4e3b21b103e299b69e3051000095306dfcad0d6c3d685a9a4
+FINALIZED_SUCCESS + explorer compile-no 0xbbb5bdc2caa32766701726ec6c34924ee28a281844f5445003fdded60fa0df42
+FINALIZED_SUCCESS + explorer compile-no-child-0 0xc16cc579f25a440ec285aabe5100162adc19358f415f008d3d0359ec2e920f06
+FINALIZED_SUCCESS + explorer compile-choice 0x2fef1e9d95548f87dd18a034182962663f406b9ee0584ae2aaf241d89749f78b
+FINALIZED_SUCCESS + explorer compile-choice-child-0 0xfb65fb8e0824b5056628df00a07f412bf648ae4dbe763b3016ae53f9ec275911
+FINALIZED_SUCCESS + explorer resolve-market-1-1 0xd800015afd8ed8fef1c29fd6c3f9d25606e0e40f549b0ddf5184906016fd16c7
+FINALIZED_SUCCESS + explorer resolve-market-1-1-child-0 0x524459e5accb7e8547b4943bdc86da8b55dbacdaf25ba41d2e069b7670d8284e
+FINALIZED_SUCCESS + explorer resolve-market-2-1 0xc51bc1a6ae7f1a8b5bc8135b1c06ead5d50ec375e0385b588fccaab9a5dec142
+FINALIZED_SUCCESS + explorer resolve-market-2-1-child-0 0x1a9eedb7ceeeb6c1c33fa9bfdcc39307a2589c9682c00d3c70f55d8845325816
+FINALIZED_SUCCESS + explorer resolve-market-3-1 0xeb81298dd625054a43181c96a1566abe26ccd238758f63abb0f37932f2790e64
+FINALIZED_SUCCESS + explorer resolve-market-3-1-child-0 0x73414fc3768693d7d1b1fe2fbf11961779d4cb5b757383921b71a7463c2c8913
+FINALIZED_SUCCESS + explorer settle-demo-pool 0x89898bec937bce92008b3e5c21a06e869b467f037745c77bf21383592cc0fa54
+FINALIZED_SUCCESS + explorer settle-demo-pool-child-0 0x5a932cca617167c6f81bd083eac4c5abc9f2fee76c907fc321f437b5e3543c60
+FINALIZED_SUCCESS + explorer claim-demo-pool 0x359fc4d13c642f0e110291e7f59e79a3132e0f95ec8381330c4bf33ef57294c8
+FINALIZED_SUCCESS + explorer claim-demo-pool-child-0 0xb57fde305b540d1b2bd6394bfa812df054df043fb71219cc4f60f1752d2a4ffe
+FINALIZED_SUCCESS + explorer verify-demo-claim 0x400dfd79510f0494edde9a63aa249d223ec51b19d5ad499e9ee0fa1978071d15
+FINALIZED_SUCCESS + explorer diagnose-wikipedia-search 0x6d0e4c9dfc54d52687bb47b0a53740fd1594040123b941ee4baf4d658370be49
+Immutable evidence digest and verbatim quote verified market-1 573451886
+Immutable evidence digest and verbatim quote verified market-2 575401727
+Immutable evidence digest and verbatim quote verified market-3 611492258
+Native pool allocation and credited 11-wei claim verified.
+Traceback (most recent call last):
+  File "C:\Users\User\Desktop\Genlayer apps\plot-armor\scripts\verify_proof.py", line 124, in <module>
+    if __name__=='__main__':main()
+                            ~~~~^^
+  File "C:\Users\User\Desktop\Genlayer apps\plot-armor\scripts\verify_proof.py", line 121, in main
+    assert any(not m['accepted'] and m['status']=='REJECTED' for m in p['markets']),'Missing rejected proposal'
+           ~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: Missing rejected proposal

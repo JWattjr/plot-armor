@@ -4,86 +4,156 @@
   "rpc": "https://studio.genlayer.com/api",
   "contracts": {
     "PlotMarkets": {
-      "address": "0x2f0E4038377eD70855e2B833869A3CE40b96AEC2",
+      "address": "0xAE26C101532f706265FFc56dbD1C411062E66628",
       "source": "plot_markets.py",
-      "sourceSha256": "2c8b95f017d867f43b4d0df0cbb4d749aad2fa5611e9a7ab970810bf0aae51b8"
+      "sourceSha256": "de664ba041ea26a31801ee21ad1414ecbffbc812d18c60d2e7c6d80107ba0601"
     },
     "PlotResolver": {
-      "address": "0x8e0451bd0537acd9Df745d9990d1538d27a10F59",
+      "address": "0x311413A6c4f6534Dfb843E44dBf594d37ecdAf1c",
       "source": "plot_resolver.py",
       "sourceSha256": "cb52f19f91855227da2870dee0b95c5ef35c33e00697ef9089c1fa35da32e3d6"
     },
     "PlotPools": {
-      "address": "0xc5f81c02035Baf552bb55b93e3b6D716A0d84F8B",
+      "address": "0xcFC2062bFab042e9885f58c44a2B8e2Ce061e792",
       "source": "plot_pools.py",
       "sourceSha256": "2ad566c0d9090375e99b0fd0a8ab2a97f69b245d04e0ac8988a5b7ea5e3edf7a"
     },
     "PlotSeasons": {
-      "address": "0xcDaa4d146A082553A44e0a1385cD93ff9d783FA4",
+      "address": "0x970E83e7CeFC869FAF3e73D2E2EA28F76A26FfFB",
       "source": "plot_seasons.py",
       "sourceSha256": "55e5eeb07c3ffbf149a7037010d43c00d1fad977660417250b2ff59d90e2b0f4"
     }
   },
   "transactions": {
-    "deploy-v3-PlotMarkets": "0x83e94b4d25822522aed44ab97dc5a4d6d5dfd9c56121f5b0b3bb44281396f8b1",
-    "deploy-v3-PlotResolver": "0x24407a1e6cc0ac4a21fd2ccca51aaba31a905bc8e2458e5ab4f70bed59a1744c",
-    "deploy-v3-PlotPools": "0x82b1a945c7880566ffa138c315ad4171543fe7dff240529298fbd3f065e91df7",
-    "deploy-v3-PlotSeasons": "0x74fa8e5bbb060b97e2a79955d3f001c659eb248e2adb3d6f579446a4e013b66e",
-    "compile-yes": "0xf6ce5814d6844512bfa32ef7c03beb7ae1b9e350f688ec0fb668175611412fb0",
-    "compile-yes-child-0": "0xc03c2755dce83afad69c228a18b789ffb68d315190437bd735782cabfb632607",
-    "fund-demo": "0xc2f8528c7f270c1721f78b00adf308e7c8a8c05fcda39542374e317a4feadf87",
-    "prepare-demo-stake": "0x86e95a13db490b31855823d0e3230c72e4f6fba57e712b263b90d2695a6f887a",
-    "deposit-demo-11-wei": "0x903736dd42ca5ab4e3b21b103e299b69e3051000095306dfcad0d6c3d685a9a4",
-    "compile-no": "0xbbb5bdc2caa32766701726ec6c34924ee28a281844f5445003fdded60fa0df42",
-    "compile-no-child-0": "0xc16cc579f25a440ec285aabe5100162adc19358f415f008d3d0359ec2e920f06",
-    "compile-choice": "0x2fef1e9d95548f87dd18a034182962663f406b9ee0584ae2aaf241d89749f78b",
-    "compile-choice-child-0": "0xfb65fb8e0824b5056628df00a07f412bf648ae4dbe763b3016ae53f9ec275911",
-    "resolve-market-1-1": "0xd800015afd8ed8fef1c29fd6c3f9d25606e0e40f549b0ddf5184906016fd16c7",
-    "resolve-market-1-1-child-0": "0x524459e5accb7e8547b4943bdc86da8b55dbacdaf25ba41d2e069b7670d8284e",
-    "resolve-market-2-1": "0xc51bc1a6ae7f1a8b5bc8135b1c06ead5d50ec375e0385b588fccaab9a5dec142",
-    "resolve-market-2-1-child-0": "0x1a9eedb7ceeeb6c1c33fa9bfdcc39307a2589c9682c00d3c70f55d8845325816",
-    "resolve-market-3-1": "0xeb81298dd625054a43181c96a1566abe26ccd238758f63abb0f37932f2790e64",
-    "resolve-market-3-1-child-0": "0x73414fc3768693d7d1b1fe2fbf11961779d4cb5b757383921b71a7463c2c8913",
-    "settle-demo-pool": "0x89898bec937bce92008b3e5c21a06e869b467f037745c77bf21383592cc0fa54",
-    "settle-demo-pool-child-0": "0x5a932cca617167c6f81bd083eac4c5abc9f2fee76c907fc321f437b5e3543c60",
-    "claim-demo-pool": "0x359fc4d13c642f0e110291e7f59e79a3132e0f95ec8381330c4bf33ef57294c8",
-    "claim-demo-pool-child-0": "0xb57fde305b540d1b2bd6394bfa812df054df043fb71219cc4f60f1752d2a4ffe",
-    "verify-demo-claim": "0x400dfd79510f0494edde9a63aa249d223ec51b19d5ad499e9ee0fa1978071d15",
-    "compile-live-4-submission-2": "0x728a89dc7328b2542b156fb0d72df9ca7b5c5bea916f1edb812611f27217066b",
-    "compile-reject-submission-2": "0x8258ab420570633db34260c867db763711cfdbb92aa2a55d9db679c804bc06b7"
+    "legacy-fund-demo": "0xc2f8528c7f270c1721f78b00adf308e7c8a8c05fcda39542374e317a4feadf87",
+    "legacy-prepare-demo-stake": "0x86e95a13db490b31855823d0e3230c72e4f6fba57e712b263b90d2695a6f887a",
+    "legacy-deposit-demo-11-wei": "0x903736dd42ca5ab4e3b21b103e299b69e3051000095306dfcad0d6c3d685a9a4",
+    "legacy-settle-demo-pool": "0x89898bec937bce92008b3e5c21a06e869b467f037745c77bf21383592cc0fa54",
+    "legacy-settle-demo-pool-child-0": "0x5a932cca617167c6f81bd083eac4c5abc9f2fee76c907fc321f437b5e3543c60",
+    "legacy-claim-demo-pool": "0x359fc4d13c642f0e110291e7f59e79a3132e0f95ec8381330c4bf33ef57294c8",
+    "legacy-claim-demo-pool-child-0": "0xb57fde305b540d1b2bd6394bfa812df054df043fb71219cc4f60f1752d2a4ffe",
+    "legacy-verify-demo-claim": "0x400dfd79510f0494edde9a63aa249d223ec51b19d5ad499e9ee0fa1978071d15",
+    "deploy-v5-PlotMarkets": "0xc86ebaaacab9edc149149a19596d7506c40b0c3178268173ffc09eda546c841e",
+    "deploy-v5-PlotResolver": "0x3b59a7205a1b9e7d39a037c984d1fc8eed0dfa84ec390ddc07386c5a053aee01",
+    "deploy-v5-PlotPools": "0xe2dc5b17058760a82c8a11e168fce3ba04f216b85d724e2319030fa65a569fa8",
+    "deploy-v5-PlotSeasons": "0x3eabdc15d3e5506de9cae9872ae9fc598fa91bda448f569a0b9ae6bb9c3b4eee",
+    "compile-live-upcoming-4": "0x770fde8b939c092f965142f3fc1f6f2822f847c7f4a204e7b3d87dc4f5b4c779",
+    "compile-live-upcoming-4-child-0": "0xebee39dc53fb4378c087adfe1599a3d47fa5527b0d4f7aa1f89a8a3178081f62",
+    "compile-live-upcoming-5": "0xeb905fef6bc4080c5ee0bcf5d41e632c06d00c2cea07f11c5be3e81450bf0093",
+    "compile-live-upcoming-5-child-0": "0xa6e113ba76bda8b2edf1297c1de67c38de4bdfa41dc3ddf8302eae74b2818642",
+    "compile-yes": "0xae7a64135a36e332beb70792f574aa81bc377b904c9a43675b165f139534624e",
+    "compile-yes-child-0": "0x064a4e83a49614d27363eb34446d524c46b8d93479b41362de79e6d40151a03f",
+    "compile-no": "0x165c3c942a6952b64c99dcc41ab98a9f97d17125c2aa37c86052b578bbab9682",
+    "compile-no-child-0": "0x590912907af0b732518ae854431d5f076cc773f51002bc46c3cda7ead7c03a6b",
+    "compile-choice": "0x89e74e7b3851ec7c7c725ee8bb4e0aa8bc30a33610740778c2a3472f4783ee15",
+    "compile-choice-child-0": "0xd69a7904d2db4e6c5f898bf99903eca0fcb3ab3d0d0f7138abbb03b23a5b7c45",
+    "compile-reject": "0xdaa164ec7f6668428729285f980df78fa1380fc76b137014c7924a476318c2fa",
+    "compile-reject-child-0": "0xe1f8dbbcfaceeef12cb46f02fa8d3ef6efc1abd6fdadf2a5b97081bba9fc0abb",
+    "resolve-market-3-1": "0x0d5cba2e815a6d6295e600ac5da17e893a4725fe9ec8316d9019e5c7604fe268",
+    "resolve-market-3-1-child-0": "0x931b3d189c76d41c375bf342a0c52fdf3cb6664d82768470d89dd1b646b6f6c5",
+    "resolve-market-4-1": "0xa4230efdbe8c5bd43da5ddf498109a4b902d78ffc9ebe18e52ca099eba26c257",
+    "resolve-market-4-1-child-0": "0x081137c1988d22207ef4978ae29bb2f8c90bf00ebb3387b1001eb6f401c77800",
+    "resolve-market-5-1": "0x174a2b0a90e34ab037ccdce8892fdcfcbe3a05a990758a960aecb71c36bd53a4",
+    "resolve-market-5-1-child-0": "0xf94cb25fc2b7099f985576444bcf39847bfeea1c038d78e6d2a2539df598de49",
+    "predict-live-free": "0x8602b7482798f78f46851f74146dec53800b608f3bfba5506c86e7582ecdd9b6"
   },
   "markets": [
     {
       "accepted": true,
-      "created_at": 1792354277,
+      "created_at": 1792406438,
       "creator": "0x92bf935cc375dd667bf49733ebfcf722f9b32105",
       "id": "market-1",
+      "question": "In the upcoming episode Sing (broadcast 2026-10-22T21:00:00-04:00), does Johnny Warren die? Answer YES or NO.",
+      "reason": "Objective future plot event with a reported summary field.",
+      "spec": {
+        "air_utc": 1792717200,
+        "article": "War (TV series)",
+        "definitions": "Death must be explicitly described in this episode. Survival means alive at episode end. Silence is UNCLEAR, not NO.",
+        "entry_deadline": 1792713600,
+        "episode": 4,
+        "extraction": "row",
+        "options": [
+          "YES",
+          "NO"
+        ],
+        "proposition": "Whether Johnny Warren dies in Sing.",
+        "rehearsal": false,
+        "resolution_deadline": 1793926800,
+        "season": 1,
+        "show": "War (TV series)",
+        "source_digest": "c2e32fca0e1179e44ff3d0dd2fc5959a07426495a13f456727115f23b63a027b",
+        "source_revision": 1380962466,
+        "title": "Sing"
+      },
+      "spec_hash": "a41adc329c7088317357eaa9d494cbdd6fddfd296e2bd93f1dd317fd4bb37d9e",
+      "status": "OPEN",
+      "resolution": {},
+      "pool": {}
+    },
+    {
+      "accepted": true,
+      "created_at": 1792406541,
+      "creator": "0x92bf935cc375dd667bf49733ebfcf722f9b32105",
+      "id": "market-2",
+      "question": "In the upcoming episode Every Little Thing She Does (broadcast 2026-10-29T21:00:00-04:00), do Morgan Henderson and Carla Duval sign a final divorce agreement? Answer YES or NO.",
+      "reason": "Objective future plot event with a reported summary field.",
+      "spec": {
+        "air_utc": 1793322000,
+        "article": "War (TV series)",
+        "definitions": "The signing of a final divorce agreement must be explicitly described in this episode. Silence or ambiguity is UNCLEAR, not NO.",
+        "entry_deadline": 1793318400,
+        "episode": 5,
+        "extraction": "row",
+        "options": [
+          "YES",
+          "NO"
+        ],
+        "proposition": "Whether Morgan Henderson and Carla Duval explicitly sign a final divorce agreement in Every Little Thing She Does.",
+        "rehearsal": false,
+        "resolution_deadline": 1794531600,
+        "season": 1,
+        "show": "War (TV series)",
+        "source_digest": "c2e32fca0e1179e44ff3d0dd2fc5959a07426495a13f456727115f23b63a027b",
+        "source_revision": 1380962466,
+        "title": "Every Little Thing She Does"
+      },
+      "spec_hash": "da108bec70288dd03ff74195f61bef816ec999512752d4e92eeee8610c133c4a",
+      "status": "OPEN",
+      "resolution": {},
+      "pool": {}
+    },
+    {
+      "accepted": true,
+      "created_at": 1792406668,
+      "creator": "0x92bf935cc375dd667bf49733ebfcf722f9b32105",
+      "id": "market-3",
       "question": "In Ozymandias (broadcast 2013-09-15T21:00:00-04:00), does Hank Schrader die? Answer YES or NO.",
-      "reason": "Episode identity and air date verified. Proposition is answerable from plot summary. Options are distinct and non-overlapping.",
+      "reason": "Objective binary plot event (character death) with individual_plot_path_exists=true for the dedicated episode article, and summary_path_exists=true in the season article. REHEARSAL=true permits this already-aired episode.",
       "spec": {
         "air_utc": 1379293200,
         "article": "Ozymandias (Breaking Bad)",
-        "definitions": "Death must be explicitly described in the episode. Survival means alive at episode end. Silence alone is UNCLEAR, not NO.",
-        "entry_deadline": 1792355177,
+        "definitions": "Death must be explicitly described in this episode's plot summary. Hank Schrader is alive at episode end means NO. If the plot does not explicitly confirm death, resolution is UNCLEAR.",
+        "entry_deadline": 1792407568,
         "episode": 14,
         "extraction": "plot",
         "options": [
           "YES",
           "NO"
         ],
-        "proposition": "In the Breaking Bad episode 'Ozymandias', does Hank Schrader die?",
+        "proposition": "Whether Hank Schrader dies in Ozymandias (Breaking Bad S05E14).",
         "rehearsal": true,
-        "resolution_deadline": 1793563877,
+        "resolution_deadline": 1793616268,
         "season": 5,
         "show": "Breaking Bad",
         "source_digest": "49c07138f9ac06477b356693015ee50b331aeb1b399f843d1997371fde7aa6b9",
+        "source_revision": 1378002747,
         "title": "Ozymandias"
       },
-      "spec_hash": "9a51565d9de39b7a0d4d607a6970618628f97b519c995d88b6faa8d4993176c2",
+      "spec_hash": "f9ad5c8fe798acf08a38078682e03f973968f9146104f3b43c57f51e215c4896",
       "status": "OPEN",
       "resolution": {
-        "id": "market-1",
-        "spec_hash": "9a51565d9de39b7a0d4d607a6970618628f97b519c995d88b6faa8d4993176c2",
+        "id": "market-3",
+        "spec_hash": "f9ad5c8fe798acf08a38078682e03f973968f9146104f3b43c57f51e215c4896",
         "attempt": 1,
         "cursor": "",
         "digest": "62217f808eff119badbd3f9b3c242cb04f5aa78b25e0ec1593cd5d75ddfbb1bc",
@@ -95,63 +165,42 @@
         "status": "RESOLVED",
         "terminal": "RESOLVED",
         "reason": "Frozen option supported by extracted summary.",
-        "finalized_at": 1792355076
+        "finalized_at": 1792407429
       },
-      "pool": {
-        "id": "market-1",
-        "status": "SETTLED",
-        "spec_hash": "9a51565d9de39b7a0d4d607a6970618628f97b519c995d88b6faa8d4993176c2",
-        "deadline": 1793563877,
-        "entry_deadline": 1792355177,
-        "sides": [
-          11,
-          0
-        ],
-        "total": 11,
-        "entries": {
-          "0x92bf935cc375dd667bf49733ebfcf722f9b32105": {
-            "option": 0,
-            "amount": 11
-          }
-        },
-        "winner": 0,
-        "payouts": {
-          "0x92bf935cc375dd667bf49733ebfcf722f9b32105": 11
-        },
-        "mode": "REHEARSAL"
-      }
+      "pool": {}
     },
     {
       "accepted": true,
-      "created_at": 1792354534,
+      "created_at": 1792406807,
       "creator": "0x92bf935cc375dd667bf49733ebfcf722f9b32105",
-      "id": "market-2",
+      "id": "market-4",
       "question": "In Felina (broadcast 2013-09-29T21:00:00-04:00), does Jesse Pinkman die? Answer YES or NO.",
-      "reason": "The question is objective and answerable from the supplied season article's episode list ShortSummary for episode 16 (Felina). The broadcast date matches the article's air date. The episode identity is confirmed with season 5, episode 16, title Felina. The question asks about Jesse Pinkman's death, which is explicitly addressed in the plot summary. Options are distinct and non-overlapping. Since REHEARSAL is true, the already-aired status is acceptable.",
+      "reason": "Objective plot event with reported summary field; REHEARSAL permits historical episode.",
       "spec": {
         "air_utc": 1380502800,
         "article": "Breaking Bad season 5",
-        "definitions": "Death must be explicitly described in the plot summary. Survival means alive at episode end. If the plot summary does not explicitly state his death or survival, the answer is UNCLEAR.",
-        "entry_deadline": 1792355434,
+        "definitions": "Death must be explicitly described; survival means alive at episode end. Silence is UNCLEAR.",
+        "entry_deadline": 1792407707,
         "episode": 16,
         "extraction": "row",
         "options": [
           "YES",
           "NO"
         ],
-        "proposition": "In Felina (broadcast 2013-09-29T21:00:00-04:00), does Jesse Pinkman die? Answer YES or NO.",
+        "proposition": "Whether Jesse Pinkman dies in Felina.",
         "rehearsal": true,
-        "resolution_deadline": 1793564134,
+        "resolution_deadline": 1793616407,
         "season": 5,
         "show": "Breaking Bad",
         "source_digest": "23ef675d0c70a96cb98b559fab7b8e293e03aff73bc68e543703c332d5f7a7cd",
+        "source_revision": 1377083266,
         "title": "Felina"
       },
-      "spec_hash": "c742021edfb0b04f1f0a6babe97942a62c8b5994e5ddd061a259f97a3ddd4b58",
+      "spec_hash": "bdb5c4ddd8a7c5af80ea4857c3b8f04a7a19a65fe26f8c06356c38efc4f981e4",
       "status": "OPEN",
       "resolution": {
-        "id": "market-2",
-        "spec_hash": "c742021edfb0b04f1f0a6babe97942a62c8b5994e5ddd061a259f97a3ddd4b58",
+        "id": "market-4",
+        "spec_hash": "bdb5c4ddd8a7c5af80ea4857c3b8f04a7a19a65fe26f8c06356c38efc4f981e4",
         "attempt": 1,
         "cursor": "",
         "digest": "a223dccbadb0332ccec9cc085e134aa523a35c6daec854c786618a7512bbca78",
@@ -163,41 +212,42 @@
         "status": "RESOLVED",
         "terminal": "RESOLVED",
         "reason": "Frozen option supported by extracted summary.",
-        "finalized_at": 1792355213
+        "finalized_at": 1792407605
       },
       "pool": {}
     },
     {
       "accepted": true,
-      "created_at": 1792354669,
+      "created_at": 1792406948,
       "creator": "0x92bf935cc375dd667bf49733ebfcf722f9b32105",
-      "id": "market-3",
+      "id": "market-5",
       "question": "In The Mountain and the Viper (broadcast 2014-06-01T21:00:00-04:00), who wins the trial by combat? Options: Oberyn Martell, Gregor Clegane.",
-      "reason": "The episode identity and air date are verified from the article text. The question is objective and answerable from the plot summary provided in the source text. Rehearsal mode is enabled, allowing for an already aired episode.",
+      "reason": "Objective future plot event with a reported summary field.",
       "spec": {
         "air_utc": 1401670800,
         "article": "Game of Thrones season 4",
-        "definitions": "A win is defined as the combatant surviving the encounter while their opponent is killed or incapacitated, resulting in a legal verdict. Silence alone is UNCLEAR.",
-        "entry_deadline": 1792355569,
+        "definitions": "The winner must be explicitly named or clearly identified as the victor of the trial by combat in this episode. If the outcome is ambiguous, unclear, or not described, resolution is UNCLEAR.",
+        "entry_deadline": 1792407848,
         "episode": 8,
         "extraction": "row",
         "options": [
           "Oberyn Martell",
           "Gregor Clegane"
         ],
-        "proposition": "Gregor Clegane wins the trial by combat in King's Landing.",
+        "proposition": "Who wins the trial by combat in The Mountain and the Viper?",
         "rehearsal": true,
-        "resolution_deadline": 1793564269,
+        "resolution_deadline": 1793616548,
         "season": 4,
         "show": "Game of Thrones",
         "source_digest": "af2c200fe31f3529c929e6b035fc2fb2acd9c2db65a5a4e27e897dcf9261dcf6",
+        "source_revision": 1369352962,
         "title": "The Mountain and the Viper"
       },
-      "spec_hash": "d4dce9b3c7d720bb8b99e6068dcd8dd819c4a048664f2bc7e5fee19eac486966",
+      "spec_hash": "6885db9e1b4fab7174f19bde61d2623b9a0ec0e571f87a263476949a11cf4df7",
       "status": "OPEN",
       "resolution": {
-        "id": "market-3",
-        "spec_hash": "d4dce9b3c7d720bb8b99e6068dcd8dd819c4a048664f2bc7e5fee19eac486966",
+        "id": "market-5",
+        "spec_hash": "6885db9e1b4fab7174f19bde61d2623b9a0ec0e571f87a263476949a11cf4df7",
         "attempt": 1,
         "cursor": "",
         "digest": "2ebbae47573247e048a70303d09696255685a0ecf35cdb40660123819a319ecc",
@@ -209,13 +259,27 @@
         "status": "RESOLVED",
         "terminal": "RESOLVED",
         "reason": "Frozen option supported by extracted summary.",
-        "finalized_at": 1792355338
+        "finalized_at": 1792407770
       },
+      "pool": {}
+    },
+    {
+      "accepted": false,
+      "created_at": 1792407101,
+      "creator": "0x92bf935cc375dd667bf49733ebfcf722f9b32105",
+      "id": "market-6",
+      "question": "Is this the best episode ever?",
+      "reason": "Subjective opinion. Whether an episode is 'the best ever' cannot be objectively settled from a plot summary.",
+      "spec": null,
+      "spec_hash": "",
+      "status": "REJECTED",
       "pool": {}
     }
   ],
   "submissionReady": false,
-  "blockers": [],
+  "blockers": [
+    "Final production browser captures and finish review are in progress. Browser-extension popup signing remains untested; actual application adapter signing finalized on StudioNet."
+  ],
   "probeContract": "0x8dCd8F7BDdaB0676e3Ef2097Db4350F09dBefAf3",
   "probes": {
     "https://en.wikipedia.org/w/api.php?action=query&format=json&prop=revisions&titles=Ozymandias%20%28Breaking%20Bad%29&rvprop=ids%7Ctimestamp&rvdir=newer&rvstart=2013-09-18T01%3A00%3A00Z&rvlimit=1": {
@@ -229,12 +293,15 @@
       "length": 57094,
       "sample": "{{good article}}\n{{Use American English|date=January 2025}}\n{{Use mdy dates|date=March 2021}}\n{{Infobox television episode\n| series         = [[Breaking Bad]]\n| season         = 5\n| episode        = 14\n| image          = Breaking Bad Ozymandias.jpg\n| caption        = [[Walter White (Breaking Bad)|Walter]] lies in anguish, echoing both the \"half-sunk shattered visage\" from [[ozymandias|Percy Shelley's poem]] and [[Gus Fring|Gus]]'s reaction to [[Hermanos (Breaking Bad)|Max's death]].<ref name=\"ms",
       "status": 200
+    },
+    "https://en.wikipedia.org/w/api.php?action=query&format=json&list=search&srlimit=5&srsearch=War%20%28TV%20series%29%20season%201%20episodes": {
+      "digest": "8d7f0b6ce5610ed67acbe12a65d1532787b06c75a4eb4b3e641bf1b24980e32d",
+      "length": 2256,
+      "sample": "{\"batchcomplete\":\"\",\"continue\":{\"sroffset\":5,\"continue\":\"-||\"},\"query\":{\"searchinfo\":{\"totalhits\":28788},\"search\":[{\"ns\":0,\"title\":\"War (TV series)\",\"pageid\":80801029,\"size\":21777,\"wordcount\":1155,\"snippet\":\"<span class=\\\"searchmatch\\\">War</span> (stylised in all caps) is a legal drama anthology television <span class=\\\"searchmatch\\\">series</span> created by George Kay. The show premiered on <span class=\\\"searchmatch\\\">1</span> October 2026, on HBO in the United\",\"timestamp\":\"2026-10-19T02:31:58",
+      "status": 200
     }
   },
-  "failedTransactions": {
-    "compile-live-4": "0x8d64bd0140fea4106bce5ad639267099c874e2948f972e1db5ea11e2ab5c9063",
-    "compile-reject": "0x5dc41b45e1fe6aa4acd114a53947827e9d287c88a27ba69e8c76161d5200e721"
-  },
+  "failedTransactions": {},
   "previousReleases": [
     {
       "contracts": {
@@ -405,12 +472,643 @@
         }
       ],
       "reason": "Replaced to add explicit Wikipedia browser UA, code-converted ISO air times, and a 15-minute rehearsal entry window."
+    },
+    {
+      "project": "Plot Armor",
+      "chainId": 61999,
+      "rpc": "https://studio.genlayer.com/api",
+      "contracts": {
+        "PlotMarkets": {
+          "address": "0x2f0E4038377eD70855e2B833869A3CE40b96AEC2",
+          "source": "plot_markets.py",
+          "sourceSha256": "2c8b95f017d867f43b4d0df0cbb4d749aad2fa5611e9a7ab970810bf0aae51b8"
+        },
+        "PlotResolver": {
+          "address": "0x8e0451bd0537acd9Df745d9990d1538d27a10F59",
+          "source": "plot_resolver.py",
+          "sourceSha256": "cb52f19f91855227da2870dee0b95c5ef35c33e00697ef9089c1fa35da32e3d6"
+        },
+        "PlotPools": {
+          "address": "0xc5f81c02035Baf552bb55b93e3b6D716A0d84F8B",
+          "source": "plot_pools.py",
+          "sourceSha256": "2ad566c0d9090375e99b0fd0a8ab2a97f69b245d04e0ac8988a5b7ea5e3edf7a"
+        },
+        "PlotSeasons": {
+          "address": "0xcDaa4d146A082553A44e0a1385cD93ff9d783FA4",
+          "source": "plot_seasons.py",
+          "sourceSha256": "55e5eeb07c3ffbf149a7037010d43c00d1fad977660417250b2ff59d90e2b0f4"
+        }
+      },
+      "transactions": {
+        "deploy-v3-PlotMarkets": "0x83e94b4d25822522aed44ab97dc5a4d6d5dfd9c56121f5b0b3bb44281396f8b1",
+        "deploy-v3-PlotResolver": "0x24407a1e6cc0ac4a21fd2ccca51aaba31a905bc8e2458e5ab4f70bed59a1744c",
+        "deploy-v3-PlotPools": "0x82b1a945c7880566ffa138c315ad4171543fe7dff240529298fbd3f065e91df7",
+        "deploy-v3-PlotSeasons": "0x74fa8e5bbb060b97e2a79955d3f001c659eb248e2adb3d6f579446a4e013b66e",
+        "compile-yes": "0xf6ce5814d6844512bfa32ef7c03beb7ae1b9e350f688ec0fb668175611412fb0",
+        "compile-yes-child-0": "0xc03c2755dce83afad69c228a18b789ffb68d315190437bd735782cabfb632607",
+        "fund-demo": "0xc2f8528c7f270c1721f78b00adf308e7c8a8c05fcda39542374e317a4feadf87",
+        "prepare-demo-stake": "0x86e95a13db490b31855823d0e3230c72e4f6fba57e712b263b90d2695a6f887a",
+        "deposit-demo-11-wei": "0x903736dd42ca5ab4e3b21b103e299b69e3051000095306dfcad0d6c3d685a9a4",
+        "compile-no": "0xbbb5bdc2caa32766701726ec6c34924ee28a281844f5445003fdded60fa0df42",
+        "compile-no-child-0": "0xc16cc579f25a440ec285aabe5100162adc19358f415f008d3d0359ec2e920f06",
+        "compile-choice": "0x2fef1e9d95548f87dd18a034182962663f406b9ee0584ae2aaf241d89749f78b",
+        "compile-choice-child-0": "0xfb65fb8e0824b5056628df00a07f412bf648ae4dbe763b3016ae53f9ec275911",
+        "resolve-market-1-1": "0xd800015afd8ed8fef1c29fd6c3f9d25606e0e40f549b0ddf5184906016fd16c7",
+        "resolve-market-1-1-child-0": "0x524459e5accb7e8547b4943bdc86da8b55dbacdaf25ba41d2e069b7670d8284e",
+        "resolve-market-2-1": "0xc51bc1a6ae7f1a8b5bc8135b1c06ead5d50ec375e0385b588fccaab9a5dec142",
+        "resolve-market-2-1-child-0": "0x1a9eedb7ceeeb6c1c33fa9bfdcc39307a2589c9682c00d3c70f55d8845325816",
+        "resolve-market-3-1": "0xeb81298dd625054a43181c96a1566abe26ccd238758f63abb0f37932f2790e64",
+        "resolve-market-3-1-child-0": "0x73414fc3768693d7d1b1fe2fbf11961779d4cb5b757383921b71a7463c2c8913",
+        "settle-demo-pool": "0x89898bec937bce92008b3e5c21a06e869b467f037745c77bf21383592cc0fa54",
+        "settle-demo-pool-child-0": "0x5a932cca617167c6f81bd083eac4c5abc9f2fee76c907fc321f437b5e3543c60",
+        "claim-demo-pool": "0x359fc4d13c642f0e110291e7f59e79a3132e0f95ec8381330c4bf33ef57294c8",
+        "claim-demo-pool-child-0": "0xb57fde305b540d1b2bd6394bfa812df054df043fb71219cc4f60f1752d2a4ffe",
+        "verify-demo-claim": "0x400dfd79510f0494edde9a63aa249d223ec51b19d5ad499e9ee0fa1978071d15",
+        "diagnose-wikipedia-search": "0x6d0e4c9dfc54d52687bb47b0a53740fd1594040123b941ee4baf4d658370be49",
+        "compile-live-4-submission-5": "0xd61a746609bd6a4de41c57ceba0a8458dde8d55fe7551cbfb364a869b7b347e2",
+        "compile-reject-submission-4": "0xbff02ec7f3503d3be800fb1260a70295770597421e341d97e7626cb92206f1ce",
+        "deploy-compile-diagnostic": "0xe3307c41c987a58ca54c71d7a60606fe53ee3197afd0975bcd93cc102396dab6",
+        "diagnose-live-compile": "0x0afc03cab3ccfc68aeae92aa3e554bdd7bc8e377cbfa628f57b9a47f48bed109"
+      },
+      "markets": [
+        {
+          "accepted": true,
+          "created_at": 1792354277,
+          "creator": "0x92bf935cc375dd667bf49733ebfcf722f9b32105",
+          "id": "market-1",
+          "question": "In Ozymandias (broadcast 2013-09-15T21:00:00-04:00), does Hank Schrader die? Answer YES or NO.",
+          "reason": "Episode identity and air date verified. Proposition is answerable from plot summary. Options are distinct and non-overlapping.",
+          "spec": {
+            "air_utc": 1379293200,
+            "article": "Ozymandias (Breaking Bad)",
+            "definitions": "Death must be explicitly described in the episode. Survival means alive at episode end. Silence alone is UNCLEAR, not NO.",
+            "entry_deadline": 1792355177,
+            "episode": 14,
+            "extraction": "plot",
+            "options": [
+              "YES",
+              "NO"
+            ],
+            "proposition": "In the Breaking Bad episode 'Ozymandias', does Hank Schrader die?",
+            "rehearsal": true,
+            "resolution_deadline": 1793563877,
+            "season": 5,
+            "show": "Breaking Bad",
+            "source_digest": "49c07138f9ac06477b356693015ee50b331aeb1b399f843d1997371fde7aa6b9",
+            "title": "Ozymandias"
+          },
+          "spec_hash": "9a51565d9de39b7a0d4d607a6970618628f97b519c995d88b6faa8d4993176c2",
+          "status": "OPEN",
+          "resolution": {
+            "id": "market-1",
+            "spec_hash": "9a51565d9de39b7a0d4d607a6970618628f97b519c995d88b6faa8d4993176c2",
+            "attempt": 1,
+            "cursor": "",
+            "digest": "62217f808eff119badbd3f9b3c242cb04f5aa78b25e0ec1593cd5d75ddfbb1bc",
+            "outcome": 0,
+            "quote": "Hank tells Jack to go ahead, and Jack shoots him in the head before he can even finish his last words; Walt collapses to the ground in total despair.",
+            "revision": 573451886,
+            "revision_utc": 1379479574,
+            "url": "https://en.wikipedia.org/w/index.php?title=Ozymandias%20%28Breaking%20Bad%29&oldid=573451886&action=raw",
+            "status": "RESOLVED",
+            "terminal": "RESOLVED",
+            "reason": "Frozen option supported by extracted summary.",
+            "finalized_at": 1792355076
+          },
+          "pool": {
+            "id": "market-1",
+            "status": "SETTLED",
+            "spec_hash": "9a51565d9de39b7a0d4d607a6970618628f97b519c995d88b6faa8d4993176c2",
+            "deadline": 1793563877,
+            "entry_deadline": 1792355177,
+            "sides": [
+              11,
+              0
+            ],
+            "total": 11,
+            "entries": {
+              "0x92bf935cc375dd667bf49733ebfcf722f9b32105": {
+                "option": 0,
+                "amount": 11
+              }
+            },
+            "winner": 0,
+            "payouts": {
+              "0x92bf935cc375dd667bf49733ebfcf722f9b32105": 11
+            },
+            "mode": "REHEARSAL"
+          }
+        },
+        {
+          "accepted": true,
+          "created_at": 1792354534,
+          "creator": "0x92bf935cc375dd667bf49733ebfcf722f9b32105",
+          "id": "market-2",
+          "question": "In Felina (broadcast 2013-09-29T21:00:00-04:00), does Jesse Pinkman die? Answer YES or NO.",
+          "reason": "The question is objective and answerable from the supplied season article's episode list ShortSummary for episode 16 (Felina). The broadcast date matches the article's air date. The episode identity is confirmed with season 5, episode 16, title Felina. The question asks about Jesse Pinkman's death, which is explicitly addressed in the plot summary. Options are distinct and non-overlapping. Since REHEARSAL is true, the already-aired status is acceptable.",
+          "spec": {
+            "air_utc": 1380502800,
+            "article": "Breaking Bad season 5",
+            "definitions": "Death must be explicitly described in the plot summary. Survival means alive at episode end. If the plot summary does not explicitly state his death or survival, the answer is UNCLEAR.",
+            "entry_deadline": 1792355434,
+            "episode": 16,
+            "extraction": "row",
+            "options": [
+              "YES",
+              "NO"
+            ],
+            "proposition": "In Felina (broadcast 2013-09-29T21:00:00-04:00), does Jesse Pinkman die? Answer YES or NO.",
+            "rehearsal": true,
+            "resolution_deadline": 1793564134,
+            "season": 5,
+            "show": "Breaking Bad",
+            "source_digest": "23ef675d0c70a96cb98b559fab7b8e293e03aff73bc68e543703c332d5f7a7cd",
+            "title": "Felina"
+          },
+          "spec_hash": "c742021edfb0b04f1f0a6babe97942a62c8b5994e5ddd061a259f97a3ddd4b58",
+          "status": "OPEN",
+          "resolution": {
+            "id": "market-2",
+            "spec_hash": "c742021edfb0b04f1f0a6babe97942a62c8b5994e5ddd061a259f97a3ddd4b58",
+            "attempt": 1,
+            "cursor": "",
+            "digest": "a223dccbadb0332ccec9cc085e134aa523a35c6daec854c786618a7512bbca78",
+            "outcome": 1,
+            "quote": "Jesse refuses to kill Walt, and drives away.",
+            "revision": 575401727,
+            "revision_utc": 1380696264,
+            "url": "https://en.wikipedia.org/w/index.php?title=Breaking%20Bad%20season%205&oldid=575401727&action=raw",
+            "status": "RESOLVED",
+            "terminal": "RESOLVED",
+            "reason": "Frozen option supported by extracted summary.",
+            "finalized_at": 1792355213
+          },
+          "pool": {}
+        },
+        {
+          "accepted": true,
+          "created_at": 1792354669,
+          "creator": "0x92bf935cc375dd667bf49733ebfcf722f9b32105",
+          "id": "market-3",
+          "question": "In The Mountain and the Viper (broadcast 2014-06-01T21:00:00-04:00), who wins the trial by combat? Options: Oberyn Martell, Gregor Clegane.",
+          "reason": "The episode identity and air date are verified from the article text. The question is objective and answerable from the plot summary provided in the source text. Rehearsal mode is enabled, allowing for an already aired episode.",
+          "spec": {
+            "air_utc": 1401670800,
+            "article": "Game of Thrones season 4",
+            "definitions": "A win is defined as the combatant surviving the encounter while their opponent is killed or incapacitated, resulting in a legal verdict. Silence alone is UNCLEAR.",
+            "entry_deadline": 1792355569,
+            "episode": 8,
+            "extraction": "row",
+            "options": [
+              "Oberyn Martell",
+              "Gregor Clegane"
+            ],
+            "proposition": "Gregor Clegane wins the trial by combat in King's Landing.",
+            "rehearsal": true,
+            "resolution_deadline": 1793564269,
+            "season": 4,
+            "show": "Game of Thrones",
+            "source_digest": "af2c200fe31f3529c929e6b035fc2fb2acd9c2db65a5a4e27e897dcf9261dcf6",
+            "title": "The Mountain and the Viper"
+          },
+          "spec_hash": "d4dce9b3c7d720bb8b99e6068dcd8dd819c4a048664f2bc7e5fee19eac486966",
+          "status": "OPEN",
+          "resolution": {
+            "id": "market-3",
+            "spec_hash": "d4dce9b3c7d720bb8b99e6068dcd8dd819c4a048664f2bc7e5fee19eac486966",
+            "attempt": 1,
+            "cursor": "",
+            "digest": "2ebbae47573247e048a70303d09696255685a0ecf35cdb40660123819a319ecc",
+            "outcome": 1,
+            "quote": "During the trial, the Mountain kills Prince Oberyn, and confesses his crimes.",
+            "revision": 611492258,
+            "revision_utc": 1401865526,
+            "url": "https://en.wikipedia.org/w/index.php?title=Game%20of%20Thrones%20season%204&oldid=611492258&action=raw",
+            "status": "RESOLVED",
+            "terminal": "RESOLVED",
+            "reason": "Frozen option supported by extracted summary.",
+            "finalized_at": 1792355338
+          },
+          "pool": {}
+        }
+      ],
+      "submissionReady": false,
+      "blockers": [],
+      "probeContract": "0x8dCd8F7BDdaB0676e3Ef2097Db4350F09dBefAf3",
+      "probes": {
+        "https://en.wikipedia.org/w/api.php?action=query&format=json&prop=revisions&titles=Ozymandias%20%28Breaking%20Bad%29&rvprop=ids%7Ctimestamp&rvdir=newer&rvstart=2013-09-18T01%3A00%3A00Z&rvlimit=1": {
+          "digest": "39ad718470d46840fe27944222b96d190157631185b011f56b1785f00919c417",
+          "length": 254,
+          "sample": "{\"continue\":{\"rvcontinue\":\"20130918044824|573452051\",\"continue\":\"||\"},\"query\":{\"pages\":{\"40108387\":{\"pageid\":40108387,\"ns\":0,\"title\":\"Ozymandias (Breaking Bad)\",\"revisions\":[{\"revid\":573451886,\"parentid\":573429882,\"timestamp\":\"2013-09-18T04:46:14Z\"}]}}}}",
+          "status": 200
+        },
+        "https://en.wikipedia.org/w/index.php?title=Ozymandias_%28Breaking_Bad%29&oldid=1378002747&action=raw": {
+          "digest": "49c07138f9ac06477b356693015ee50b331aeb1b399f843d1997371fde7aa6b9",
+          "length": 57094,
+          "sample": "{{good article}}\n{{Use American English|date=January 2025}}\n{{Use mdy dates|date=March 2021}}\n{{Infobox television episode\n| series         = [[Breaking Bad]]\n| season         = 5\n| episode        = 14\n| image          = Breaking Bad Ozymandias.jpg\n| caption        = [[Walter White (Breaking Bad)|Walter]] lies in anguish, echoing both the \"half-sunk shattered visage\" from [[ozymandias|Percy Shelley's poem]] and [[Gus Fring|Gus]]'s reaction to [[Hermanos (Breaking Bad)|Max's death]].<ref name=\"ms",
+          "status": 200
+        },
+        "https://en.wikipedia.org/w/api.php?action=query&format=json&list=search&srlimit=5&srsearch=War%20%28TV%20series%29%20season%201%20episodes": {
+          "digest": "8d7f0b6ce5610ed67acbe12a65d1532787b06c75a4eb4b3e641bf1b24980e32d",
+          "length": 2256,
+          "sample": "{\"batchcomplete\":\"\",\"continue\":{\"sroffset\":5,\"continue\":\"-||\"},\"query\":{\"searchinfo\":{\"totalhits\":28788},\"search\":[{\"ns\":0,\"title\":\"War (TV series)\",\"pageid\":80801029,\"size\":21777,\"wordcount\":1155,\"snippet\":\"<span class=\\\"searchmatch\\\">War</span> (stylised in all caps) is a legal drama anthology television <span class=\\\"searchmatch\\\">series</span> created by George Kay. The show premiered on <span class=\\\"searchmatch\\\">1</span> October 2026, on HBO in the United\",\"timestamp\":\"2026-10-19T02:31:58",
+          "status": 200
+        }
+      },
+      "failedTransactions": {
+        "compile-live-4": "0x8d64bd0140fea4106bce5ad639267099c874e2948f972e1db5ea11e2ab5c9063",
+        "compile-reject": "0x5dc41b45e1fe6aa4acd114a53947827e9d287c88a27ba69e8c76161d5200e721",
+        "compile-live-4-submission-2": "0x728a89dc7328b2542b156fb0d72df9ca7b5c5bea916f1edb812611f27217066b",
+        "compile-reject-submission-2": "0x8258ab420570633db34260c867db763711cfdbb92aa2a55d9db679c804bc06b7",
+        "compile-live-4-submission-3": "0xdae434a36175b50ae81e29fd0f42062b59c36231e11a24409b79f0aeb54c28b5",
+        "compile-live-4-submission-4": "0xd892edb779acc6c0412f353227f483b1a1b00674719bd5576f6a63b129f5a069",
+        "compile-reject-submission-3": "0x99452b81b645a997824db9d4344fdaaf55a42533810444d0821ba72cfebdccf6"
+      },
+      "recordedAt": "2026-10-19T09:12:44Z",
+      "website": "https://plot-armor-beta.vercel.app",
+      "github": "https://github.com/JWattjr/plot-armor",
+      "sourceCommit": "a6ade8d0f70174513350ed286d4b268e1cea82bd",
+      "poolDemo": {
+        "marketId": "market-1",
+        "wallet": "0x92bf935cc375dd667bf49733ebfcf722f9b32105",
+        "approvedDepositWei": "11",
+        "ticket": "ticket-1",
+        "account": {
+          "credit": "0",
+          "claim": {
+            "status": "PAID",
+            "attempt": 1,
+            "amount": 11,
+            "requested_at": 1792401030,
+            "parent": "0x359fc4d13c642f0e110291e7f59e79a3132e0f95ec8381330c4bf33ef57294c8",
+            "child": "0xb57fde305b540d1b2bd6394bfa812df054df043fb71219cc4f60f1752d2a4ffe"
+          }
+        }
+      },
+      "compileDiagnostic": "0xf41CFBd3846E5530143B80a7262025c6c4b9817C"
+    },
+    {
+      "project": "Plot Armor",
+      "chainId": 61999,
+      "rpc": "https://studio.genlayer.com/api",
+      "contracts": {
+        "PlotMarkets": {
+          "address": "0x484219aBB4C1BE842EF8f0814ceE8FDa95f40c8c",
+          "source": "plot_markets.py",
+          "sourceSha256": "e24d6bece1127d1da5f038e3967b4215685b8cd1ae15ca0451cb4a6b57baa517"
+        },
+        "PlotResolver": {
+          "address": "0xf10085C20eA68fd3e5c1cE4442211d54bdBcedEA",
+          "source": "plot_resolver.py",
+          "sourceSha256": "cb52f19f91855227da2870dee0b95c5ef35c33e00697ef9089c1fa35da32e3d6"
+        },
+        "PlotPools": {
+          "address": "0xFb4F472d72BA0A6a1bEc197a483eDEB7F2f2Bd7b",
+          "source": "plot_pools.py",
+          "sourceSha256": "2ad566c0d9090375e99b0fd0a8ab2a97f69b245d04e0ac8988a5b7ea5e3edf7a"
+        },
+        "PlotSeasons": {
+          "address": "0x4F5E63cd313C51D330402a2375F4424D206b8634",
+          "source": "plot_seasons.py",
+          "sourceSha256": "55e5eeb07c3ffbf149a7037010d43c00d1fad977660417250b2ff59d90e2b0f4"
+        }
+      },
+      "transactions": {
+        "legacy-fund-demo": "0xc2f8528c7f270c1721f78b00adf308e7c8a8c05fcda39542374e317a4feadf87",
+        "legacy-prepare-demo-stake": "0x86e95a13db490b31855823d0e3230c72e4f6fba57e712b263b90d2695a6f887a",
+        "legacy-deposit-demo-11-wei": "0x903736dd42ca5ab4e3b21b103e299b69e3051000095306dfcad0d6c3d685a9a4",
+        "legacy-settle-demo-pool": "0x89898bec937bce92008b3e5c21a06e869b467f037745c77bf21383592cc0fa54",
+        "legacy-settle-demo-pool-child-0": "0x5a932cca617167c6f81bd083eac4c5abc9f2fee76c907fc321f437b5e3543c60",
+        "legacy-claim-demo-pool": "0x359fc4d13c642f0e110291e7f59e79a3132e0f95ec8381330c4bf33ef57294c8",
+        "legacy-claim-demo-pool-child-0": "0xb57fde305b540d1b2bd6394bfa812df054df043fb71219cc4f60f1752d2a4ffe",
+        "legacy-verify-demo-claim": "0x400dfd79510f0494edde9a63aa249d223ec51b19d5ad499e9ee0fa1978071d15",
+        "deploy-v4-PlotMarkets": "0xe6a5413afcd0b163938aa0a76223aec3bbe468e45cda702cfd0fadc6ae643b1f",
+        "deploy-v4-PlotResolver": "0xd0115d47807499e8a44cc8dfc891b11de88dcd12be464b8d32ac1bccc7ab46ac",
+        "deploy-v4-PlotPools": "0x7d25442d8cfcf181647c53ca2ca06976fbff28443a2ee0a4f0b4a35affa90481",
+        "deploy-v4-PlotSeasons": "0x97d52fa2a4724f6f8707d5ed130a2c13f15556f9a7ad7feadeeb3a7af8182fe9",
+        "compile-yes": "0x091792803c8698effaad3bf95055da48da8087e59136ada535a19d4efb855297",
+        "compile-yes-child-0": "0x28023d24c939ba1ae21cbd010e2cffe1fbbfbc12eb66d57df4bac1065f18cb01",
+        "compile-no-submission-2": "0x103fc8e3e238599c78614282c3a04ae8062b1569437f9dfd38fe68ac05dfe9e9",
+        "compile-no-submission-2-child-0": "0xb2b3c35a0898191582ba2ec97d30ea9718e64318821dcdd42a8c46f4efb24a89",
+        "compile-choice": "0x47d08dd3fdc984ab3841744268cd5d31c2ce4e959a8ce06fac3359d4a60bc4fc",
+        "compile-choice-child-0": "0x75eff4313c239d3376ec1aab8a1e9caff82ae52f55962335ca6c078c66d3514e",
+        "compile-reject-submission-2": "0xf732156ebf653cd37b63055ecac1267e64b8d19f7ed46cccc5c64092107b0df7",
+        "compile-reject-submission-2-child-0": "0xb209e17c8a688d64815c747ccd25edb22616001eb1a5c30d6db75b6fd7c6787a",
+        "compile-live-4": "0xd2bde16052aa4e998ac826ddede4cab354e9f5511eda6b1cade5b1b5852c98ce",
+        "compile-live-4-child-0": "0x0459b0dfba82152213a8aac6c6029aa39e97ad35e1b987c3465160f932f26775",
+        "compile-live-5": "0xb3682631fee81e498f40e4985b4174b4c14802b0edc8b6b2e470b40064add9a4",
+        "compile-live-5-child-0": "0x3549e5a1e9aeab5bd65b7bc9057dc4415faadaa6181f8cf016e16d26916e2c38",
+        "resolve-market-1-1": "0x4051b40c3b66fdbe6dda995c4290c9e3a1d3c1153cce7a5387d65ea3f326b2eb",
+        "resolve-market-1-1-child-0": "0x648d76e4be980cb7bfe2b05b17af0872c4128e4e45be07869fb784386b348586",
+        "resolve-market-2-1": "0x74358a2e489b848065f96abeb5df7cedffb406c6a3fa094269c1d8f64a6777ab",
+        "resolve-market-2-1-child-0": "0xcc6230194ebecb06273803a66db8d3dc5a892e037d644b0966d7a056f269eb68",
+        "resolve-market-3-1": "0xc41e02f56a2aba40bb922ded21e33b1b9f050b12bcd4566448541836447b9963",
+        "resolve-market-3-1-child-0": "0xd5b59aedbdc8ac0d7a3be74032f96e6ed52a85a68a7ad3cd1d8ffd68dd8fcc4f",
+        "compile-live-disambiguated-4": "0xe1f21c0d43ebb2055589a41921f39927f9140e94a66ea25d04d80c9c68f098f2",
+        "compile-live-disambiguated-4-child-0": "0xa5af10878198ad390c53e74c944c7b64145109019d04eacb4badb0cfc375c770",
+        "compile-live-disambiguated-5": "0x5680e6758a05d5dc3d78bc4dddb687a6d0c42f8c26e3c355543b58b707af4df7",
+        "compile-live-disambiguated-5-child-0": "0xa4b46c2de3a374bfeab9fe446aba906e1767807a244e79a58d46ea4a5f83579b",
+        "compile-live-upcoming-4-submission-3": "0xfb7d68f407f03a8c61772d23a2be29973fc00d516f8964c7346355e4eaaa8c82",
+        "compile-live-upcoming-4-submission-3-child-0": "0x1c8da76f93032816fa075c54a0a53b493124285b8c2df091846c4c30323bcf6f",
+        "compile-live-upcoming-5-submission-2": "0xafb7807c94cfe37b57c180d50e5ed21a47801a481d6476b5482a3373f671bfb0"
+      },
+      "markets": [
+        {
+          "accepted": true,
+          "created_at": 1792402682,
+          "creator": "0x92bf935cc375dd667bf49733ebfcf722f9b32105",
+          "id": "market-1",
+          "question": "In Ozymandias (broadcast 2013-09-15T21:00:00-04:00), does Hank Schrader die? Answer YES or NO.",
+          "reason": "Objective yes/no question about an explicitly described event in the episode plot; episode identity and air date verified from the supplied article.",
+          "spec": {
+            "air_utc": 1379293200,
+            "article": "Ozymandias (Breaking Bad)",
+            "definitions": "Answer YES if Hank Schrader is explicitly described as dying in the episode; answer NO if he is alive at the episode's end. Silence alone is UNCLEAR, not NO.",
+            "entry_deadline": 1792403582,
+            "episode": 14,
+            "extraction": "plot",
+            "options": [
+              "YES",
+              "NO"
+            ],
+            "proposition": "Does Hank Schrader die in the Breaking Bad episode Ozymandias?",
+            "rehearsal": true,
+            "resolution_deadline": 1793612282,
+            "season": 5,
+            "show": "Breaking Bad",
+            "source_digest": "49c07138f9ac06477b356693015ee50b331aeb1b399f843d1997371fde7aa6b9",
+            "title": "Ozymandias"
+          },
+          "spec_hash": "320ce9cb7c6a0769f797b3cacb29f62cd8246a2ded45a34f94d2349c2596781e",
+          "status": "OPEN",
+          "resolution": {
+            "id": "market-1",
+            "spec_hash": "320ce9cb7c6a0769f797b3cacb29f62cd8246a2ded45a34f94d2349c2596781e",
+            "attempt": 1,
+            "cursor": "",
+            "digest": "62217f808eff119badbd3f9b3c242cb04f5aa78b25e0ec1593cd5d75ddfbb1bc",
+            "outcome": 0,
+            "quote": "Hank tells Jack to go ahead, and Jack shoots him in the head before he can even finish his last words; Walt collapses to the ground in total despair.",
+            "revision": 573451886,
+            "revision_utc": 1379479574,
+            "url": "https://en.wikipedia.org/w/index.php?title=Ozymandias%20%28Breaking%20Bad%29&oldid=573451886&action=raw",
+            "status": "RESOLVED",
+            "terminal": "RESOLVED",
+            "reason": "Frozen option supported by extracted summary.",
+            "finalized_at": 1792403900
+          },
+          "pool": {}
+        },
+        {
+          "accepted": true,
+          "created_at": 1792402948,
+          "creator": "0x92bf935cc375dd667bf49733ebfcf722f9b32105",
+          "id": "market-2",
+          "question": "In Felina (broadcast 2013-09-29T21:00:00-04:00), does Jesse Pinkman die? Answer YES or NO.",
+          "reason": "The episode identity and air date are verified by the source text. The question is objective and answerable from the plot summary provided in the source.",
+          "spec": {
+            "air_utc": 1380502800,
+            "article": "Breaking Bad season 5",
+            "definitions": "Death must be explicitly described in the ShortSummary; survival means the character is described as alive or escaping at the episode's end. Silence regarding a character's status is UNCLEAR.",
+            "entry_deadline": 1792403848,
+            "episode": 16,
+            "extraction": "row",
+            "options": [
+              "YES",
+              "NO"
+            ],
+            "proposition": "Jesse Pinkman dies in the episode 'Felina'.",
+            "rehearsal": true,
+            "resolution_deadline": 1793612548,
+            "season": 5,
+            "show": "Breaking Bad",
+            "source_digest": "23ef675d0c70a96cb98b559fab7b8e293e03aff73bc68e543703c332d5f7a7cd",
+            "title": "Felina"
+          },
+          "spec_hash": "c839f29999e6cf9f2b55566d5ac44ba1f53bcd726565eae23fdc26dc05d8e4d6",
+          "status": "OPEN",
+          "resolution": {
+            "id": "market-2",
+            "spec_hash": "c839f29999e6cf9f2b55566d5ac44ba1f53bcd726565eae23fdc26dc05d8e4d6",
+            "attempt": 1,
+            "cursor": "",
+            "digest": "a223dccbadb0332ccec9cc085e134aa523a35c6daec854c786618a7512bbca78",
+            "outcome": 1,
+            "quote": "Jesse refuses to kill Walt, and drives away.",
+            "revision": 575401727,
+            "revision_utc": 1380696264,
+            "url": "https://en.wikipedia.org/w/index.php?title=Breaking%20Bad%20season%205&oldid=575401727&action=raw",
+            "status": "RESOLVED",
+            "terminal": "RESOLVED",
+            "reason": "Frozen option supported by extracted summary.",
+            "finalized_at": 1792404060
+          },
+          "pool": {}
+        },
+        {
+          "accepted": true,
+          "created_at": 1792403064,
+          "creator": "0x92bf935cc375dd667bf49733ebfcf722f9b32105",
+          "id": "market-3",
+          "question": "In The Mountain and the Viper (broadcast 2014-06-01T21:00:00-04:00), who wins the trial by combat? Options: Oberyn Martell, Gregor Clegane.",
+          "reason": "REHEARSAL=true allows already-aired episode. Episode identity confirmed: Game of Thrones S04E08 'The Mountain and the Viper', aired 2014-06-01, matching supplied air date. ShortSummary in 'Game of Thrones season 4' article for EpisodeNumber2=8 explicitly states: 'Oberyn grievously wounds the Mountain, however delays finishing him off as he wants him to publicly confess his and Tywin's culpability in Elia's murder. Near death, the Mountain trips Oberyn and brutally crushes his skull while boasting that he raped and murdered Elia and her children.' This clearly identifies Gregor Clegane (the Mountain) as the winner of the trial by combat. Options are exhaustive and non-overlapping. Question is objective and answerable from the plot summary.",
+          "spec": {
+            "air_utc": 1401670800,
+            "article": "Game of Thrones season 4",
+            "definitions": "The winner is the fighter who defeats the other in single combat during Tyrion's trial by combat. 'Wins' means the fighter who is alive and victorious at the end of the combat. Silence alone is UNCLEAR, not NO. The outcome must be explicitly described in the plot summary.",
+            "entry_deadline": 1792403964,
+            "episode": 8,
+            "extraction": "row",
+            "options": [
+              "Oberyn Martell",
+              "Gregor Clegane"
+            ],
+            "proposition": "Who wins the trial by combat in this episode?",
+            "rehearsal": true,
+            "resolution_deadline": 1793612664,
+            "season": 4,
+            "show": "Game of Thrones",
+            "source_digest": "af2c200fe31f3529c929e6b035fc2fb2acd9c2db65a5a4e27e897dcf9261dcf6",
+            "title": "The Mountain and the Viper"
+          },
+          "spec_hash": "518e42b14a7f1dab1238be9bb4b7e85373a7d29cede97824e2976725d8813067",
+          "status": "OPEN",
+          "resolution": {
+            "id": "market-3",
+            "spec_hash": "518e42b14a7f1dab1238be9bb4b7e85373a7d29cede97824e2976725d8813067",
+            "attempt": 1,
+            "cursor": "",
+            "digest": "2ebbae47573247e048a70303d09696255685a0ecf35cdb40660123819a319ecc",
+            "outcome": 1,
+            "quote": "During the trial, the Mountain kills Prince Oberyn, and confesses his crimes.",
+            "revision": 611492258,
+            "revision_utc": 1401865526,
+            "url": "https://en.wikipedia.org/w/index.php?title=Game%20of%20Thrones%20season%204&oldid=611492258&action=raw",
+            "status": "RESOLVED",
+            "terminal": "RESOLVED",
+            "reason": "Frozen option supported by extracted summary.",
+            "finalized_at": 1792404221
+          },
+          "pool": {}
+        },
+        {
+          "accepted": false,
+          "created_at": 1792403319,
+          "creator": "0x92bf935cc375dd667bf49733ebfcf722f9b32105",
+          "id": "market-4",
+          "question": "Is this finale the best episode ever?",
+          "reason": "Subjective opinion.",
+          "spec": null,
+          "spec_hash": "",
+          "status": "REJECTED",
+          "pool": {}
+        },
+        {
+          "accepted": false,
+          "created_at": 1792403456,
+          "creator": "0x92bf935cc375dd667bf49733ebfcf722f9b32105",
+          "id": "market-5",
+          "question": "In War season 1 episode 4 (broadcast 2026-10-22T21:00:00-04:00), does Johnny Warren resign from Cathcarts? Answer YES or NO.",
+          "reason": "Cannot verify the requested show's identity, episode identity, or air date from the supplied articles. The input names 'War' and character 'Johnny Warren' do not match the provided Wikipedia search titles/article text, and no usable plot or episode-row summary path exists for this question.",
+          "spec": null,
+          "spec_hash": "",
+          "status": "REJECTED",
+          "pool": {}
+        },
+        {
+          "accepted": false,
+          "created_at": 1792403601,
+          "creator": "0x92bf935cc375dd667bf49733ebfcf722f9b32105",
+          "id": "market-6",
+          "question": "In War season 1 episode 5 (broadcast 2026-10-29T21:00:00-04:00), do Morgan Henderson and Carla Duval sign a final divorce agreement? Answer YES or NO.",
+          "reason": "Missing episode identity: No Wikipedia article about \"War\" season 1 episode 5 with a plot summary or episode list was provided, and the supplied sources do not contain Morgan Henderson or Carla Duval.",
+          "spec": null,
+          "spec_hash": "",
+          "status": "REJECTED",
+          "pool": {}
+        },
+        {
+          "accepted": false,
+          "created_at": 1792404413,
+          "creator": "0x92bf935cc375dd667bf49733ebfcf722f9b32105",
+          "id": "market-7",
+          "question": "In War season 1 episode 4 (broadcast 2026-10-22T21:00:00-04:00), does Johnny Warren resign from Cathcarts? Answer YES or NO.",
+          "reason": "The episode summary is empty.",
+          "spec": null,
+          "spec_hash": "",
+          "status": "REJECTED",
+          "pool": {}
+        },
+        {
+          "accepted": false,
+          "created_at": 1792404689,
+          "creator": "0x92bf935cc375dd667bf49733ebfcf722f9b32105",
+          "id": "market-8",
+          "question": "In War season 1 episode 5 (broadcast 2026-10-29T21:00:00-04:00), do Morgan Henderson and Carla Duval sign a final divorce agreement? Answer YES or NO.",
+          "reason": "No summary path for the requested proposition. The supplied article verifies show identity, episode 5 title, and local air date, but episode 5's row has an empty ShortSummary and there is no individual episode article or plot text to answer whether Morgan Henderson and Carla Duval sign a final divorce agreement from a plot summary.",
+          "spec": null,
+          "spec_hash": "",
+          "status": "REJECTED",
+          "pool": {}
+        },
+        {
+          "accepted": false,
+          "created_at": 1792405312,
+          "creator": "0x92bf935cc375dd667bf49733ebfcf722f9b32105",
+          "id": "market-9",
+          "question": "In the upcoming episode Sing (broadcast 2026-10-22T21:00:00-04:00), does Johnny Warren die? Answer YES or NO.",
+          "reason": "No plot-summary answer path yet. The supplied article verifies the show, season, episode title, and air date for \"Sing,\" but its episode-list row has an empty ShortSummary, and there is no individual episode article with plot text. The question asks whether Johnny Warren dies, which requires an explicit plot description; silence alone is UNCLEAR, not NO.",
+          "spec": null,
+          "spec_hash": "",
+          "status": "REJECTED",
+          "pool": {}
+        }
+      ],
+      "submissionReady": false,
+      "blockers": [
+        "Repaired compiler release is being deployed and rerun; the previous 11 wei demonstration remains PAID.",
+        "Exact 1440x960 browser checks and extension signing remain unverified."
+      ],
+      "probeContract": "0x8dCd8F7BDdaB0676e3Ef2097Db4350F09dBefAf3",
+      "probes": {
+        "https://en.wikipedia.org/w/api.php?action=query&format=json&prop=revisions&titles=Ozymandias%20%28Breaking%20Bad%29&rvprop=ids%7Ctimestamp&rvdir=newer&rvstart=2013-09-18T01%3A00%3A00Z&rvlimit=1": {
+          "digest": "39ad718470d46840fe27944222b96d190157631185b011f56b1785f00919c417",
+          "length": 254,
+          "sample": "{\"continue\":{\"rvcontinue\":\"20130918044824|573452051\",\"continue\":\"||\"},\"query\":{\"pages\":{\"40108387\":{\"pageid\":40108387,\"ns\":0,\"title\":\"Ozymandias (Breaking Bad)\",\"revisions\":[{\"revid\":573451886,\"parentid\":573429882,\"timestamp\":\"2013-09-18T04:46:14Z\"}]}}}}",
+          "status": 200
+        },
+        "https://en.wikipedia.org/w/index.php?title=Ozymandias_%28Breaking_Bad%29&oldid=1378002747&action=raw": {
+          "digest": "49c07138f9ac06477b356693015ee50b331aeb1b399f843d1997371fde7aa6b9",
+          "length": 57094,
+          "sample": "{{good article}}\n{{Use American English|date=January 2025}}\n{{Use mdy dates|date=March 2021}}\n{{Infobox television episode\n| series         = [[Breaking Bad]]\n| season         = 5\n| episode        = 14\n| image          = Breaking Bad Ozymandias.jpg\n| caption        = [[Walter White (Breaking Bad)|Walter]] lies in anguish, echoing both the \"half-sunk shattered visage\" from [[ozymandias|Percy Shelley's poem]] and [[Gus Fring|Gus]]'s reaction to [[Hermanos (Breaking Bad)|Max's death]].<ref name=\"ms",
+          "status": 200
+        },
+        "https://en.wikipedia.org/w/api.php?action=query&format=json&list=search&srlimit=5&srsearch=War%20%28TV%20series%29%20season%201%20episodes": {
+          "digest": "8d7f0b6ce5610ed67acbe12a65d1532787b06c75a4eb4b3e641bf1b24980e32d",
+          "length": 2256,
+          "sample": "{\"batchcomplete\":\"\",\"continue\":{\"sroffset\":5,\"continue\":\"-||\"},\"query\":{\"searchinfo\":{\"totalhits\":28788},\"search\":[{\"ns\":0,\"title\":\"War (TV series)\",\"pageid\":80801029,\"size\":21777,\"wordcount\":1155,\"snippet\":\"<span class=\\\"searchmatch\\\">War</span> (stylised in all caps) is a legal drama anthology television <span class=\\\"searchmatch\\\">series</span> created by George Kay. The show premiered on <span class=\\\"searchmatch\\\">1</span> October 2026, on HBO in the United\",\"timestamp\":\"2026-10-19T02:31:58",
+          "status": 200
+        }
+      },
+      "failedTransactions": {
+        "compile-no": "0x877a82ec9b55fc7db782940eaeaa1dfbc46948130509132583920bc170bc19f4",
+        "compile-reject": "0x45b9cd05a85b2903c4ed051157a55cb4fa973e94cec0221693ccacb88f2adf6c",
+        "compile-live-upcoming-4": "0xaa43d707a4946c783a9c10833f6cd71c72ded8df417c888891aaf834ee585ab4",
+        "compile-live-upcoming-4-submission-2": "0x2fe8aabd7d5f2530e88d1abbc5189c9dc6bcb0b4a7964ca587776a2dc5d74426",
+        "compile-live-upcoming-5": "0x32352b15d4b8defe464723d6d660715629abd0deef068c7a1a357ae7de0b291c"
+      },
+      "recordedAt": "2026-10-19T10:28:22Z",
+      "website": "https://plot-armor-beta.vercel.app",
+      "github": "https://github.com/JWattjr/plot-armor",
+      "sourceCommit": "defa973114394629f8875ef7b7d8c78f997b3c45",
+      "poolDemo": {
+        "marketId": "market-1",
+        "wallet": "0x92bf935cc375dd667bf49733ebfcf722f9b32105",
+        "approvedDepositWei": "11",
+        "ticket": "ticket-1",
+        "account": {
+          "credit": "0",
+          "claim": {
+            "status": "PAID",
+            "attempt": 1,
+            "amount": 11,
+            "requested_at": 1792401030,
+            "parent": "0x359fc4d13c642f0e110291e7f59e79a3132e0f95ec8381330c4bf33ef57294c8",
+            "child": "0xb57fde305b540d1b2bd6394bfa812df054df043fb71219cc4f60f1752d2a4ffe"
+          }
+        },
+        "legacyContracts": {
+          "PlotMarkets": {
+            "address": "0x2f0E4038377eD70855e2B833869A3CE40b96AEC2",
+            "source": "plot_markets.py",
+            "sourceSha256": "2c8b95f017d867f43b4d0df0cbb4d749aad2fa5611e9a7ab970810bf0aae51b8"
+          },
+          "PlotResolver": {
+            "address": "0x8e0451bd0537acd9Df745d9990d1538d27a10F59",
+            "source": "plot_resolver.py",
+            "sourceSha256": "cb52f19f91855227da2870dee0b95c5ef35c33e00697ef9089c1fa35da32e3d6"
+          },
+          "PlotPools": {
+            "address": "0xc5f81c02035Baf552bb55b93e3b6D716A0d84F8B",
+            "source": "plot_pools.py",
+            "sourceSha256": "2ad566c0d9090375e99b0fd0a8ab2a97f69b245d04e0ac8988a5b7ea5e3edf7a"
+          },
+          "PlotSeasons": {
+            "address": "0xcDaa4d146A082553A44e0a1385cD93ff9d783FA4",
+            "source": "plot_seasons.py",
+            "sourceSha256": "55e5eeb07c3ffbf149a7037010d43c00d1fad977660417250b2ff59d90e2b0f4"
+          }
+        },
+        "sourceCommit": "a6ade8d0f70174513350ed286d4b268e1cea82bd"
+      },
+      "compileDiagnostic": "0xf41CFBd3846E5530143B80a7262025c6c4b9817C",
+      "releaseGeneration": 4
     }
   ],
-  "recordedAt": "2026-10-19T09:12:44Z",
+  "recordedAt": "2026-10-19T14:16:15Z",
   "website": "https://plot-armor-beta.vercel.app",
   "github": "https://github.com/JWattjr/plot-armor",
-  "sourceCommit": "cb50c11509e3e813cbaca530844882202019f388",
+  "sourceCommit": "1c8ed36177544e42f483e4c31e6202ee1b397eeb",
   "poolDemo": {
     "marketId": "market-1",
     "wallet": "0x92bf935cc375dd667bf49733ebfcf722f9b32105",
@@ -426,6 +1124,82 @@
         "parent": "0x359fc4d13c642f0e110291e7f59e79a3132e0f95ec8381330c4bf33ef57294c8",
         "child": "0xb57fde305b540d1b2bd6394bfa812df054df043fb71219cc4f60f1752d2a4ffe"
       }
-    }
+    },
+    "legacyContracts": {
+      "PlotMarkets": {
+        "address": "0x2f0E4038377eD70855e2B833869A3CE40b96AEC2",
+        "source": "plot_markets.py",
+        "sourceSha256": "2c8b95f017d867f43b4d0df0cbb4d749aad2fa5611e9a7ab970810bf0aae51b8"
+      },
+      "PlotResolver": {
+        "address": "0x8e0451bd0537acd9Df745d9990d1538d27a10F59",
+        "source": "plot_resolver.py",
+        "sourceSha256": "cb52f19f91855227da2870dee0b95c5ef35c33e00697ef9089c1fa35da32e3d6"
+      },
+      "PlotPools": {
+        "address": "0xc5f81c02035Baf552bb55b93e3b6D716A0d84F8B",
+        "source": "plot_pools.py",
+        "sourceSha256": "2ad566c0d9090375e99b0fd0a8ab2a97f69b245d04e0ac8988a5b7ea5e3edf7a"
+      },
+      "PlotSeasons": {
+        "address": "0xcDaa4d146A082553A44e0a1385cD93ff9d783FA4",
+        "source": "plot_seasons.py",
+        "sourceSha256": "55e5eeb07c3ffbf149a7037010d43c00d1fad977660417250b2ff59d90e2b0f4"
+      }
+    },
+    "sourceCommit": "a6ade8d0f70174513350ed286d4b268e1cea82bd"
+  },
+  "compileDiagnostic": "0xf41CFBd3846E5530143B80a7262025c6c4b9817C",
+  "releaseGeneration": 5,
+  "freeDemo": {
+    "wallet": "0x92bf935cc375dd667bf49733ebfcf722f9b32105",
+    "marketId": "market-1",
+    "predictions": [
+      {
+        "market": "market-1",
+        "option": 0,
+        "season": "War (TV series) / S1",
+        "air_utc": 1792717200,
+        "deadline": 1793926800,
+        "rehearsal": false,
+        "status": "PENDING",
+        "points": 0
+      }
+    ],
+    "leaderboard": [
+      {
+        "wallet": "0x92bf935cc375dd667bf49733ebfcf722f9b32105",
+        "points": 0,
+        "correct": 0,
+        "streak": 0,
+        "best_streak": 0,
+        "calls": 1
+      }
+    ],
+    "season": "War (TV series) / S1",
+    "seasonLeaderboard": [
+      {
+        "wallet": "0x92bf935cc375dd667bf49733ebfcf722f9b32105",
+        "points": 0,
+        "correct": 0,
+        "streak": 0,
+        "best_streak": 0,
+        "calls": 1
+      }
+    ]
+  },
+  "verification": {
+    "verifiedAt": "2026-10-19T14:19:39.791697+00:00",
+    "sourceCommit": "1c8ed36177544e42f483e4c31e6202ee1b397eeb",
+    "fullReleasePass": true,
+    "contractsVerified": 4,
+    "finalizedReceiptsAndExplorerRecordsVerified": 31,
+    "compileMetadataSnapshotsVerified": 5,
+    "immutableEvidenceRevisionsVerified": 3,
+    "native11WeiCredited": true,
+    "realWalletAdapterPrediction": true,
+    "overallAndSeasonLeaderboardVerified": true,
+    "log": "docs/proof-verifier-output.txt",
+    "extensionPopupTested": false
   }
 }
