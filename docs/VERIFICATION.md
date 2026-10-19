@@ -60,3 +60,5 @@ Earlier verification covered all seven original routes at 1440x960 and 390x844, 
 ## Operational limits
 
 StudioNet uses simulated GEN. Wikipedia and RPC access can be intermittent; server read budgets are process-local rather than distributed. Future live outcomes and competitive scores remain pending until eligibility and sufficient evidence. No natural VOID has occurred. The Portal draft is prepared for the owner; it has not been submitted.
+
+Final production deployment dpl_61k4VfBtPUsjvR5Dz265W9AtDpSX is READY from app build commit 053c07e. The public alias was rechecked after deployment: Proof reports all required checks recorded, and market-7 shows the submitted 2 GEN PAID claim with matching claim/native-transfer links. Deployment details are in deploy/deployment.json.
