@@ -2,6 +2,15 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import {shield,transactionState,closed,type Market} from '../lib/domain';
 import {explorer} from '../lib/explorer';
+import {nativeAmount} from '../lib/domain';
+
+test('submitted pool proof binds the exact amount and market to the current contract',()=>{
+ const pool='0x'+'34'.repeat(20);
+ const input={contracts:{PlotPools:{address:pool}},transactions:{},markets:[],submissionReady:false,blockers:[],poolDemo:{approvedDepositWei:'2000000000000000000',wallet:'viewer',marketId:'market-7',account:{claim:{status:'PAID',parent:'parent',child:'child'}}}} as unknown as Parameters<typeof publicProof>[0];
+ const demo=publicProof(input).nativeDemo;
+ assert.equal(demo?.pool,pool);assert.equal(demo?.marketId,'market-7');assert.equal(demo?.archived,false);
+ assert.equal(nativeAmount(demo!.wei),'2 GEN');assert.equal(nativeAmount('11'),'11 wei');
+});
 test('initial data cannot contain result or quote',()=>{const m={id:'market-1',resolution:{status:'RESOLVED',outcome:0,quote:'The hidden result',url:'https://en.wikipedia.org/?oldid=1',digest:'abc'},pool:{total:11,sides:[11,0],payouts:{viewer:11},entries:{viewer:{amount:11,option:0}}}} as unknown as Market;const serialized=JSON.stringify(shield(m));for(const value of ['outcome','quote','payouts','The hidden result'])assert.ok(!serialized.includes(value));});
 test('finality alone is not execution success',()=>{assert.equal(transactionState({status:'FINALIZED',consensus_data:{leader_receipt:[{execution_result:'ERROR'}]}}),'FINALIZED_ERROR');assert.equal(transactionState({status:'FINALIZED',consensus_data:{leader_receipt:[{execution_result:'SUCCESS'}]}}),'FINALIZED_SUCCESS');assert.equal(transactionState({status:'ACCEPTED'}),'ACCEPTED');});
 test('canonical explorer validation rejects malformed records',()=>{assert.equal(explorer('address','0x'+'12'.repeat(20)),'https://explorer-studio.genlayer.com/address/0x'+'12'.repeat(20));assert.throws(()=>explorer('address','0x123?fake=true'));assert.throws(()=>explorer('tx','0x'+'12'.repeat(20)));});

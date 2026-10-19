@@ -121,7 +121,9 @@ def main():
             assert first==r['revision'],'Not the earliest eligible revision containing this summary'
             outcomes.append((m['spec']['options'],r['outcome']))
             print('Immutable evidence digest and verbatim quote verified',m['id'],r['revision'],flush=True)
-    demo=p.get('poolDemo');assert demo and demo['approvedDepositWei']=='11','Approved pool proof missing'
+    demo=p.get('poolDemo');assert demo,'Approved pool proof missing'
+    amount=int(demo['approvedDepositWei'])
+    assert amount==(11 if demo.get('legacyContracts') else 2*10**18),'Unexpected authorized demo amount'
     pool_address=p['contracts']['PlotPools']['address']
     if demo.get('legacyContracts'):
         legacy=demo['legacyContracts']['PlotPools'];pool_address=legacy['address']
@@ -136,12 +138,14 @@ def main():
         value=c.read_contract(pool_address,method,args=args,transaction_hash_variant=TransactionHashVariant.LATEST_FINAL)
         return json.loads(value) if isinstance(value,str) else value
     pool=pool_read('get_pool',[demo['marketId']]);account=pool_read('get_account',[demo['marketId'],demo['wallet']])
-    assert pool['status']=='SETTLED' and pool['total']==11 and sum(pool['payouts'].values())==11
-    assert account['claim']['status']=='PAID' and account['claim']['amount']==11
+    assert pool['status']=='SETTLED' and pool['total']==amount and sum(pool['payouts'].values())==amount
+    assert account['claim']['status']=='PAID' and account['claim']['amount']==amount
     claim=account['claim'];parent=receipt(claim['parent']);child=receipt(claim['child'])
-    assert child['hash'] in parent['triggered_transactions'] and child['value_credited'] is True and int(child['value'])==11
+    assert child['hash'] in parent['triggered_transactions'] and child['value_credited'] is True and int(child['value'])==amount
     assert child['to_address'].lower()==demo['wallet'].lower()
-    print('Native pool allocation and credited 11-wei claim verified.',flush=True)
+    print('Native pool allocation and credited claim verified:',amount,'wei',flush=True)
+    from verify_submitted_pool import verify_submitted_pool
+    verify_submitted_pool(c,p,receipts)
     free=p.get('freeDemo');assert free,'Missing real free prediction demo'
     predictions=read('PlotSeasons','get_predictions',[free['wallet']])
     assert predictions==free['predictions'],'Recorded free predictions differ'
@@ -164,5 +168,5 @@ def main():
     assert any(o!=['YES','NO'] for o,i in outcomes),'Missing multiple-choice demo'
     assert any(not m['accepted'] and m['status']=='REJECTED' for m in p['markets']),'Missing rejected proposal'
     assert len([m for m in p['markets'] if m.get('spec') and not m['spec']['rehearsal'] and m['status']=='OPEN'])>=1,'Missing live market'
-    print('PASS: all four sources, finalized receipts, permanent evidence, real explorer records, YES/NO/choice/rejection, live markets and 11-wei native claim verified.')
+    print('PASS: all four sources, finalized receipts, permanent evidence, real explorer records, YES/NO/choice/rejection, live markets and submitted-pool 2 GEN native claim verified.')
 if __name__=='__main__':main()

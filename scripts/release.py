@@ -81,7 +81,7 @@ elif stage=='settle':
         demo['seasonLeaderboard']=read(c,address('PlotSeasons'),'leaderboard',[demo['season']]);save(p)
 elif stage=='pool':
     if p.get('poolDemo',{}).get('account',{}).get('claim',{}).get('status')=='PAID':
-        print('The approved 11 wei demonstration is already PAID; no new deposit is authorized.');raise SystemExit(0)
+        print('The recorded native pool demonstration is already PAID; no new deposit is authorized.');raise SystemExit(0)
     approval=json.loads((ROOT/'.secrets/deposit-approval.json').read_text())
     assert approval['approvedDepositWei']=='11'
     funding=json.loads((ROOT/'deploy/funding.json').read_text())
