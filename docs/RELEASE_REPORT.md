@@ -1,7 +1,7 @@
 # Plot Armor release report
 
 Website: [Plot Armor](https://plot-armor-beta.vercel.app). Repository: [JWattjr/plot-armor](https://github.com/JWattjr/plot-armor).
-Source commit: 1c8ed36177544e42f483e4c31e6202ee1b397eeb. Recorded: 2026-10-19T14:16:15Z.
+Source commit: 813508023a85281daa5cf43bd85b8c4d766f4582. Recorded: 2026-10-19T14:16:15Z.
 
 ## Contracts
 
@@ -67,9 +67,9 @@ The completed deposit/claim belongs to the preserved previous release, [pool 0xc
 - [resolve-market-5-1](https://explorer-studio.genlayer.com/tx/0x174a2b0a90e34ab037ccdce8892fdcfcbe3a05a990758a960aecb71c36bd53a4)
 - [resolve-market-5-1-child-0](https://explorer-studio.genlayer.com/tx/0xf94cb25fc2b7099f985576444bcf39847bfeea1c038d78e6d2a2539df598de49)
 - [predict-live-free](https://explorer-studio.genlayer.com/tx/0x8602b7482798f78f46851f74146dec53800b608f3bfba5506c86e7582ecdd9b6)
+- [predict-browser-metamask](https://explorer-studio.genlayer.com/tx/0xcb36e99d7a9c893fa3821b042cf79c009fc7bc83709d03655c5cae1f9072bd4e)
 
 ## Release status
 
-Not marked submission-ready. See verification results and blockers.
+Required release proof is verified.
 
-- Final production browser captures and finish review are in progress. Browser-extension popup signing remains untested; actual application adapter signing finalized on StudioNet.

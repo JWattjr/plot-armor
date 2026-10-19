@@ -2,7 +2,7 @@
 
 Bet on your favourite shows. GenLayer validators read the episode and settle it — spoiler-free.
 
-**Release in progress.** See [deploy/proof.json](deploy/proof.json) and [docs/VERIFICATION.md](docs/VERIFICATION.md) for actual outcomes and remaining verification limits. Never interpret a successful HTTP response or ACCEPTED transaction as a successful settlement.
+**Deployed StudioNet demonstration.** See [deploy/proof.json](deploy/proof.json) and [docs/VERIFICATION.md](docs/VERIFICATION.md) for finalized outcomes, verified receipts and testing limits. Never interpret a successful HTTP response or ACCEPTED transaction as a successful settlement.
 
 ## Architecture
 

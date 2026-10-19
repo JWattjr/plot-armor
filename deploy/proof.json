@@ -55,7 +55,8 @@
     "resolve-market-4-1-child-0": "0x081137c1988d22207ef4978ae29bb2f8c90bf00ebb3387b1001eb6f401c77800",
     "resolve-market-5-1": "0x174a2b0a90e34ab037ccdce8892fdcfcbe3a05a990758a960aecb71c36bd53a4",
     "resolve-market-5-1-child-0": "0xf94cb25fc2b7099f985576444bcf39847bfeea1c038d78e6d2a2539df598de49",
-    "predict-live-free": "0x8602b7482798f78f46851f74146dec53800b608f3bfba5506c86e7582ecdd9b6"
+    "predict-live-free": "0x8602b7482798f78f46851f74146dec53800b608f3bfba5506c86e7582ecdd9b6",
+    "predict-browser-metamask": "0xcb36e99d7a9c893fa3821b042cf79c009fc7bc83709d03655c5cae1f9072bd4e"
   },
   "markets": [
     {
@@ -276,10 +277,8 @@
       "pool": {}
     }
   ],
-  "submissionReady": false,
-  "blockers": [
-    "Final production browser captures and finish review are in progress. Browser-extension popup signing remains untested; actual application adapter signing finalized on StudioNet."
-  ],
+  "submissionReady": true,
+  "blockers": [],
   "probeContract": "0x8dCd8F7BDdaB0676e3Ef2097Db4350F09dBefAf3",
   "probes": {
     "https://en.wikipedia.org/w/api.php?action=query&format=json&prop=revisions&titles=Ozymandias%20%28Breaking%20Bad%29&rvprop=ids%7Ctimestamp&rvdir=newer&rvstart=2013-09-18T01%3A00%3A00Z&rvlimit=1": {
@@ -1108,7 +1107,7 @@
   "recordedAt": "2026-10-19T14:16:15Z",
   "website": "https://plot-armor-beta.vercel.app",
   "github": "https://github.com/JWattjr/plot-armor",
-  "sourceCommit": "1c8ed36177544e42f483e4c31e6202ee1b397eeb",
+  "sourceCommit": "813508023a85281daa5cf43bd85b8c4d766f4582",
   "poolDemo": {
     "marketId": "market-1",
     "wallet": "0x92bf935cc375dd667bf49733ebfcf722f9b32105",
@@ -1189,17 +1188,41 @@
     ]
   },
   "verification": {
-    "verifiedAt": "2026-10-19T14:19:39.791697+00:00",
-    "sourceCommit": "1c8ed36177544e42f483e4c31e6202ee1b397eeb",
+    "verifiedAt": "2026-10-19T14:37:30.447903+00:00",
+    "sourceCommit": "813508023a85281daa5cf43bd85b8c4d766f4582",
     "fullReleasePass": true,
     "contractsVerified": 4,
-    "finalizedReceiptsAndExplorerRecordsVerified": 31,
+    "finalizedReceiptsAndExplorerRecordsVerified": 32,
     "compileMetadataSnapshotsVerified": 5,
     "immutableEvidenceRevisionsVerified": 3,
     "native11WeiCredited": true,
     "realWalletAdapterPrediction": true,
     "overallAndSeasonLeaderboardVerified": true,
     "log": "docs/proof-verifier-output.txt",
-    "extensionPopupTested": false
-  }
+    "extensionPopupTested": true,
+    "browserPersonalPredictionVerified": true,
+    "browserReloadPersisted": true,
+    "browserActivityReadbackPersisted": true,
+    "browserViewportChecks": 18,
+    "applicationTestsPassed": 11,
+    "directContractTestsPassed": 50,
+    "appSourceCommit": "152b2989fe72e9573fc426ae4bb0ab0c3efc3eec"
+  },
+  "browserDemo": {
+    "hash": "0xcb36e99d7a9c893fa3821b042cf79c009fc7bc83709d03655c5cae1f9072bd4e",
+    "marketId": "market-2",
+    "option": 0,
+    "valueWei": "0",
+    "walletType": "MetaMask in Chrome",
+    "ownerSigned": true,
+    "observedState": "FINALIZED_SUCCESS",
+    "reloadPersisted": true,
+    "appealWindowDisplayed": true,
+    "wallet": "0x1ee3b827907429e5df3db7282446b6e065ff6199",
+    "finalizedReadback": true,
+    "personalPredictionBrowserReadback": true,
+    "personalScoresRevealAndShieldReset": true,
+    "activityReadbackPersisted": true
+  },
+  "appSourceCommit": "152b2989fe72e9573fc426ae4bb0ab0c3efc3eec"
 }
