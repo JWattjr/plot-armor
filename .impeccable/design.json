@@ -1,0 +1,341 @@
+{
+  "extensions": {
+    "typographyMeta": {
+      "headline": {
+        "displayName": "Section Heading",
+        "purpose": "Section hierarchy."
+      },
+      "button": {
+        "displayName": "Action Label",
+        "purpose": "Primary and secondary actions."
+      },
+      "body": {
+        "displayName": "Reading Text",
+        "purpose": "Prose and controls."
+      },
+      "sleeve": {
+        "displayName": "Poster Sleeve",
+        "purpose": "Original show title art."
+      },
+      "display": {
+        "displayName": "Condensed Display",
+        "purpose": "Page headings."
+      }
+    },
+    "shadows": [],
+    "colorMeta": {
+      "sleeve-sage": {
+        "tonalRamp": [
+          "oklch(15% 0.04 110)",
+          "oklch(26% 0.04 110)",
+          "oklch(38% 0.04 110)",
+          "oklch(49% 0.04 110)",
+          "oklch(61% 0.04 110)",
+          "oklch(72% 0.04 110)",
+          "oklch(84% 0.04 110)",
+          "oklch(95% 0.04 110)"
+        ],
+        "role": "secondary",
+        "displayName": "Sleeve Sage"
+      },
+      "cream": {
+        "tonalRamp": [
+          "oklch(15% 0.012 90)",
+          "oklch(26% 0.012 90)",
+          "oklch(38% 0.012 90)",
+          "oklch(49% 0.012 90)",
+          "oklch(61% 0.012 90)",
+          "oklch(72% 0.012 90)",
+          "oklch(84% 0.012 90)",
+          "oklch(95% 0.012 90)"
+        ],
+        "role": "neutral",
+        "displayName": "Cream"
+      },
+      "lime": {
+        "tonalRamp": [
+          "oklch(15% 0.16 120)",
+          "oklch(26% 0.16 120)",
+          "oklch(38% 0.16 120)",
+          "oklch(49% 0.16 120)",
+          "oklch(61% 0.16 120)",
+          "oklch(72% 0.16 120)",
+          "oklch(84% 0.16 120)",
+          "oklch(95% 0.16 120)"
+        ],
+        "role": "primary",
+        "displayName": "Acid Lime"
+      },
+      "sleeve-purple": {
+        "tonalRamp": [
+          "oklch(15% 0.018 295)",
+          "oklch(26% 0.018 295)",
+          "oklch(38% 0.018 295)",
+          "oklch(49% 0.018 295)",
+          "oklch(61% 0.018 295)",
+          "oklch(72% 0.018 295)",
+          "oklch(84% 0.018 295)",
+          "oklch(95% 0.018 295)"
+        ],
+        "role": "secondary",
+        "displayName": "Sleeve Purple"
+      },
+      "muted": {
+        "tonalRamp": [
+          "oklch(15% 0.018 125)",
+          "oklch(26% 0.018 125)",
+          "oklch(38% 0.018 125)",
+          "oklch(49% 0.018 125)",
+          "oklch(61% 0.018 125)",
+          "oklch(72% 0.018 125)",
+          "oklch(84% 0.018 125)",
+          "oklch(95% 0.018 125)"
+        ],
+        "role": "neutral",
+        "displayName": "Quiet Sage"
+      },
+      "panel": {
+        "tonalRamp": [
+          "oklch(15% 0.008 135)",
+          "oklch(26% 0.008 135)",
+          "oklch(38% 0.008 135)",
+          "oklch(49% 0.008 135)",
+          "oklch(61% 0.008 135)",
+          "oklch(72% 0.008 135)",
+          "oklch(84% 0.008 135)",
+          "oklch(95% 0.008 135)"
+        ],
+        "role": "neutral",
+        "displayName": "Evening Panel"
+      },
+      "primary-ink": {
+        "tonalRamp": [
+          "oklch(15% 0.025 120)",
+          "oklch(26% 0.025 120)",
+          "oklch(38% 0.025 120)",
+          "oklch(49% 0.025 120)",
+          "oklch(61% 0.025 120)",
+          "oklch(72% 0.025 120)",
+          "oklch(84% 0.025 120)",
+          "oklch(95% 0.025 120)"
+        ],
+        "role": "neutral",
+        "displayName": "Primary Ink"
+      },
+      "charcoal": {
+        "tonalRamp": [
+          "oklch(15% 0.006 145)",
+          "oklch(26% 0.006 145)",
+          "oklch(38% 0.006 145)",
+          "oklch(49% 0.006 145)",
+          "oklch(61% 0.006 145)",
+          "oklch(72% 0.006 145)",
+          "oklch(84% 0.006 145)",
+          "oklch(95% 0.006 145)"
+        ],
+        "role": "neutral",
+        "displayName": "Warm Charcoal"
+      },
+      "divider": {
+        "tonalRamp": [
+          "oklch(15% 0.012 130)",
+          "oklch(26% 0.012 130)",
+          "oklch(38% 0.012 130)",
+          "oklch(49% 0.012 130)",
+          "oklch(61% 0.012 130)",
+          "oklch(72% 0.012 130)",
+          "oklch(84% 0.012 130)",
+          "oklch(95% 0.012 130)"
+        ],
+        "role": "neutral",
+        "displayName": "Fine Divider"
+      },
+      "sleeve-green": {
+        "tonalRamp": [
+          "oklch(15% 0.05 170)",
+          "oklch(26% 0.05 170)",
+          "oklch(38% 0.05 170)",
+          "oklch(49% 0.05 170)",
+          "oklch(61% 0.05 170)",
+          "oklch(72% 0.05 170)",
+          "oklch(84% 0.05 170)",
+          "oklch(95% 0.05 170)"
+        ],
+        "role": "secondary",
+        "displayName": "Sleeve Green"
+      },
+      "lime-hover": {
+        "tonalRamp": [
+          "oklch(15% 0.12 120)",
+          "oklch(26% 0.12 120)",
+          "oklch(38% 0.12 120)",
+          "oklch(49% 0.12 120)",
+          "oklch(61% 0.12 120)",
+          "oklch(72% 0.12 120)",
+          "oklch(84% 0.12 120)",
+          "oklch(95% 0.12 120)"
+        ],
+        "role": "primary",
+        "displayName": "Lime Hover"
+      },
+      "field-border": {
+        "tonalRamp": [
+          "oklch(15% 0.025 125)",
+          "oklch(26% 0.025 125)",
+          "oklch(38% 0.025 125)",
+          "oklch(49% 0.025 125)",
+          "oklch(61% 0.025 125)",
+          "oklch(72% 0.025 125)",
+          "oklch(84% 0.025 125)",
+          "oklch(95% 0.025 125)"
+        ],
+        "role": "neutral",
+        "displayName": "Field Border"
+      },
+      "field": {
+        "tonalRamp": [
+          "oklch(15% 0.014 125)",
+          "oklch(26% 0.014 125)",
+          "oklch(38% 0.014 125)",
+          "oklch(49% 0.014 125)",
+          "oklch(61% 0.014 125)",
+          "oklch(72% 0.014 125)",
+          "oklch(84% 0.014 125)",
+          "oklch(95% 0.014 125)"
+        ],
+        "role": "neutral",
+        "displayName": "Inset Field"
+      }
+    },
+    "focus": {
+      "value": "2px solid var(--lime)",
+      "offset": "5px"
+    },
+    "breakpoints": [
+      {
+        "value": "1100px",
+        "name": "tablet"
+      },
+      {
+        "value": "740px",
+        "name": "phone"
+      },
+      {
+        "value": "1500px",
+        "name": "wide-gutters"
+      }
+    ],
+    "motion": [
+      {
+        "value": "background .16s, color .16s, transform .16s",
+        "purpose": "Subtle button feedback.",
+        "name": "button-transition"
+      },
+      {
+        "value": "transform .3s; scale(1.015)",
+        "purpose": "Small poster response.",
+        "name": "poster-hover"
+      },
+      {
+        "value": "animation:none; transition:none; scroll-behavior:auto",
+        "purpose": "Honor reduced-motion preference.",
+        "name": "reduced-motion"
+      }
+    ],
+    "tonalRampNote": "Synthesized OKLCH reference ramps; not additional implemented theme tokens.",
+    "evidence": {
+      "approvedComp": false,
+      "captureViewports": [
+        "1280x720",
+        "390x844"
+      ],
+      "verdict": "ship at four-fix scope only",
+      "detector": []
+    }
+  },
+  "generatedAt": "2026-10-19T09:26:55.7420439Z",
+  "title": "Design System: Plot Armor",
+  "components": [
+    {
+      "refersTo": "button-primary",
+      "description": "Primary next action.",
+      "css": ".ds-primary{font-family:DM Sans,sans-serif;cursor:pointer;transition:background .16s,color .16s,transform .16s;background:var(--lime,#d9ff69);color:#1c2410;border:0;border-radius:8px;padding:13px 19px;min-height:44px;font-size:12px;font-weight:600}.ds-primary:hover{background:#e8ffa2}.ds-primary:active{transform:translateY(1px)}.ds-primary:focus-visible{outline:2px solid var(--lime,#d9ff69);outline-offset:5px}",
+      "html": "<button class=\"ds-primary\">Propose a market</button>",
+      "name": "Primary button",
+      "kind": "button"
+    },
+    {
+      "refersTo": "button-secondary",
+      "description": "Supporting action or wallet connection.",
+      "css": ".ds-secondary{font-family:DM Sans,sans-serif;cursor:pointer;transition:background .16s,color .16s,transform .16s;background:transparent;color:var(--text,#f3f0e8);border:1px solid #555e49;border-radius:8px;padding:13px 19px;min-height:44px;font-size:12px;font-weight:600}.ds-secondary:hover{background:#2b3025}.ds-secondary:active{transform:translateY(1px)}.ds-secondary:focus-visible{outline:2px solid var(--lime,#d9ff69);outline-offset:5px}",
+      "html": "<button class=\"ds-secondary\">Connect wallet</button>",
+      "name": "Secondary button",
+      "kind": "button"
+    },
+    {
+      "refersTo": "input",
+      "description": "Explicitly labeled proposal input.",
+      "css": ".ds-label{display:block;font:500 12px DM Sans,sans-serif;color:var(--text,#f3f0e8)}.ds-field{display:block;width:calc(100% - 28px);padding:12px 13px;margin-top:8px;background:#12160f;border:1px solid #414839;border-radius:6px;color:var(--text,#f3f0e8);font:13px DM Sans,sans-serif}.ds-field::placeholder{color:#8e9586}.ds-field:hover{border-color:#555e49}.ds-field:focus-visible{outline:2px solid var(--lime,#d9ff69);outline-offset:5px}",
+      "html": "<label class=\"ds-label\">Show<input class=\"ds-field\" placeholder=\"e.g. War\"></label>",
+      "name": "Labeled field",
+      "kind": "input"
+    },
+    {
+      "css": ".ds-nav{display:flex;gap:30px;height:60px;border-bottom:1px solid var(--line,#343831)}.ds-nav a{display:flex;align-items:center;position:relative;color:var(--muted,#a7aca0);text-decoration:none;font:13px DM Sans,sans-serif}.ds-nav a[aria-current]{color:var(--text,#f3f0e8);border-bottom:2px solid var(--lime,#d9ff69)}.ds-nav a:hover{color:var(--text,#f3f0e8)}.ds-nav a:focus-visible{outline:2px solid var(--lime,#d9ff69);outline-offset:5px}",
+      "description": "Active route with a lime underline.",
+      "html": "<nav class=\"ds-nav\" aria-label=\"Main\"><a href=\"#\" aria-current=\"page\">Discover</a><a href=\"#\">My predictions</a><a href=\"#\">Activity</a></nav>",
+      "kind": "nav",
+      "name": "Navigation"
+    },
+    {
+      "css": ".ds-recorded{display:inline-block;font:8px DM Sans,sans-serif;letter-spacing:.08em;color:var(--muted,#a7aca0);padding:6px 8px;border:1px solid var(--line,#343831);border-radius:4px;white-space:nowrap}",
+      "description": "Static evidence label, not an action.",
+      "html": "<span class=\"ds-recorded\">RECORDED PROOF</span>",
+      "kind": "chip",
+      "name": "Recorded badge"
+    },
+    {
+      "refersTo": "market-card",
+      "description": "Original geometric title sleeve and concise question; historical status stays explicit.",
+      "css": ".ds-card{max-width:370px;overflow:hidden;background:var(--panel,#1b1e1a);color:var(--text,#f3f0e8);border:1px solid var(--line,#343831);border-radius:14px;font-family:DM Sans,sans-serif}.ds-sleeve{display:flex;flex-direction:column;position:relative;height:222px;padding:19px 20px 16px;color:#e3f0c9;text-decoration:none;background:#264c43;overflow:hidden;transition:transform .3s}.ds-sleeve:before{content:'';position:absolute;width:185px;height:185px;border:1px solid #a6bf8f;right:-30px;top:40px;transform:rotate(-20deg);opacity:.5}.ds-sleeve:hover{transform:scale(1.015)}.ds-sleeve strong{position:relative;font:700 64px/.85 Barlow Condensed,sans-serif;letter-spacing:-.03em;margin:30px 0 20px}.ds-historical{position:relative;font-size:7px;letter-spacing:.09em;background:#172016dc;padding:5px 8px;align-self:start}.ds-episode{position:relative;margin-top:auto;display:flex;justify-content:space-between;font-size:9px}.ds-copy{padding:20px}.ds-copy>span{font-size:10px}.ds-copy h3{font-size:17px;font-weight:500;line-height:1.4;margin:9px 0 18px}.ds-reveal{font-family:DM Sans,sans-serif;cursor:pointer;transition:background .16s,color .16s,transform .16s;display:block;margin:24px auto 0;background:#1b211ae8;color:var(--text,#f3f0e8);border:1px solid #5f6755;border-radius:6px;padding:9px 15px;font-size:10px}.ds-reveal:hover{background:#2b3025}.ds-reveal:active{transform:translateY(1px)}.ds-reveal:focus-visible{outline:2px solid var(--lime,#d9ff69);outline-offset:5px} .ds-sleeve:focus-visible{outline:2px solid var(--lime,#d9ff69);outline-offset:5px}",
+      "html": "<article class=\"ds-card\"><a class=\"ds-sleeve\" href=\"#\"><span class=\"ds-historical\">HISTORICAL REHEARSAL</span><strong>BREAKING<br>BAD.</strong><span class=\"ds-episode\">OZYMANDIAS <span>EP. 14</span></span></a><div class=\"ds-copy\"><span>BREAKING BAD &nbsp; S5 · E14</span><h3>In Ozymandias does Hank Schrader die?</h3><button class=\"ds-reveal\">Reveal result</button></div></article>",
+      "name": "Episode sleeve card",
+      "kind": "card"
+    }
+  ],
+  "narrative": {
+    "northStar": "Video-rental staff picks, translated into an evening streaming guide",
+    "overview": "Plot Armor feels like a shelf of episode theories: warm charcoal, acid-lime signals, cream typography, and original poster sleeves made from type and geometry. Human curation comes from the third grounded direction, video-rental staff picks (seed 4182635e), translated to honor the user's pinned streaming-guide shelves and show-poster-style cards. Seven grounded candidates were streaming library, festival programme, video-rental staff picks, watch-party ticket, episode recap magazine, television listings, and cinema lobby. Declined catalog challengers contributed metadata discipline and honest time ordering without replacing episode recognition with abstract catalog codes.\n\nThe durable thesis is a shelf of theories for the next episode, with receipts behind a deliberate reveal. The visual path is find an episode, freeze a call, inspect its settlement rules, then reveal when ready. This is a code-led world with no approved image comp. Its interface visibly distinguishes historical rehearsals, recorded proof, and live finalized state. Original sleeve artwork must never imply official studio key art.",
+    "keyCharacteristics": [
+      "Condensed sleeve-scale titles paired with quiet sans-serif reading text.",
+      "Flat charcoal panels, fine dividers, and lime actions.",
+      "Streaming shelves with explicit historical and recorded-state labels.",
+      "Spoiler evidence behind a deliberate reveal, with a global shield reset."
+    ],
+    "donts": [
+      "Don't add ornamental pre-heading eyebrows.",
+      "Don't present original sleeves as official studio artwork.",
+      "Don't use historical rehearsals as live competitive forecasts.",
+      "Don't treat the four-fix visual verdict as proof of wallet signing or whole-release readiness."
+    ],
+    "rules": [
+      {
+        "section": "colors",
+        "body": "Reserve lime for actions, state, and the established spoiler-explanation panel; avoid spreading it across every card.",
+        "name": "The Signal Rule"
+      },
+      {
+        "section": "typography",
+        "body": "Show, season, episode, status, and historical labels convey information. Do not add ornamental eyebrow copy above page headings.",
+        "name": "The Useful Label Rule"
+      }
+    ],
+    "dos": [
+      "Do keep original typographic sleeves, streaming shelves, and explicit historical labels.",
+      "Do show concise shelf questions and preserve the full submitted question in detail.",
+      "Do keep result evidence behind explicit reveal and provide the global shield reset on phones.",
+      "Do represent unavailable live content with the compact factual notice."
+    ]
+  },
+  "schemaVersion": 2
+}

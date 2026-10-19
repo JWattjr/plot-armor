@@ -100,11 +100,6 @@ def main():
             assert first==r['revision'],'Not the earliest eligible revision containing this summary'
             outcomes.append((m['spec']['options'],r['outcome']))
             print('Immutable evidence digest and verbatim quote verified',m['id'],r['revision'],flush=True)
-    assert any(o==['YES','NO'] and i==0 for o,i in outcomes),'Missing YES demo'
-    assert any(o==['YES','NO'] and i==1 for o,i in outcomes),'Missing NO demo'
-    assert any(o!=['YES','NO'] for o,i in outcomes),'Missing multiple-choice demo'
-    assert any(not m['accepted'] and m['status']=='REJECTED' for m in p['markets']),'Missing rejected proposal'
-    assert len([m for m in p['markets'] if m.get('spec') and not m['spec']['rehearsal'] and m['status']=='OPEN'])>=1,'Missing live market'
     demo=p.get('poolDemo');assert demo and demo['approvedDepositWei']=='11','Approved pool proof missing'
     pool=read('PlotPools','get_pool',[demo['marketId']]);account=read('PlotPools','get_account',[demo['marketId'],demo['wallet']])
     assert pool['status']=='SETTLED' and pool['total']==11 and sum(pool['payouts'].values())==11
@@ -112,5 +107,11 @@ def main():
     claim=account['claim'];parent=receipt(claim['parent']);child=receipt(claim['child'])
     assert child['hash'] in parent['triggered_transactions'] and child['value_credited'] is True and int(child['value'])==11
     assert child['to_address'].lower()==demo['wallet'].lower()
+    print('Native pool allocation and credited 11-wei claim verified.',flush=True)
+    assert any(o==['YES','NO'] and i==0 for o,i in outcomes),'Missing YES demo'
+    assert any(o==['YES','NO'] and i==1 for o,i in outcomes),'Missing NO demo'
+    assert any(o!=['YES','NO'] for o,i in outcomes),'Missing multiple-choice demo'
+    assert any(not m['accepted'] and m['status']=='REJECTED' for m in p['markets']),'Missing rejected proposal'
+    assert len([m for m in p['markets'] if m.get('spec') and not m['spec']['rehearsal'] and m['status']=='OPEN'])>=1,'Missing live market'
     print('PASS: all four sources, finalized receipts, permanent evidence, real explorer records, YES/NO/choice/rejection, live markets and 11-wei native claim verified.')
 if __name__=='__main__':main()
